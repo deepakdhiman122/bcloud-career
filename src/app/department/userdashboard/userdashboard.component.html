@@ -1,0 +1,185 @@
+<main>
+  <!-- navbar -->
+  <app-navbar></app-navbar>
+  <div class="container-fluid">
+    <div class="dash-content">
+      <div class="overview">
+        <div class="title">
+          <i class="fa-solid fa-certificate"></i>
+          <span class="text">DashBoard</span>
+        </div>
+      </div>
+      <div class="boxes">
+        <div class="box box1">
+          <i class="fa-solid fa-wallet"></i>
+          <span class="text">Wallet Balance</span>
+          <span class="number">{{walletBalance}}</span>
+        </div>
+        <div class="box box2">
+          <i class="fa-solid fa-gifts"></i>
+          <span class="text">Coupon Code</span>
+          <span class="number">{{couponBalance}}</span>
+        </div>
+        <div class="box box3">
+          <i class="fa-solid fa-message"></i>
+          <span class="text">Feedbacks</span>
+          <span class="number">10,120</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container pt-5">
+    <div class="row">
+      <div class="row  align-items-center justify-content-center">
+        <div class="title">
+          <h1 class="text">User Details</h1>
+        </div>
+        <div class="col-md-4">
+          <form [formGroup]="form">
+            <mat-form-field>
+              <mat-label>Username</mat-label>
+              <input matInput type="text" formControlName="username">
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Mobile Number</mat-label>
+              <input matInput type="text" formControlName="mobileno">
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-label>Address</mat-label>
+              <input matInput type="text" formControlName="address">
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-label>District</mat-label>
+              <input matInput type="text" formControlName="district">
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Email Address</mat-label>
+              <input matInput type="text" formControlName="email">
+            </mat-form-field>
+            <div fxLayout="row" fxLayoutAlign="center">
+              <button class="Updatebutton">Update</button>
+              <div fxFlex="2" fxLayout="rows"></div>
+            </div>
+          </form>
+        </div>
+        <div class="col-md-4">
+          <img class="img-fluid" src="../../../assets/4703436.jpg" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container pt-5">
+    <div class="row">
+      <div class="row  align-items-center justify-content-center">
+        <div class="col-md-4">
+          <div class="title">
+            <h1 class="text">Password Change</h1>
+          </div>
+          <form [formGroup]="userForm">
+            <mat-form-field>
+              <mat-label>Old Password</mat-label>
+              <input matInput type="text" formControlName="oldpassword">
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Password</mat-label>
+              <input matInput type="text" formControlName="password">
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Confirm Password</mat-label>
+              <input matInput type="text" formControlName="confirmpassword">
+            </mat-form-field>
+            <div fxLayout="row" fxLayoutAlign="center">
+              <button class="Updatebutton">Update</button>
+              <div fxFlex="2" fxLayout="rows"></div>
+            </div>
+          </form>
+        </div>
+        <div class="col-md-4">
+          <img class="img-fluid" src="../../../assets/6333054.jpg" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container pt-5">
+    <div class="row">
+      <div class="row  align-items-center justify-content-center">
+        <div class="col-md-4">
+          <div class="title">
+            <h1 class="text">User Feedbacks</h1>
+          </div>
+          <form [formGroup]="reviewForm">
+            <mat-form-field>
+              <mat-label>Rating</mat-label>
+              <input matInput maxlength="1" placeholder="1 to 5" type="text" formControlName="rating">
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Review</mat-label>
+              <textarea matInput placeholder="Ex. It makes me feel..." formControlName="review"></textarea>
+            </mat-form-field>
+            <div fxLayout="row" fxLayoutAlign="center">
+              <button class="savebutton" (click)="save()">Save</button>
+              <div fxFlex="2" fxLayout="rows"></div>
+            </div>
+          </form>
+        </div>
+        <div class="col-md-4">
+          <img class="img-fluid" src="../../../assets/5353017.jpg" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container pt-5">
+    <div class="row">
+      <div class="row  align-items-center justify-content-center">
+        <div class="col-md-4">
+          <div class="title">
+            <h1 class="text">Order History</h1>
+          </div>
+        </div>
+          <div>
+            <div class="card-body">
+              <div class="table-body">
+                <p-table #dt dataKey="id" styleClass="p-datatable-customers" [rowHover]="true" [rows]="11"
+                  responsiveLayout="scroll"
+                  [globalFilterFields]="['name','country.name','representative.name','status']" [value]="orderList"
+                  class="table">
+                  <ng-template pTemplate="header" class="tableheader">
+                    <tr class="header">
+                      <td>Order Number</td>
+                      <td>Order Type</td>
+                      <td>Grand Total</td>
+                      <td>Order Status</td>
+                      <td>Grand Total</td>
+                      <!-- <td><i style="color: blue; cursor: pointer;" class="fa-solid fa-print"></i></td> -->
+                      <!-- <td><i style="color: blue; cursor: pointer;" class="fa-solid fa-eye"></i></td> -->
+                      <!-- <td><i style="color: blue; cursor: pointer;" class="fa-regular fa-pen-to-square"></i></td> -->
+                      <!-- <td><i style="color: red; cursor: pointer;" class="fa-solid fa-trash-can"></i></td> -->
+                    </tr>
+                  </ng-template>
+                  <ng-template pTemplate="body" let-row>
+                    <tr>
+                      <td>{{row.orderid}}</td>
+                      <td>{{row.ordertype1}}</td>
+                      <td>{{row.grandtotal}}</td>
+                      <td>{{row.orderstatus1}}</td>
+                      <td>{{row.date}}</td>
+                      <!-- <td><i style="color: blue; cursor: pointer;" (click)="printOrder(row)" class="fa-solid fa-print"></i></td> -->
+                      <!-- <td><i (click)="editrow(row)" style="color: blue; cursor: pointer;"
+                            class="fa-regular fa-pen-to-square"></i></td> -->
+                      <!-- <td><i (click)="deleteProduct(row)" style="color: red; cursor: pointer;"
+                            class="fa-solid fa-trash-can"></i></td> -->
+                  </ng-template>
+                </p-table>
+              </div>
+            </div>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+  <br><br>
+  <!-- footer -->
+  <app-footer></app-footer>
+</main>

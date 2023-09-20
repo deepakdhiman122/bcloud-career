@@ -1,0 +1,94 @@
+<main>
+    <nav>
+      <div class="logo">
+          <div class="logo-image"><img src="../../assets/logo.png" alt="logo-image"></div>
+          <div class="logo-name">Grow More</div>
+        </div>
+      <app-employee-sidenav></app-employee-sidenav>
+  </nav>
+   <section class="dashboard">
+    <app-topnav></app-topnav>
+      <div class="dash-content">
+        <div class="overview">
+          <div class="title">
+            <i class="fa-solid fa-certificate"></i>
+            <span class="text">DashBoard</span>
+          </div>
+        </div>
+        <div class="boxes">
+          <div class="box box1">
+            <i class="fa-solid fa-chart-pie"></i>
+            <span class="text">Total Sales</span>
+            <span class="number">50,120</span>
+          </div>
+          <div class="box box2">
+            <i class="fa-solid fa-gears"></i>
+            <span class="text">Services</span>
+            <span class="number">20,120</span>
+          </div>
+          <div class="box box3">
+            <i class="fa-solid fa-message"></i>
+            <span class="text">Feedbacks</span>
+            <span class="number">10,120</span>
+          </div>
+        </div>
+        <div>
+          <div class="title">
+            <i class="fa-solid fa-coins" style="color: rgb(252, 206, 5);"></i>
+            <span class="text">Coin Management</span>
+          </div>
+          <form [formGroup]="form">
+          <div class="row-field">
+              <mat-form-field>
+                <mat-label>User Creation Coins</mat-label>
+                <input matInput type="text" formControlName="usercreationcoins">
+              </mat-form-field>
+              <mat-form-field>
+                <mat-label>User Refer Coins</mat-label>
+                <input matInput type="text" formControlName="userrefercoins">
+              </mat-form-field>
+              <button class="Coins" (click)="saveCoins()">Give Coins</button>
+          </div>
+        </form>
+        </div>
+        <div class="activity">
+          <div class="title">
+            <i class="fa-regular fa-clock"></i>
+            <span class="text">Recent Activity</span>
+          </div>
+          <div class="activity-data">
+            <div class="data names">
+              <span class="data-title">Name</span>
+              <span class="data-list">lorem ipsum</span>
+              <span class="data-list">lorem ipsum</span>
+              <span class="data-list">lorem ipsum</span>
+            </div>
+            <div class="data email">
+              <span class="data-title">Email</span>
+              <span class="data-list">lorem@ipsum.com</span>
+              <span class="data-list">lorem@ipsum.com</span>
+              <span class="data-list">lorem@ipsum.com</span>
+            </div>
+            <div class="data date">
+              <span class="data-title">Date</span>
+              <span class="data-list">2023-01-23</span>
+              <span class="data-list">2023-01-22</span>
+              <span class="data-list">2023-01-21</span>
+            </div>
+            <div class="data type">
+              <span class="data-title">Type</span>
+              <span class="data-list">Service</span>
+              <span class="data-list">Product</span>
+              <span class="data-list">FeedBack</span>
+            </div>
+            <div class="data Status">
+              <span class="data-title">Status</span>
+              <span class="data-list">Processing</span>
+              <span class="data-list">Dispatched</span>
+              <span class="data-list">Done</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>

@@ -1,0 +1,99 @@
+main{
+  background: #eff5f5;
+  overflow-x: hidden;
+}
+
+.img-fluid{
+  mix-blend-mode: darken;
+}
+
+.about{
+  background: #d6e4e5;
+  padding: 4rem 0;
+}
+
+.vision{
+  padding: 5rem 0;
+}
+
+.choose{
+  padding: 2rem 0;
+  background-color: #d6e4e5 ;
+}
+
+.choose h1{
+  font-family: 'Inter';
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: black;
+}
+.choose .col-md-4{
+  margin: 1rem 1.5rem;
+  width: fit-content;
+}
+
+.choose .counter-number,
+.choose .counter-text{
+  text-align: center;
+  color: #497174;
+}
+
+.choose .counter-number{
+  font-family: 'Inter';
+  font-weight: 800;
+  font-size: 2.5rem;
+}
+
+.choose .counter-text{
+  font-family: 'Space Grotesk';
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.team{
+  justify-content: center;
+}
+
+.profile{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-img{
+  border-radius: 50%;
+  width: 100px;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+}
+
+.profile h2{
+  font-family: 'Inter';
+  margin: .8rem 0 0.3rem;
+  font-size: 1.3rem;
+}
+
+.profile h5{
+  font-family: 'Space Grotesk';
+  font-size: .9rem;
+}
+
+.brands{
+  padding: 0 3rem;
+  mix-blend-mode: darken;
+}
+.brands img{
+  width: 120px;
+}
+
+@media (max-width:768px){
+  .row{
+    margin: .1rem 1rem;
+  }
+  .brands{
+    margin: 0;
+  }
+  .brands img{
+    width: 70px;
+  }
+}

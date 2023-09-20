@@ -1,0 +1,112 @@
+.table>tbody{
+  vertical-align: middle;
+}
+.cart{
+  background: #eff5f5;
+}
+.cart-items .table-responsive{
+  padding: 1rem .75rem;
+}
+.cart-items .table{
+  font-family: 'Inter';
+  box-shadow: 0 0 15px #d6e4e5;
+}
+
+.cart-items .table tr{
+  margin: .5rem;
+}
+
+.cart-items .table th{
+  color: #eff5f5;
+  background: #497174;
+}
+
+.cart-items .table td input{
+  width: 40px;
+  height: 30px;
+  padding: 5px;
+  background: #eff5f5;
+  border: 1.5px solid #d6e4e5;
+  border-radius: 10%;
+}
+
+.cart-items .table td input:focus-visible{
+  border: 1.5px solid #497174;
+  border-radius: 10%;
+  outline: none;
+}
+
+.item{
+  display: flex;
+  flex-wrap: wrap;
+  width: fit-content;
+}
+
+.item-img{
+  mix-blend-mode: darken;
+  max-height: 180px;
+  aspect-ratio: 3/4;
+  object-fit: contain;
+  margin-right: .5rem;
+}
+
+.item-body{
+  font-family: 'Space Grotesk';
+}
+
+.item-title{
+  margin: 0;
+}
+
+.item-price{
+  margin-bottom: 0;
+}
+.item-price s{
+  font-size: .85rem;
+}
+.item-price span{
+  font-weight: 600;
+}
+
+.remove-item{
+  color: red;
+  font-size: .9rem;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.cart-total .table-responsive{
+  padding: 1rem .75rem;
+}
+
+.cart-total .table{
+  box-shadow: 0 0 15px #d6e4e5;
+  font-family: 'Inter';
+}
+
+.cart-total .table td{
+  border-style: none;
+}
+
+.cart-total .btn{
+  color: white;
+  background: #eb6440;
+  width: 100%;
+  border-radius: 2px;
+}
+p{
+  margin-right: 80px;
+}
+.discount{
+  background-color: rgb(254, 168, 29);
+  width: 100px;
+  height: 40px;
+  border: none;
+  margin-left: 20px;
+  border-radius: 10px;
+  color: #ffffff;
+}
+.cart-total .btn:hover{
+  box-shadow: 0 0 15px #eb654092;
+}
+

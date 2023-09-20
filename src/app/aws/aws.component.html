@@ -1,0 +1,109 @@
+<main>
+    <app-navbar></app-navbar>
+  <div class="container-fluid">
+    <div class="row" >
+      <div class="col-md-12 my-5 text"><h1 align="center">Why buy Extended Warranty?</h1></div>
+      <div class="row text align-items-center justify-content-center">
+        <div class="col-md-4">
+          <img class="img-fluid" src="../../assets/6029674.jpg" width="fit-content" alt="abouts">
+        </div>
+       
+        <div class="col-md-5">
+          <ul>
+            <li>Unlimited Repairs</li>
+            <li>3 Cleaning Service Visits and unlimited visites for repair </li>
+            <li>Anytime Service Booking - 24x7</li>
+            <li>Verified Service Executives</li>
+            <li>Genuine Spare Parts</li>
+            <li>Technician Visit at your door with in 02 hrs of booking request in working hours or as per your time Slot .</li>
+            <li>Covers All Brands</li>
+            <li>Free Pick Up And Drop</li>
+            <!-- <li>Any Aesthetic,Remote ,Rubber ,Plastic Parts,damage due to rat bites,accessories and consumables are not covered .</li> -->
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <br>
+  <div class="container">
+    <div class="search-filter" fxLayout="row" fxLayoutAlign="space-between center">
+      <div style="text-align: left;">
+          <input class="global" type="text" pInputText  placeholder="Global Filter"
+          [(ngModel)]="search" [ngModelOptions]="{standalone: true}"
+          style=" border: 1px solid black; border-radius: 5px;" />&nbsp;
+          <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+      </div>
+      <!-- <i style="color: blue;" class="fa-solid fa-file-excel" (click)="fileDownlod()"></i> -->
+  </div>
+  <br>
+    <div class="row products">
+      <div class="col-md-12 item" >
+          <div class="card" *ngFor="let product of awslist | search : search ; let i = index">
+            <div class="card-img-right">
+              <img src="../../assets/imagetesting/{{product.imageurl}}" alt="img" class="d-block mx-auto">
+              <button  class="mt-2 btn btn-primary" [ngSwitch]="product.isCarted" (click)="save(product)"
+              [disabled]="product.isCarted">
+              <span *ngSwitchCase="false">Buy On</span>
+              <span *ngSwitchCase="true">Buy On</span>
+            </button>
+            </div>
+            <div class="card-body">
+              <h2 class="card-title">{{product.amcheading}}</h2>
+              <h3 class="card-title">{{product.amcname}}</h3>
+              <p class="card-price"> &#8377;{{product.amcprice}} <span>Only/year</span> (inclusive of all taxes)</p>
+              <p class="card-price">(an affordable ₹ {{product.subtotal}}/month )</p>
+              <h4 class="card-title">{{product.amccovers}}</h4>
+            </div>
+            <div class="card-footer">
+              <p class="card-text" *ngIf="product.keybenefits1 != null ">&bull; {{product.keybenefits1}} </p>
+              <p class="card-text"*ngIf="product.keybenefits2 != null ">&bull; {{product.keybenefits2}} </p>
+              <p class="card-text"*ngIf="product.keybenefits3 != null ">&bull; {{product.keybenefits3}} </p>
+              <p class="card-text"*ngIf="product.keybenefits4 != null ">&bull; {{product.keybenefits4}} </p>
+              <p class="card-text"*ngIf="product.keybenefits5 != null ">&bull; {{product.keybenefits5}} </p>
+              <p class="card-text"*ngIf="product.keybenefits6 != null ">&bull; {{product.keybenefits6}} </p>
+              <p class="card-text"*ngIf="product.keybenefits7 != null ">&bull; {{product.keybenefits7}} </p>
+              <p class="card-text"*ngIf="product.keybenefits8 != null ">&bull; {{product.keybenefits8}} </p>
+              <p class="card-text"*ngIf="product.keybenefits9 != null">&bull; {{product.keybenefits9}} </p>
+              <p class="card-text"*ngIf="product.keybenefits10 != null ">&bull; {{product.keybenefits10}} </p>
+              <p class="card-text"*ngIf="product.keybenefits11 != null">&bull; {{product.keybenefits11}} </p>
+              <p class="card-text"*ngIf="product.keybenefits12 != null">&bull; {{product.keybenefits12}} </p>
+            </div>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+  <br>
+  <br>
+       <!-- brand banner -->
+  <div class="container-fluid">
+    <owl-carousel-o class="brands" [options]="customOptions">
+      <ng-template carouselSlide>
+        <img src="../../assets/amazon.webp" alt="amazon">
+      </ng-template>
+      <ng-template carouselSlide>
+        <img src="../../assets/Philips-Logo.png" alt="Philips">
+      </ng-template>
+      <ng-template carouselSlide>
+        <img src="../../assets/Whirlpool-Company-Logo.jpg" alt="">
+      </ng-template>
+      <ng-template carouselSlide>
+        <img src="../../assets/Haier-Company-Logo.jpg" alt="">
+      </ng-template>
+      <ng-template carouselSlide>
+        <img src="../../assets/lg.jpg" alt="">
+      </ng-template>
+      <ng-template carouselSlide>
+        <img src="../../assets/Bajaj.png" alt="">
+      </ng-template>
+      <ng-template carouselSlide>
+        <img src="../../assets/Croma.webp" alt="">
+      </ng-template>
+      <ng-template carouselSlide>
+        <img src="../../assets/Samsung-Company-Logo.jpg" alt="">
+      </ng-template>
+    </owl-carousel-o>
+  </div>
+  <app-footer></app-footer>
+</main>

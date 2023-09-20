@@ -1,0 +1,71 @@
+<div class="menu">
+    <ul class="nav-links" *ngFor="let data of navdata">
+        <li *ngIf="data.parentid === 0">
+            <a [routerLink]="[data.routerlink]" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+                <i [class]="data.iconcode"></i>
+                <span class="link-name">{{data.optionname}}</span>
+            </a>
+            <ul *ngFor="let childdata of navchilddata">
+                <li *ngIf="childdata.parentid === data.optionid">
+                    <a class="sidenav-link-icon" [routerLink]="[childdata.routerlink]" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{exact:true}"> <i [class]="childdata.iconcode"></i>
+                        <span class="link-name">{{childdata.optionname}}</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <ul class="logout-mode">
+        <!-- <li style="cursor: pointer;"><a routerLink="/orderwisefeedback">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                <span class="link-name"> Order Wise Feedback</span>
+            </a></li>
+
+        <li style="cursor: pointer;"><a routerLink="/addemployee">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                <span class="link-name">Add Employee</span>
+            </a></li>
+
+        <li style="cursor: pointer;"><a routerLink="/addservices">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                <span class="link-name">Add Services</span>
+            </a></li>
+
+        <li style="cursor: pointer;"><a routerLink="/viewserviceorders">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                <span class="link-name">View Service Orders</span>
+            </a></li>
+
+        <li style="cursor: pointer;"><a routerLink="/viewproductorders">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                <span class="link-name">View Product Oders</span>
+            </a></li>
+
+        <li style="cursor: pointer;"><a routerLink="/service/air-conditioner">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                <span class="link-name">Services Air-Conditioner</span>
+            </a></li>
+
+        <li style="cursor: pointer;"><a routerLink="/airconditioner">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                <span class="link-name">Air Conditioner</span>
+            </a></li> -->
+
+        <li class="mode">
+        <li style="cursor: pointer;"><a (click)="logout()">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                <span class="link-name"> Logout</span>
+            </a></li>
+
+
+        <li class="mode">
+            <a>
+                <i class="fa-solid fa-moon"></i>
+                <span class="link-name"> Dark Mode</span>
+            </a>
+            <div class="mode-toggle" (click)="DarkMode()">
+                <span class="switch"></span>
+            </div>
+        </li>
+    </ul>
+</div>

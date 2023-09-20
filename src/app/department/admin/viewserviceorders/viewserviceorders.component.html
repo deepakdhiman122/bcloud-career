@@ -1,0 +1,102 @@
+<main>
+    <nav>
+        <div class="logo">
+            <div class="logo-image"><img src="../../assets/logo.png" alt="logo-image"></div>
+            <div class="logo-name">Grow More</div>
+        </div>
+        <app-sidenavbar></app-sidenavbar>
+    </nav>
+    <section class="dashboard">
+        <app-topnav></app-topnav>
+        <div class="dash-content">
+            <div class="overview">
+                <div class="title">
+                    <i class="fa-solid fa-scale-unbalanced"></i>
+                    <span class="text">Service Orders</span>
+                </div>
+            </div>
+
+            <form [formGroup]="form">
+                <div>
+                    <div class="row-field">
+                            <label>Order Number</label>
+                            <input matInput type="text" formControlName="ordernumber" readonly>
+                            <label>Employee Name</label>
+                            <select formControlName="employee" matNativeControl>
+                                <option value="null">Select Your Option</option>
+                                <option *ngFor="let emp of employeelist" value="{{emp.employeeid}}">{{emp.name}}</option>
+                            </select>
+                    </div>
+                    <div fxLayout="row" fxLayoutAlign="end center">
+                        <button class="savebutton" (click)="save()">Save</button>
+                        <div fxFlex="2" fxLayout="rows"></div>
+                        <button class="clearbutton" (click)="clear()">Clear</button>
+                        <div fxFlex="2" fxLayout="rows"></div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="card-body">
+            <div   class="search-filter"fxLayout="row" fxLayoutAlign="space-between center">
+                <i style="color: blue;" (click)="getServicesOrder()" class="fa-solid fa-repeat"></i>
+                <div style="text-align: right;">
+                    <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+                    <input class="global" type="text" pInputText  placeholder="Global Filter"
+                    [(ngModel)]="search" [ngModelOptions]="{standalone: true}"
+                    style=" border: 1px solid black; border-radius: 5px;" />&nbsp;
+                </div>
+                <!-- <i style="color: blue;" class="fa-solid fa-file-excel" (click)="fileDownlod()"></i> -->
+            </div>
+            <br>
+            <div class="table-body">
+                <p-table #dt dataKey="id" styleClass="p-datatable-customers" [rowHover]="true" [rows]="6"
+                    responsiveLayout="scroll" [scrollable]="true" scrollHeight="500px"
+                    [globalFilterFields]="['name','country.name','representative.name','status']" [value]="serviceOrderList | search : search"
+                    class="table">
+                    <ng-template pTemplate="header" class="tableheader">
+                        <tr class="header">
+                            <td>Order Number</td>
+                            <td>Name</td>
+                            <td>Number</td>
+                            <td>Address</td>
+                            <td>Generation Date</td>
+                            <td>Closed/Cancled Date</td>
+                            <td>Order Status</td>
+                            <td>Assigned to</td>
+                            <td>Grand Total</td>
+                            <td>Amount Recieved</td>
+                            <td><i style="color: blue; cursor: pointer;" class="fa-solid fa-eye"></i></td>
+                            <td><i style="color: blue; cursor: pointer;" class="fa-regular fa-pen-to-square"></i></td>
+                            <!-- <td><i style="color: red; cursor: pointer;" class="fa-solid fa-trash-can"></i></td> -->
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-row>
+                        <tr>
+                            <td>{{row.orderid}}</td>
+                            <td *ngIf="row.name" >{{row.name}}</td>
+                            <td *ngIf="row.customername" >{{row.customername}}</td>
+                            <td *ngIf="row.mobileno">{{row.mobileno}}</td>
+                            <td *ngIf="row.customermobileno">{{row.customermobileno}}</td>
+                            <td *ngIf="row.address">{{row.address}}</td>
+                            <td *ngIf="row.customeraddress">{{row.customeraddress}}</td>
+                            <td>{{row.addedon1}}</td>
+                            <td>{{row.modifiedon1}}</td>
+                            <td *ngIf="row.orderstatus === 'P'" style="background-color: yellow;" >{{row.orderstatus1}}</td>
+                            <td *ngIf="row.orderstatus === 'R'" style="background-color: orange;" >{{row.orderstatus1}}</td>
+                            <td *ngIf="row.orderstatus === 'C'" style="background-color: rgb(255, 61, 61);" >{{row.orderstatus1}}</td>
+                            <td *ngIf="row.orderstatus === 'O'" style="background-color: rgb(121, 168, 255);">{{row.orderstatus1}}</td>
+                            <td *ngIf="row.orderstatus === 'D'" style="background-color: greenyellow;" >{{row.orderstatus1}}</td>
+                            <td>{{row.assingedto}}</td>
+                            <td>{{row.grandtotal}}</td>
+                            <td>{{row.amountrecieved}}</td>
+                            <td><i style="color: blue; cursor: pointer;" class="fa-solid fa-eye" routerLink="/productdetails" (click)="productview(row)"></i></td>
+                            <td><i (click)="editrow(row)" style="color: blue; cursor: pointer;"
+                                    class="fa-regular fa-pen-to-square"></i></td>
+                            <!-- <td><i (click)="deleteProduct(row)" style="color: red; cursor: pointer;"
+                                    class="fa-solid fa-trash-can"></i></td> -->
+                    </ng-template>
+                </p-table>
+            </div>
+        </div>
+    </section>
+</main>

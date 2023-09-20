@@ -1,0 +1,108 @@
+<main>
+  <nav>
+    <div class="logo">
+      <div class="logo-image"><img src="../../assets/logo.png" alt="logo-image"></div>
+      <div class="logo-name">Grow More</div>
+    </div>
+    <app-employee-sidenav></app-employee-sidenav>
+  </nav>
+  <section class="dashboard">
+    <app-topnav></app-topnav>
+    <div class="dash-content">
+      <div class="overview">
+        <div class="title">
+          <i class="fa-solid fa-certificate"></i>
+          <span class="text">Employee DashBoard</span>
+        </div>
+      </div>
+      <div class="boxes">
+        <div class="box box1">
+          <i class="fa-solid fa-gears"></i>
+          <span class="text">Total Services</span>
+          <span class="number">{{totalServicesCount}}</span>
+        </div>
+        <div class="box box2">
+          <!-- <i class="fa-solid fa-gears"></i> -->
+          <i class="fa-solid fa-pause"></i>
+          <span class="text">Pending Services</span>
+          <span class="number">{{pendingServiceCount}}</span>
+        </div>
+        <div class="box box3">
+          <i class="fa-solid fa-check-double"></i>
+          <span class="text">Successfull Services</span>
+          <span class="number">{{successfulServicesCount}}</span>
+        </div>
+      </div>
+      <div class="activity">
+        <div class="title">
+          <i class="fa-regular fa-clock"></i>
+          <span class="text">Recent Activity</span>
+        </div>
+        <div class="card-body">
+          <div class="search-filter" fxLayout="row" fxLayoutAlign="space-between center">
+            <i style="color: blue;" (click)="getServicesOrder()" class="fa-solid fa-repeat"></i>
+            <div style="text-align: right;">
+              <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+              <input class="global" type="text" pInputText placeholder="Global Filter" [(ngModel)]="search"
+                [ngModelOptions]="{standalone: true}" style=" border: 1px solid black; border-radius: 5px;" />&nbsp;
+            </div>
+            <!-- <i style="color: blue;" class="fa-solid fa-file-excel" (click)="fileDownlod()"></i> -->
+          </div>
+          <br>
+          <div class="table-body">
+            <p-table #dt dataKey="id" styleClass="p-datatable-customers" [rowHover]="true" [rows]="6"
+              responsiveLayout="scroll" [scrollable]="true" scrollHeight="500px"
+              [globalFilterFields]="['name','country.name','representative.name','status']"
+              [value]="serviceOrderList | search : search" class="table">
+              <ng-template pTemplate="header" class="tableheader">
+                <tr class="header">
+                  <td>Order Number</td>
+                  <td>Name</td>
+                  <td>Number</td>
+                  <td>Address</td>
+                  <td>Generation Date</td>
+                  <td>Closed/Cancled Date</td>
+                  <td>Order Status</td>
+                  <td>Assigned to</td>
+                  <td>Grand Total</td>
+                  <td>Amount Recieved</td>
+                  <td><i style="color: blue; cursor: pointer;" class="fa-solid fa-eye"></i></td>
+                  <!-- <td><i style="color: blue; cursor: pointer;" class="fa-regular fa-pen-to-square"></i></td> -->
+                  <!-- <td><i style="color: red; cursor: pointer;" class="fa-solid fa-trash-can"></i></td> -->
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-row>
+                <tr>
+                  <td>{{row.orderid}}</td>
+                  <td *ngIf="row.name">{{row.name}}</td>
+                  <td *ngIf="row.customername">{{row.customername}}</td>
+                  <td *ngIf="row.mobileno">{{row.mobileno}}</td>
+                  <td *ngIf="row.customermobileno">{{row.customermobileno}}</td>
+                  <td *ngIf="row.address">{{row.address}}</td>
+                  <td *ngIf="row.customeraddress">{{row.customeraddress}}</td>
+                  <td>{{row.addedon1}}</td>
+                  <td>{{row.modifiedon1}}</td>
+                  <td *ngIf="row.orderstatus === 'P'" style="background-color: yellow;">{{row.orderstatus1}}</td>
+                  <td *ngIf="row.orderstatus === 'R'" style="background-color: orange;">{{row.orderstatus1}}</td>
+                  <td *ngIf="row.orderstatus === 'C'" style="background-color: rgb(255, 61, 61);">{{row.orderstatus1}}
+                  </td>
+                  <td *ngIf="row.orderstatus === 'O'" style="background-color: rgb(121, 168, 255);">{{row.orderstatus1}}
+                  </td>
+                  <td *ngIf="row.orderstatus === 'D'" style="background-color: greenyellow;">{{row.orderstatus1}}</td>
+                  <td>{{row.assingedto}}</td>
+                  <td>{{row.grandtotal}}</td>
+                  <td>{{row.amountrecieved}}</td>
+                  <td><i style="color: blue; cursor: pointer;" class="fa-solid fa-eye" routerLink="/productdetails"
+                      (click)="productview(row)"></i></td>
+                  <!-- <td><i (click)="editrow(row)" style="color: blue; cursor: pointer;"
+                                    class="fa-regular fa-pen-to-square"></i></td> -->
+                  <!-- <td><i (click)="deleteProduct(row)" style="color: red; cursor: pointer;"
+                                    class="fa-solid fa-trash-can"></i></td> -->
+              </ng-template>
+            </p-table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

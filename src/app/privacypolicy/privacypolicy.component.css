@@ -1,0 +1,7 @@
+.container-fluid{
+    padding: 0 50px;
+ }
+ h1{
+    display: inline;
+    font-size: 2rem;
+}

@@ -1,0 +1,148 @@
+<main>
+    <nav>
+        <div class="logo">
+            <div class="logo-image"><img src="../../assets/logo.png" alt="logo-image"></div>
+            <div class="logo-name">Grow More</div>
+        </div>
+        <app-sidenavbar></app-sidenavbar>
+    </nav>
+    <section class="dashboard">
+        <app-topnav></app-topnav>
+        <div class="dash-content">
+            <div class="overview">
+                <div class="title">
+                    <i class="fa-solid fa-boxes-stacked"></i>
+                    <span class="text">Add Products</span>
+                </div>
+            </div>
+        </div>
+        <form [formGroup]="form">
+            <div>
+                <div class="row-field">
+
+                    <label>Product Name</label>
+                    <input matInput type="text" placeholder="Ex.: Mixer Rio" formControlName="productname">
+
+
+                    <label>Product Brand</label>
+                    <input matInput type="text" placeholder="Ex.: Singer India Ltd" formControlName="brandname">
+                </div>
+                <div class="container-fluid">
+                    <div class="row-field">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <label>Product Category</label>
+                                <select formControlName="productcategory" class="form-select"
+                                    aria-label="Default select example">
+                                    <option value="Air Conditioner">Air Conditioner</option>
+                                    <option value="Air Cooler">Air Cooler</option>
+                                    <option value="Geyser">Geyser</option>
+                                    <option value="Microwave">Microwave</option>
+                                    <option value="Refrigerator">Refrigerator</option>
+                                    <option value="Washing Machine">Washing Machine</option>
+                                    <option value="LED TV">LED TV</option>
+                                    <option value="Electric Kettel">Electric Kettel</option>
+                                    <option value="Mixer (JMG)">Mixer (JMG)</option>
+                                    <option value="Home theater">Home theater</option>
+                                    <option value="Iron">Iron</option>
+                                    <option value="Induction">Induction</option>
+                                    <option value="Hair Dryer">Hair Dryer</option>
+                                </select>
+                            </div>
+                            <div class="col-md-5">
+                                <label>Product Details</label>
+                                <textarea placeholder="Details of Products" formControlName="productdetails"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row-field">
+                    <label>Product Rating out of 5</label>
+                    <input type="text" placeholder="Ex.: 4" (keyup)="calculator()" formControlName="rating">
+                    <i class="fa-solid fa-percent" matSuffix></i>
+
+                    <label>Maximum Sales Price</label>
+                    <input type="text" placeholder="Ex.: 2650" (keyup)="calculator()" formControlName="mrprice">
+                    <i class="fa-solid fa-indian-rupee-sign" matPrefix></i>
+                    <span matSuffix>/-</span>
+
+                </div>
+                <div class="row-field">
+                    <label>Discount in %</label>
+                    <input type="number" placeholder="Ex.: 10" (keyup)="calculator()"
+                        formControlName="discountpercentage">
+                    <i class="fa-solid fa-percent" matSuffix></i>
+
+                    <label>Sales Price</label>
+                    <input type="number" placeholder="Ex.: 1850" formControlName="salesprice" readonly>
+                    <i class="fa-solid fa-indian-rupee-sign" matPrefix></i>
+                    <span matSuffix>/-</span>
+
+                </div>
+                <div>
+                    <input type="file" (change)="saveImage($event)">
+                    <img style="width: 150px; height: 150px;" src="../../../../assets/imagetesting/{{imageurl}}">
+                </div>
+                <div fxLayout="row" fxLayoutAlign="end center">
+                    <button *ngIf="isEdited === 'NO'" class="savebutton" (click)="save()">Save</button>
+                    <div fxFlex="2" fxLayout="rows"></div>
+                    <button *ngIf="isEdited === 'YES'" class="savebutton" (click)="updateProduct()">Update</button>
+                    <div fxFlex="2" fxLayout="rows"></div>
+                    <button class="clearbutton" (click)="clear()">Clear</button>
+                    <div fxFlex="2" fxLayout="rows"></div>
+                </div>
+            </div>
+        </form>
+        <div class="card-body">
+            <div class="search-filter" fxLayout="row" fxLayoutAlign="space-between center">
+                <i style="color: blue;" (click)="getProductList()" class="fa-solid fa-repeat"></i>
+                <div style="text-align: right;">
+                    <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+                    <input class="global" type="text" pInputText placeholder="Global Filter" [(ngModel)]="search"
+                        [ngModelOptions]="{standalone: true}"
+                        style=" border: 1px solid black; border-radius: 5px;" />&nbsp;
+                </div>
+                <!-- <i style="color: blue;" class="fa-solid fa-file-excel" (click)="fileDownlod()"></i> -->
+            </div>
+            <br>
+            <div class="table-body">
+                <p-table #dt dataKey="id" styleClass="p-datatable-customers" [rowHover]="true" [rows]="11"
+                    responsiveLayout="scroll" [scrollable]="true" scrollHeight="500px"
+                    [globalFilterFields]="['name','country.name','representative.name','status']"
+                    [value]="productlist | search :  search" class="table">
+                    <ng-template pTemplate="header" class="tableheader">
+                        <tr class="header">
+                            <td>Product Name</td>
+                            <td>Product Category</td>
+                            <td>Brand</td>
+                            <td>Product Details</td>
+                            <td>Product Rating</td>
+                            <td>MR Price</td>
+                            <td>Sales Price</td>
+                            <td>Discount in %</td>
+                            <td><i style="color: blue; cursor: pointer;" class="fa-regular fa-pen-to-square"></i></td>
+                            <td><i style="color: red; cursor: pointer;" class="fa-solid fa-trash-can"></i></td>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-row>
+                        <tr>
+                            <td>{{row.name}}</td>
+                            <td>{{row.productcategory}}</td>
+                            <td>{{row.brand}}</td>
+                            <td>{{row.details}}</td>
+                            <td>{{row.productrating}}</td>
+                            <td>{{row.mrp}}</td>
+                            <td>{{row.salesprice}}</td>
+                            <td>{{row.discountinpercentage}}</td>
+                            <td><i (click)="editrow(row)" style="color: blue; cursor: pointer;"
+                                    class="fa-regular fa-pen-to-square"></i></td>
+                            <td><i (click)="deleteProduct(row)" style="color: red; cursor: pointer;"
+                                    class="fa-solid fa-trash-can"></i></td>
+                    </ng-template>
+                </p-table>
+            </div>
+        </div>
+
+    </section>
+</main>

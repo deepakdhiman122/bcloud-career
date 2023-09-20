@@ -1,0 +1,132 @@
+<main>
+  <!-- navbar -->
+  <app-navbar id="shop"></app-navbar>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-2 side">
+        <div class="form-inline  accordion" id="accordionPanelsStayOpenExample">
+          <div class="form-group accordion-item">
+            <div class=" range">
+
+              <label for="price-input" class="form-label">Price range</label>
+              <input type="number" class="form-input" id="price-input" (change)="inputprice(priceInput)"
+                name="price-input" value="0" min="0" step="50" (input)="onInputInput()" #priceInput>
+            </div>
+          </div>
+
+          <div class="form-group accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="true"
+                aria-controls="panelsStayOpen-collapseTwo">
+                Company
+              </button>
+            </h2>
+            <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse show"
+              aria-labelledby="panelsStayOpen-headingTwo">
+              <div class="accordion-body">
+                <mat-radio-group class="form-check" (change)="brand($event.value)">
+                  <mat-radio-button checked value="ALL">All</mat-radio-button>
+                  <div *ngFor="let i of company">
+                    <mat-radio-button [value]="i">{{i}}</mat-radio-button><br>
+                  </div>
+                </mat-radio-group>
+                <!-- <div class="form-check"  *ngFor="let i of company">
+                  <input class="form-check-input" (click)="brand(i)" type="radio" formControlName="category" value="{{i}}" id="{{i}}">
+                  <label class="form-check-label" for="{{i}}">{{i}}</label>
+                </div> -->
+              </div>
+            </div>
+          </div>
+          <div class="form-group accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                aria-controls="panelsStayOpen-collapseOne">
+                Category
+              </button>
+            </h2>
+            <div id="panelsStayOpen-collapseOne" class="accordion-collapse  collapse show"
+              aria-labelledby="panelsStayOpen-headingOne">
+              <div class="accordion-body">
+                <mat-radio-group class="form-check" (change)="categoryFilter($event.value)">
+                  <mat-radio-button checked value="ALL">All</mat-radio-button>
+                  <div *ngFor="let i of category">
+                    <mat-radio-button [value]="i">{{i}}</mat-radio-button><br>
+                  </div>
+                </mat-radio-group>
+                <!-- <div class="form-check"  *ngFor="let i of category">
+                <input class="form-check-input" (click)="categoryFilter(i)" type="radio" formControlName="category" value="{{i}}" id="{{i}}">
+                <label class="form-check-label" for="{{i}}">{{i}}</label>
+              </div> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-10 products">
+        <div class="row mx-1 my-2 justify-content-between">
+          <div class="col-3">
+            <i class="fa-solid fa-grip" (click)="Grid()"></i> &nbsp; <i class="fa-solid fa-list" (click)="List()"></i>
+          </div>
+          <div class="col-md-3">
+            <form>
+              <select (change)="Sorting()" class="form-select form-select-sm" id="sorting"
+                aria-label="Default select example">
+                <option value="raw" selected>Sort by:</option>
+                <option value="ascending">Price: Low to High</option>
+                <option value="descending">Price: High to Low</option>
+              </select>
+            </form>
+          </div>
+        </div>
+        <!-- products -->
+        <div class="row m-2 scrolling">
+          <div class="col-md-3 my-2 Cards"
+            *ngFor="let product of Newproductlist | slice: (currentPage - 1) * pageSize : (currentPage - 1) * pageSize + pageSize; let i = index">
+            <div class="card">
+              <img src="../../assets/imagetesting/{{product.imageurl}}" alt="{{product.imageurl}}" class="card-img-top">
+              <div class="card-body">
+                <div class="card-title">{{product.name}}</div>
+                <div class="card-text">
+                  <h5>&#8377;{{product.salesprice}}</h5>
+                  <h5><s class="text-danger">&#8377;{{product.mrp}}</s><span class="text-success">
+                      {{product.discountinpercentage}}% off</span></h5>
+                  <span style="color: #ffa41c;" [innerHTML]="printStars(product.productrating)"></span>
+                  <!-- <h5 class="text-muted" *ngFor="let pd of product.details1">{{pd}}</h5> -->
+                  <h5 class="text-muted">{{product.details}}</h5>
+                </div>
+                <button (click)="addItem(productlist[i])" class="mt-2 btn btn-primary" [ngSwitch]="product.isCarted"
+                  [disabled]="product.isCarted">
+                  <span *ngSwitchCase="false">Add to Cart</span>
+                  <span *ngSwitchCase="true">Added to Cart</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row m-2 justify-content-center">
+          <div class="col-md-3">
+            <nav aria-label="Page navigation example">
+              <ul class="pagination">
+                <li class="page-item">
+                  <a class="page-link" (click)="previousPage()" aria-label="Previous" href="#shop">
+                    <span aria-hidden="true">&laquo;</span>
+                  </a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link" href="#shop" (click)="nextPage()" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- footer -->
+  <app-footer></app-footer>
+</main>

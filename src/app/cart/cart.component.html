@@ -1,0 +1,116 @@
+<main>
+  <!-- navbar -->
+  <app-navbar></app-navbar>
+
+  <!-- Cart Items Details -->
+  <div class="container-fluid cart">
+    <div class="row">
+      <div class="col-md-8 cart-items">
+        <div class="table-responsive">
+          <table class="table cart-table">
+            <thead>
+              <tr>
+                <th>Products</th>
+                <th>Quantity</th>
+                <th>Subtotal</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let item of cart">
+              <tr>
+                <td>
+                  <div class="item">
+                    <img class="item-img" src="../../assets/imagetesting/{{item.imageurl}}"
+                      alt="product">
+                    <div class="item-body">
+                      <p class="item-title">{{item.name}}</p>
+                      <p class="item-price">Price: &#8377;{{item.salesprice}}</p>
+                      <p class="item-price"><s class="text-muted">MRP: &#8377;{{item.mrp}}</s><span class="text-success"> {{item.discountinpercentage}}% off</span></p>
+                      <p class="item-price" style="color: #ffa41c;" [innerHTML]="printStars(item.productrating)"></p>
+                      <a class="remove-item" (click)="removeItem(item.productid);">Remove</a>
+                    </div>
+                  </div>
+                </td>
+                <td><input type="number" value="{{item.quantity}}" (change)="calc(inputRef,item)" #inputRef></td>
+                <td>&#8377;<span>{{item.subtotal}}</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="col-md-4 cart-total">
+        <div class="table-responsive">
+          <table class="table">
+            <tbody>
+              <tr>
+                <td>Grand Subtotal</td>
+                <td>&#8377; {{grandsubtotal}}</td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" (change)="selectreadem('coins')" #reedemValue1 >
+                    <label class="form-check-label" for="reedemValue1">
+                      Coins
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" (change)="selectreadem('coupon')" #reedemValue2 >
+                    <label class="form-check-label" for="reedemValue2">
+                      Coupons
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" (change)="selectreadem('none')" #reedemValue3 checked>
+                    <label class="form-check-label" for="reedemValue3">
+                      None
+                    </label>
+                  </div>
+                </td>
+                <!-- <td>
+                  <input class="form-check-input" type="checkbox" id="gridCheck" (change)="selectreadem(reedemValue1)" >
+                    <label class="form-check-label" for="gridCheck" value="coins" #reedemValue1>
+                      Coins
+                    </label>&nbsp;&nbsp;&nbsp;
+                    <input class="form-check-input" type="checkbox" id="gridCheck" (change)="selectreadem(reedemValue2)" >
+                    <label class="form-check-label" for="gridCheck"  value="coupon" #reedemValue2>
+                      Coupon
+                    </label>
+                </td> -->
+              </tr>
+              <tr *ngIf="reedemvaluetype === 'coins'" class="button">
+                <td>
+                  <button (click)="reademCoin()" class="discount">redeem coin</button>
+                </td>
+                <td>
+                  {{walletBalance}} <i class="fa-solid fa-coins" style="color: rgb(255, 208, 0);"></i>
+                </td>
+              </tr>
+              <tr *ngIf="reedemvaluetype === 'coupon'">
+                <td>
+                  <input type="text" placeholder="Enter Coupon Code" #couponCode pInputText/> 
+                  <button (click)="reademCoupon(couponCode)" class="discount">redeem</button></td>
+                  <td>
+                    <p> <i *ngIf="couponStatus === 'Valid'" style="color: green;" class="fa-solid fa-certificate"></i>
+                      <i *ngIf="couponStatus === 'Used Before'" style="color: red;" class="fa-solid fa-circle-exclamation"></i>
+                      <i *ngIf="couponStatus === 'Invalid'" style="color: red;" class="fa-solid fa-bug"></i> {{couponStatus}}</p>
+                   <p>&#8377; {{couponValue}}</p></td>
+              </tr>
+              <tr>
+                <td>Discount</td>
+                <td>&#8377; {{discount}}</td>
+              </tr>
+              <tr>
+                <td>Total</td>
+                <td>&#8377; {{grandtotal}}</td>
+              </tr>
+            </tbody>
+          </table>
+          <a class="btn proceed" (click)="generateOrder()">Proceess My Request</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <app-footer></app-footer>
+</main>

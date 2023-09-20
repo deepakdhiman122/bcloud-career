@@ -1,0 +1,115 @@
+<main>
+    <nav>
+        <div class="logo">
+            <div class="logo-image"><img src="../../assets/logo.png" alt="logo-image"></div>
+            <div class="logo-name">Grow More</div>
+        </div>
+        <app-sidenavbar></app-sidenavbar>
+    </nav>
+    <section class="dashboard">
+        <app-topnav></app-topnav>
+        <div class="dash-content">
+            <div class="overview">
+                <div class="title">
+                    <i class="fa-solid fa-boxes-stacked"></i>
+                    <span class="text">Date Wise Report</span>
+                </div>
+            </div>
+        </div>
+        <form [formGroup]="form">
+            <div>
+                <div class="row-field">
+                    <label>Start Date</label>
+                    <input matInput type="date" formControlName="startdate">
+
+                    <label>End Date</label>
+                    <input matInput type="date" formControlName="enddate">
+                </div>
+                <div class="row-field">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label>Order Type</label>
+                            <select formControlName="ordertype"  class="form-select"
+                                aria-label="Default select example">
+                                <option value="P">Product Order</option>
+                                <option value="S">Service Order</option>
+                                <option value="A">AMC Order</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- <div class="card-body">
+                    <p-table #dt dataKey="id" styleClass="p-datatable-customers" [rowHover]="true" [rows]="11"
+                        responsiveLayout="scroll"
+                        [globalFilterFields]="['name','country.name','representative.name','status']" [value]="orderlist"
+                        class="table">
+                        <ng-template pTemplate="header" class="tableheader">
+                            <tr class="header">
+                                <td>Service</td>
+                                <td>Price</td>
+                                <td>Add New</td>
+                                <td>Remove</td>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-odi>
+                            <tr>
+                                <td>
+                                    <select (change)="setServiceDetails($event, odi)" class="form-select"
+                                         aria-label="Default select example">
+                                            <option *ngFor="let sl of serviceList" value="{{sl.productid}}">{{sl.name}}</option>
+                                     </select>
+                                </td>
+                                <td>
+                                    {{odi.availablequantity}}
+                                </td>
+                                <td>
+                                    {{odi.unit}}
+                                </td>
+                                <td>
+                                   
+                                </td>
+                                <td>
+                                    {{odi.unit}}
+                                </td>
+                                <td>
+                                   
+                                </td>
+                                <td>
+                                    {{odi.subtotal}}
+                                </td>
+                                <td>
+                                    {{odi.gstrate}}
+                                </td>
+                                <td>
+                                    {{odi.taxamount}}
+                                </td>
+                                <td>
+                                    {{odi.totalsubtotal}}
+                                </td>
+                                <td>
+                                    <button style="border: none; background: none;" (click)="addnewRow()">
+                                        <mat-icon style="color: green;">add</mat-icon>
+                                    </button>
+                                </td>
+                                <td>
+                                    <button style="border: none; background: none;" (click)="deleteRow(odi)">
+                                        <mat-icon style="color: red;">delete</mat-icon>
+                                    </button>
+                                </td>
+                            </tr>
+                        </ng-template>
+                    </p-table>
+                </div>
+                <br>
+                <br> -->
+                <div fxLayout="row" fxLayoutAlign="end center">
+                    <button *ngIf="isEdited === 'NO'" class="savebutton" (click)="save()">Save</button>
+                    <div fxFlex="2" fxLayout="rows"></div>
+                    <button class="clearbutton" (click)="clear()">Clear</button>
+                    <div fxFlex="2" fxLayout="rows"></div>
+                </div>
+            </div>
+        </form>
+    </section>
+</main>

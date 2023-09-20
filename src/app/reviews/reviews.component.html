@@ -1,0 +1,42 @@
+<main>
+  <!-- Navbar -->
+  <app-navbar></app-navbar>
+
+  <div class="container-fluid head">
+    <div class="row align-items-center">
+      <div class="col-md tw-container">
+        <h2>
+          <span class="tw tw-zero">Share your </span>
+          <span class="tw first-tw">Thoughts</span>
+        </h2>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container-fluid review">
+    <div class="row">
+      <h3>give us your feedback</h3>
+    <form action="#">
+      <div class="rating">
+        <input type="number" name="rating" hidden>
+        <i class="fa-regular fa-star star"></i>
+        <i class="fa-regular fa-star star"></i>
+        <i class="fa-regular fa-star star"></i>
+        <i class="fa-regular fa-star star"></i>
+        <i class="fa-regular fa-star star"></i>
+        <div class="star"></div>
+      </div>
+      <textarea name="opinion"  cols="30" rows="10" placeholder="Your opinion"></textarea>
+      <div class="btn-group">
+        <button type="submit" class="btn submit">Submit</button>
+        <button type="submit" class="btn cancel">Cancel</button>
+      </div>
+    </form>
+    </div>
+  </div>
+
+
+  <!-- Footer -->
+  <app-footer></app-footer>
+</main>

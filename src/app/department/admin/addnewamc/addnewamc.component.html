@@ -1,0 +1,189 @@
+<main>
+    <nav>
+        <div class="logo">
+            <div class="logo-image"><img src="../../assets/logo.png" alt="logo-image"></div>
+            <div class="logo-name">Grow More</div>
+        </div>
+        <app-sidenavbar></app-sidenavbar>
+    </nav>
+    <section class="dashboard">
+        <app-topnav></app-topnav>
+        <div class="dash-content">
+            <div class="overview">
+                <div class="title">
+                    <i class="fa-solid fa-boxes-stacked"></i>
+                    <span class="text">Add AMC Services</span>
+                </div>
+            </div>
+        </div>
+        <form [formGroup]="form">
+            <div>
+                <div class="row-field">
+
+                   
+                        <label>AMC Name</label>
+                        <input  type="text" placeholder="Ex.: One Appliance Unlimited  Visits" formControlName="amcname">
+                  
+                   
+                        <label>AMC Heading</label>
+                        <input  type="text" placeholder="Ex.: Service Only Plan" formControlName="amcheading">
+                    
+                
+                        <label>AMC Covers</label>
+                        <textarea  placeholder="Details of Products"
+                            formControlName="amccovers" maxlength="150"></textarea>
+                       </div>
+                       <div class="row-field">
+                        <label>Sales Price</label>
+                        <input  type="number" placeholder="Ex.: 1850" formControlName="salesprice">
+                        <i class="fa-solid fa-indian-rupee-sign" matPrefix></i>
+                        <span matSuffix>/-</span>
+                   </div>
+           
+                <div class="row-field">
+                   
+                        <label>Key Benefit 1</label>
+                        <textarea 
+                            formControlName="keybenefit1" maxlength="100"></textarea>
+                   
+                  
+                        <label>Key Benefit 2</label>
+                        <textarea  
+                            formControlName="keybenefit2" maxlength="100"></textarea>
+                    
+                
+                        <label>Key Benefit 3</label>
+                        <textarea  placeholder="Details of Products"
+                            formControlName="keybenefit3" maxlength="100"></textarea>
+                      </div>
+                      <div class="row-field">
+                        <label>Key Benefit 4</label>
+                        <textarea  placeholder="Details of Products"
+                            formControlName="keybenefit4" maxlength="100"></textarea>
+                    
+                
+                        <label>Key Benefit 5</label>
+                        <textarea  placeholder="Details of Products"
+                            formControlName="keybenefit5" maxlength="100"></textarea>
+                    
+                
+                        <label>Key Benefit 6</label>
+                        <textarea 
+                            formControlName="keybenefit6" maxlength="100"></textarea>
+                    
+              </div>
+                <div class="row-field">
+                        <label>Key Benefit 7</label>
+                        <textarea  
+                            formControlName="keybenefit7" maxlength="100"></textarea>
+                    
+                
+                        <label>Key Benefit 8</label>
+                        <textarea  placeholder="Details of Products"
+                            formControlName="keybenefit8" maxlength="100"></textarea>
+                    
+                
+                        <label>Key Benefit 9</label>
+                        <textarea  placeholder="Details of Products"
+                            formControlName="keybenefit9" maxlength="100"></textarea>
+                    </div>
+                    <div class="row-field">
+                        <label>Key Benefit 10</label>
+                        <textarea  placeholder="Details of Products"
+                            formControlName="keybenefit10" maxlength="100"></textarea>
+                    
+                
+                        <label>Key Benefit 11</label>
+                        <textarea  placeholder="Details of Products"
+                            formControlName="keybenefit11" maxlength="100"></textarea>
+                    
+                
+                        <label>Key Benefit 12</label>
+                        <textarea  placeholder="Details of Products"
+                            formControlName="keybenefit12" maxlength="100"></textarea>
+                    </div>
+                
+          
+                    <input type="file" (change)="saveImage($event)">
+                    <img style="width: 150px; height: 150px;" src="../../../../assets/imagetesting/{{imageurl}}">
+                
+                <div fxLayout="row" fxLayoutAlign="end center">
+                    <button *ngIf="isEdited === 'NO'" class="savebutton" (click)="save()">Save</button>
+                    <div fxFlex="2" fxLayout="rows"></div>
+                    <button *ngIf="isEdited === 'YES'" class="savebutton" (click)="updateProduct()">Update</button>
+                    <div fxFlex="2" fxLayout="rows"></div>
+                    <button class="clearbutton" (click)="clear()">Clear</button>
+                    <div fxFlex="2" fxLayout="rows"></div>
+                </div>
+            </div>
+        </form>
+        <div class="card-body">
+            <div  class="search-filter" fxLayout="row" fxLayoutAlign="space-between center">
+                <i style="color: blue;" (click)="getProductList()" class="fa-solid fa-repeat"></i>
+                <div style="text-align: right;">
+                    <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+                    <input class="global" type="text" pInputText  placeholder="Global Filter"
+                    [(ngModel)]="search" [ngModelOptions]="{standalone: true}"
+                    style=" border: 1px solid black; border-radius: 5px;" />&nbsp;
+                </div>
+                <!-- <i style="color: blue;" class="fa-solid fa-file-excel" (click)="fileDownlod()"></i> -->
+            </div>
+            <br>
+            <div class="table-body">
+                <p-table #dt dataKey="id" styleClass="p-datatable-customers" [rowHover]="true" [rows]="11"
+                    responsiveLayout="scroll" [scrollable]="true" scrollHeight="500px"
+                    [globalFilterFields]="['name','country.name','representative.name','status']" [value]="amcservicelist | search : search"
+                    class="table">
+                    <ng-template pTemplate="header" class="tableheader">
+                        <tr class="header">
+                            <td>AMC Name</td>
+                            <td>AMC Heading</td>
+                            <td>AMC Covers</td>
+                            <td>Sales Price</td>
+                            <td>Key Benefit 1</td>
+                            <td>Key Benefit 2</td>
+                            <td>Key Benefit 3</td>
+                            <td>Key Benefit 4</td>
+                            <td>Key Benefit 5</td>
+                            <td>Key Benefit 6</td>
+                            <td>Key Benefit 7</td>
+                            <td>Key Benefit 8</td>
+                            <td>Key Benefit 9</td>
+                            <td>Key Benefit 10</td>
+                            <td>Key Benefit 11</td>
+                            <td>Key Benefit 12</td>
+                            <td>Image</td>
+                            <td><i style="color: blue; cursor: pointer;" class="fa-regular fa-pen-to-square"></i></td>
+                            <td><i style="color: red; cursor: pointer;" class="fa-solid fa-trash-can"></i></td>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-row>
+                        <tr>
+                            <td>{{row.amcname}}</td>
+                            <td>{{row.amcheading}}</td>
+                            <td>{{row.amccovers}}</td>
+                            <td>{{row.amcprice}}</td>
+                            <td>{{row.keybenefits1}}</td>
+                            <td>{{row.keybenefits2}}</td>
+                            <td>{{row.keybenefits3}}</td>
+                            <td>{{row.keybenefits4}}</td>
+                            <td>{{row.keybenefits5}}</td>
+                            <td>{{row.keybenefits6}}</td>
+                            <td>{{row.keybenefits7}}</td>
+                            <td>{{row.keybenefits8}}</td>
+                            <td>{{row.keybenefits9}}</td>
+                            <td>{{row.keybenefits10}}</td>
+                            <td>{{row.keybenefits11}}</td>
+                            <td>{{row.keybenefits12}}</td>
+                            <td><img style="width: 100px; height: 100px;" src="../../../../assets/imagetesting/{{row.imageurl}}" alt=""></td>
+                            <td><i (click)="editrow(row)" style="color: blue; cursor: pointer;"
+                                    class="fa-regular fa-pen-to-square"></i></td>
+                            <td><i (click)="deleteProduct(row)" style="color: red; cursor: pointer;"
+                                    class="fa-solid fa-trash-can"></i></td>
+                    </ng-template>
+                </p-table>
+            </div>
+        </div>
+
+    </section>
+</main>

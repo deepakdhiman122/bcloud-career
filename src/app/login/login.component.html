@@ -1,0 +1,128 @@
+<app-navbar></app-navbar>
+<main>
+  <div class="wrapper">
+    <div class="title-text">
+      <div class="title login" #loginText>Login Form</div>
+      <div class="title signup" #signupText>Signup Form</div>
+    </div>
+    <div class="form-container">
+      <div class="slide-controls">
+        <input type="radio" name="slider" id="login" checked>
+        <input type="radio" name="slider" id="signup">
+        <label for="login" class="slide login" #loginBtn>Login</label>
+        <label for="signup" class="slide signup" #signupBtn>Signup</label>
+        <div class="slide-tab"></div>
+      </div>
+      <div class="form-inner">
+        <!-- <form action="#" class="login" #loginForm>
+          <div class="field">
+            <input type="text" placeholder="Email Address" required autocomplete="disable">
+          </div>
+          <div class="field">
+            <input type="password" placeholder="Password" required>
+          </div>
+          <div class="pass-link"><a href="#">Forget password?</a></div>
+          <div class="field">
+            <input type="submit" Value="Login">
+          </div>
+          <div class="signup-link">Not a Member? <a href="#" #signupLink>Signup Now</a></div>
+        </form>  -->
+        <form [formGroup]="loginForm" (ngSubmit)="LoginFormFunction()" #loginPage>
+          <div class="field">
+            <input formControlName="email" type="text" placeholder="Mobile Number" autocomplete="disable" required>
+            <!-- <div *ngIf="loginForm.get('email')?.hasError('required') && loginForm.get('email')?.touched"
+              class="error-message">
+              Email is required
+            </div>
+            <div *ngIf="loginForm.get('email')?.hasError('email') && loginForm.get('email')?.touched" class="error-message">
+              Email is not valid
+            </div> -->
+          </div>
+          <div class="field">
+            <input formControlName="password" type="password" placeholder="Date Of Birth (for eg.: 06121988)" required>
+            <div *ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched"
+              class="error-message">
+              Password is required
+            </div>
+          </div>
+          <!-- <div class="pass-link"><a href="#">Forget password?</a></div> -->
+          <div class="field">
+            <input type="submit" value="Login" (click)="LoginFormFunction()" [disabled]="loginForm.invalid">
+          </div>
+          <div class="signup-link">Not a Member? <a href="#" #signupLink>Signup Now</a></div>
+        </form>
+
+        <!-- BEGINN :: SIGNup /////////////// -->
+
+
+        <form [formGroup]="signupForm" (ngSubmit)="signUpFunction()">
+          <div class="field">
+            <input formControlName="username" type="text" placeholder="User Name" autocomplete="disable" required>
+          </div>
+          <div class="field">
+            <input formControlName="mobile" [maxLength]="12" type="text" placeholder="Mobile Number"
+              autocomplete="disable" required>
+          </div>
+          <div class="field">
+            <input formControlName="address" type="text" placeholder="Address" autocomplete="disable" required>
+          </div>
+          <div class="field">
+            <input formControlName="district" type="text" placeholder="District" autocomplete="disable" required>
+          </div>
+          <div class="field">
+            <input formControlName="email" type="text" placeholder="Email Address" autocomplete="disable">
+            <div *ngIf="signupForm.get('email')?.hasError('required') && signupForm.get('email')?.touched"
+              class="error-message">
+              Email is required
+            </div>
+            <div *ngIf="signupForm.get('email')?.hasError('email') && signupForm.get('email')?.touched"
+              class="error-message">
+              Email is not valid
+            </div>
+          </div>
+          <div class="field">
+            <input formControlName="refercode" type="text" placeholder="Reference Coupon Code" autocomplete="disable">
+          </div>
+          <div class="field">
+            <input formControlName="password" type="password" placeholder="Password" required>
+            <div *ngIf="signupForm.get('password')?.hasError('required') && signupForm.get('password')?.touched"
+              class="error-message">
+              Password is required
+            </div>
+          </div>
+          <div class="field">
+            <input formControlName="userrollid" type="text" placeholder="userrollid" autocomplete="disable" required>
+          </div>
+          <!-- <div class="field">
+            <input formControlName="confirmPassword" type="password" placeholder="Confirm Password" required>
+            <div *ngIf="signupForm.get('confirmPassword')?.hasError('required') && signupForm.get('confirmPassword')?.touched"
+              class="error-message">
+              Confirm Password is required
+            </div>
+            <div *ngIf="signupForm?.hasError('mismatch') && signupForm.get('confirmPassword')?.touched" class="error-message">
+              Passwords do not match
+            </div>
+          </div> -->
+          <div class="field">
+            <input type="submit" value="Signup" [disabled]="signupForm.invalid">
+          </div>
+          <!-- <div *ngIf="signupForm.valid" class="success-message">
+            Signup successfull!
+          </div>  -->
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="box">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</main>

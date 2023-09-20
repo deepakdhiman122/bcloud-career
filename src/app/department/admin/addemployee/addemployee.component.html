@@ -1,0 +1,119 @@
+<main>
+    <nav>
+        <div class="logo">
+            <div class="logo-image"><img src="../../assets/logo.png" alt="logo-image"></div>
+            <div class="logo-name">Grow More</div>
+        </div>
+        <app-sidenavbar></app-sidenavbar>
+    </nav>
+    <section class="dashboard">
+        <app-topnav></app-topnav>
+        <div class="dash-content">
+            <div class="overview">
+                <div class="title">
+                    <i class="fa-solid fa-boxes-stacked"></i>
+                    <span class="text">Add Employee</span>
+                </div>
+            </div>
+        </div>
+        <form [formGroup]="form">
+            <div>
+                <div class="row-field">
+                        <label>Employee Name</label>
+                        <input type="text" placeholder="Ex.: Mixer Rio" formControlName="employeename">
+                 
+                
+                        <label>Mobile No</label>
+                        <input  type="tel" placeholder="Ex.: Singer India Ltd" maxlength="12"
+                            formControlName="mobileno">
+                  
+                   
+                        <label>Email Address</label>
+                        <input matInput type="email" placeholder="Ex.: Small Appliances" formControlName="email">
+                        <div *ngIf="form.get('email')?.hasError('required') && form.get('email')?.touched"
+                            class="error-message">
+                            Email is required
+                        </div>
+                        <div *ngIf="form.get('email')?.hasError('email') && form.get('email')?.touched"
+                            class="error-message">
+                            Email is not valid
+                        </div>
+                    
+                   </div>
+                   <div class="row-field">
+                        <label>Current Address</label>
+                        <textarea   maxlength="200"
+                            formControlName="currentaddress"></textarea>
+                  
+                
+                        <label>Permanent Address</label>
+                        <textarea   maxlength="200"
+                            formControlName="permanentaddress"></textarea>
+                   
+                </div>
+                <div class="row-field">
+                    <label>Employee Roll</label>
+                    <select class="form-select" aria-label="Default select example" formControlName="employeeroll">
+                        <option selected value="servicesngineer">Service Engineer</option>
+                        <option value="admin">Admin</option>
+                      </select>
+
+                </div>
+                <br>
+                <div fxLayout="row" fxLayoutAlign="end center">
+                    <button *ngIf="isEdited === 'NO'" class="savebutton" (click)="save()">Save</button>
+                    <div fxFlex="2" fxLayout="rows"></div>
+                    <button *ngIf="isEdited === 'YES'" class="savebutton" (click)="updateProduct()">Update</button>
+                    <div fxFlex="2" fxLayout="rows"></div>
+                    <button class="clearbutton" (click)="clear()">Clear</button>
+                    <div fxFlex="2" fxLayout="rows"></div>
+                </div>
+            </div>
+        </form>
+        <div class="card-body">
+            <div  class="search-filter" fxLayout="row" fxLayoutAlign="space-between center">
+                <i style="color: blue;" (click)="getEmployeeList()" class="fa-solid fa-repeat"></i>
+                <div style="text-align: left;">
+                    <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+                    <input class="global" type="text" pInputText placeholder="Global Filter"
+                    [(ngModel)]="search" [ngModelOptions]="{standalone: true}"
+                    style=" border: 1px solid black; border-radius: 5px;" />&nbsp;
+                </div>
+                <!-- <i style="color: blue;" class="fa-solid fa-file-excel" (click)="fileDownlod()"></i> -->
+            </div>
+            <br>
+            <div class="table-body">
+                <p-table #dt dataKey="id" styleClass="p-datatable-customers" [rowHover]="true" [rows]="11"
+                    responsiveLayout="scroll" [scrollable]="true" scrollHeight="500px"
+                    [globalFilterFields]="['name','country.name','representative.name','status']" [value]="employeelist | search : search"
+                    class="table">
+                    <ng-template pTemplate="header" class="tableheader">
+                        <tr class="header">
+                            <td>Employee Name</td>
+                            <td>Mobile No</td>
+                            <td>Email</td>
+                            <td>Current Address</td>
+                            <td>Permanent Address</td>
+                            <td>Employee Roll</td>
+                            <td><i style="color: blue; cursor: pointer;" class="fa-regular fa-pen-to-square"></i></td>
+                            <td><i style="color: red; cursor: pointer;" class="fa-solid fa-trash-can"></i></td>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-row>
+                        <tr>
+                            <td>{{row.name}}</td>
+                            <td>{{row.mobileno}}</td>
+                            <td>{{row.emailaddress}}</td>
+                            <td>{{row.currentaddress}}</td>
+                            <td>{{row.permanentaddress}}</td>
+                            <td>{{row.employeeroll}}</td>
+                            <td><i (click)="editrow(row)" style="color: blue; cursor: pointer;"
+                                    class="fa-regular fa-pen-to-square"></i></td>
+                            <td><i (click)="deleteProduct(row)" style="color: red; cursor: pointer;"
+                                    class="fa-solid fa-trash-can"></i></td>
+                    </ng-template>
+                </p-table>
+            </div>
+        </div>
+    </section>
+</main>

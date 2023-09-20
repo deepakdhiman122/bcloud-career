@@ -1,0 +1,40 @@
+
+main{
+    min-height: 100vh;
+    
+}
+
+  
+  thead tr {
+    padding: 20px;
+    border-top: 1 px solid rgb(36, 40, 40);
+    border-bottom: 2px solid rgb(36, 40, 40);
+    border-left: 1px solid rgb(36, 40, 40);
+  }
+  
+  thead td {
+  
+    font-weight: 700;
+    background-color: rgb(36, 40, 40);
+  
+  }
+  
+  td {
+ 
+    padding: 10px;
+    font-size: px;
+    color: #222;
+  
+  }
+  
+  .table th {
+    background-color: azure;
+    font-weight: 700;
+  
+  }
+  .header {
+    font-weight: 700;
+    background-color: rgb(20, 227, 227);
+
+  }
+  

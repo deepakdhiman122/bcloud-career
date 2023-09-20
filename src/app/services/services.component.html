@@ -1,0 +1,395 @@
+<main  id="top">
+  <app-navbar></app-navbar>
+
+  <!-- Notice & Announcement -->
+  <div class="conatianer-fluid banner">
+    <owl-carousel-o [options]="bannerOptions">
+      <ng-template carouselSlide>
+        <img src="../../assets/1.png" alt="announcement">
+      </ng-template>
+      <ng-template carouselSlide>
+        <img src="../../assets/2.png" alt="notice">
+      </ng-template>
+      <ng-template carouselSlide>
+        <img src="../../assets/3.png" alt="notice">
+      </ng-template>
+    </owl-carousel-o>
+  </div>
+
+  <!-- explore service -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12 my-5 text"><h1 align="center">Explore Our Services</h1></div>
+      <div class="col-6 col-md-3">
+        <a class="service" routerLink="/airconditioner" (click)="callservice('Air Conditioner')">
+          <div class="service-img"><img src="../../assets/Air Conditioner.png" alt="AC service" ></div>
+          <h2 class="service-title">AC Services</h2>
+        </a>
+      </div>
+      <div class=" col-6 col-md-3" >
+        <a routerLink="/airconditioner" (click)="callservice('Refrigerator')"class="service">
+          <div class="service-img"><img src="../../assets/Refrigrator.png" alt="Refrigerator" ></div>
+          <h2 class="service-title">Refrigerator services</h2>
+        </a>
+      </div>
+      <div class="col-6 col-md-3">
+        <a routerLink="/airconditioner" (click)="callservice('Washing Machine')" class="service">
+          <div class="service-img"><img src="../../assets/Washing Machine.png" alt="Washing Machine" ></div>
+          <h2 class="service-title">Washing Machine Services</h2>
+        </a>
+      </div>
+      <div class="col-6 col-md-3">
+        <a routerLink="/airconditioner" (click)="callservice('LED TV')" class="service">
+          <div class="service-img"><img src="../../assets/television.png" alt="TV" ></div>
+          <h2 class="service-title">Television Services</h2>
+        </a>
+      </div>
+      <div class="col-6 col-md-3">
+        <a routerLink="/airconditioner" (click)="callservice('Microwave')" class="service">
+          <div class="service-img"><img src="../../assets/6787-removebg-preview.png" alt="Home Theator" ></div>
+          <h2 class="service-title">Microwave</h2>
+        </a>
+      </div>
+      <div class="col-6 col-md-3">
+        <a routerLink="/airconditioner" (click)="callservice('Chimney')" class="service">
+          <div class="service-img"><img src="../../assets/Chimney.png" alt="Chimney" ></div>
+          <h2 class="service-title">Chimney Services</h2>
+        </a>
+      </div>
+      <div class="col-6 col-md-3">
+        <a routerLink="/airconditioner" (click)="callservice('Small Appliances')" class="service">
+          <div class="service-img"><img src="../../assets/Juicer.png" alt="Juicer" ></div>
+          <h2 class="service-title">Small Applainces</h2>
+        </a>
+      </div>
+      <div  class="col-6 col-md-3">
+        <a routerLink="/airconditioner" (click)="callservice('Geyser')" class="service">
+          <div class="service-img"><img src="../../assets/Geyser.png" alt="geyser" ></div>
+          <h2 class="service-title">Geyser Service</h2>
+        </a>
+      </div>
+      <div class="col-6 col-md-3">
+        <a routerLink="/airconditioner" (click)="callservice('Air Cooler')"class="service">
+          <div class="service-img"><img src="../../assets/Air Cooler.png" alt="Air Cooler" ></div>
+          <h2 class="service-title">Air Cooler Services</h2>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- why Choose us -->
+  <div class="container-fluid choose">
+    <div class="row justify-content-center">
+      <div class="col-md-12 my-4"><h1 align="center">Why Choose Us</h1></div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-4">
+        <div class="counter">
+          <h2 class="counter-number">1000+</h2>
+          <p class="counter-text"> Partnered Retail Stores</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <h2 class="counter-number">300+</h2>
+        <p class="counter-text">Brands Covered</p>
+      </div>
+      <div class="col-md-4">
+        <h2 class="counter-number">80+</h2>
+        <p class="counter-text">Thousand Customers</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Services -->
+  <div id="serv" [ngSwitch]="services" class="container-fluid ">
+   
+    <div *ngSwitchCase="'ref'">
+      <div class="row">
+        <div class="col-md-12 my-5 text"><h2 align="center">Refrigerator Services</h2></div>
+      </div>
+      <div class="row Services">
+        <div class="col-md-3">
+          <div class="card">
+            <img src="../../assets/refrigerator maintenance.jpg" alt="AC Jet Service" class="card-img-top">
+            <div class="card-body">
+              <h4 class="card-title">Refrigerator Mantenance</h4>
+              <h6 class="card-price text-muted">starts at &#8377;249</h6>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card">
+            <img src="../../assets/ac-gas-filling.jpeg" alt="AC Jet Service" class="card-img-top">
+            <div class="card-body">
+              <h4 class="card-title">Refrigerator Gas Filling</h4>
+              <h6 class="card-price text-muted">starts at &#8377;249</h6>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card">
+            <img src="../../assets/refrigerator-annual-service.jpg" alt="AC Jet Service" class="card-img-top">
+            <div class="card-body">
+              <h4 class="card-title">Refrigerator Annual Service</h4>
+              <h6 class="card-price text-muted">starts at &#8377;249</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngSwitchCase="'wash'">
+      <div class="row">
+        <div class="col-md-12 my-5 text"><h2 align="center">Washing Machine Services</h2></div>
+      </div>
+      <div class="row Services">
+        <div class="col-md-3">
+          <div class="card">
+            <img src="../../assets/refrigerator maintenance.jpg" alt="" class="card-img-top">
+            <div class="card-body">
+              <h4 class="card-title">Washing Machine Installation</h4>
+              <h6 class="card-price text-muted">starts at &#8377;249</h6>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card">
+            <img src="../../assets/washing-machine-motor-service.jpeg" alt="" class="card-img-top">
+            <div class="card-body">
+              <h4 class="card-title">Washing Machine Motor Service</h4>
+              <h6 class="card-price text-muted">starts at &#8377;249</h6>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card">
+            <img src="../../assets/washing-machine-service.jpeg" alt="" class="card-img-top">
+            <div class="card-body">
+              <h4 class="card-title">Washing Machine Annual Service</h4>
+              <h6 class="card-price text-muted">starts at &#8377;249</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngSwitchCase="'tv'">
+      <div class="row">
+        <div class="col-md-12 my-5 text"><h2 align="center">Television Services</h2></div>
+      </div>
+      <div class="row Services">
+        <div class="col-md-3">
+          <div class="card">
+            <img src="../../assets/tv-installation.jpg" alt="" class="card-img-top">
+            <div class="card-body">
+              <h4 class="card-title">TV Installation</h4>
+              <h6 class="card-price text-muted">starts at &#8377;249</h6>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card">
+            <img src="../../assets/motherboard-repair.jpg" alt="" class="card-img-top">
+            <div class="card-body">
+              <h4 class="card-title">TV motherboard repair</h4>
+              <h6 class="card-price text-muted">starts at &#8377;249</h6>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card">
+            <img src="../../assets/tv-anual-service.jpg" alt="" class="card-img-top">
+            <div class="card-body">
+              <h4 class="card-title">TV Annual Service</h4>
+              <h6 class="card-price text-muted">starts at &#8377;249</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngSwitchCase="'theator'">
+      <div class="row">
+        <div class="col-md-12 my-5 text"><h2 align="center">Home Theator Service</h2></div>
+      </div>
+      <div class="row Services">
+        <div class="col-md-3">
+          <div class="card">
+            <img src="../../assets/home theator.jpeg" alt="" class="card-img-top">
+            <div class="card-body">
+              <h4 class="card-title">Home Theator Installation</h4>
+              <h6 class="card-price text-muted">starts at &#8377;249</h6>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card">
+            <img src="../../assets/monthly service.jpg" alt="" class="card-img-top">
+            <div class="card-body">
+              <h4 class="card-title">Monthly Service</h4>
+              <h6 class="card-price text-muted">starts at &#8377;249</h6>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card">
+            <img src="../../assets/tv-anual-service.jpg" alt="" class="card-img-top">
+            <div class="card-body">
+              <h4 class="card-title">Annual Service</h4>
+              <h6 class="card-price text-muted">starts at &#8377;249</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngSwitchCase="'chimney'">
+      <div class="row">
+        <div class="col-md-12 my-5 text"><h2 align="center">Chimney Services</h2></div>
+      </div>
+      <div class="row Services">
+        <div class="col-md-3">
+          <div class="card">
+            <img src="../../assets/chimney-installation.jpeg" alt="" class="card-img-top">
+            <div class="card-body">
+              <h4 class="card-title">Chimney Installation</h4>
+              <h6 class="card-price text-muted">starts at &#8377;249</h6>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card">
+            <img src="../../assets/chimney cleaning.jpg" alt="" class="card-img-top">
+            <div class="card-body">
+              <h4 class="card-title">chimney Cleaning</h4>
+              <h6 class="card-price text-muted">starts at &#8377;249</h6>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card">
+            <img src="../../assets/chimey-annual-service.jpg" alt="" class="card-img-top">
+            <div class="card-body">
+              <h4 class="card-title">Chimney Annual Service</h4>
+              <h6 class="card-price text-muted">starts at &#8377;249</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngSwitchCase="'mixer'">
+      <div class="row">
+        <div class="col-md-12 my-5 text"><h2 align="center">Mixer Services</h2></div>
+      </div>
+      <div class="row Services">
+        <div class="col-md-3">
+          <div class="card">
+            <img src="../../assets/Motor Winding.jpeg" alt="" class="card-img-top">
+            <div class="card-body">
+              <h4 class="card-title">Motor Winding</h4>
+              <h6 class="card-price text-muted">starts at &#8377;249</h6>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card">
+            <img src="../../assets/mixer-glasses.jpeg" alt="" class="card-img-top">
+            <div class="card-body">
+              <h4 class="card-title">High Quality Glasses</h4>
+              <h6 class="card-price text-muted">starts at &#8377;249</h6>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card">
+            <img src="../../assets/monthly service.jpg" alt="" class="card-img-top">
+            <div class="card-body">
+              <h4 class="card-title">Monthly Service</h4>
+              <h6 class="card-price text-muted">starts at &#8377;249</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngSwitchCase="'geyser'">
+      <div class="row">
+        <div class="col-md-12 my-5 text"><h2 align="center">Geyser Services</h2></div>
+      </div>
+      <div class="row Services">
+        <div class="col-md-3">
+          <div class="card">
+            <img src="../../assets/geyser-installation.jpg" alt="" class="card-img-top">
+            <div class="card-body">
+              <h4 class="card-title">Geyser Installation</h4>
+              <h6 class="card-price text-muted">starts at &#8377;249</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngSwitchCase="'acool'">
+      <div class="row">
+        <div class="col-md-12 my-5 text"><h2 align="center">Air Cooler Services</h2></div>
+      </div>
+      <div class="row Services">
+        <div class="col-md-3">
+          <div class="card">
+            <img src="../../assets/air-cooler-cleaning.jpeg" alt="" class="card-img-top">
+            <div class="card-body">
+              <h4 class="card-title">Air Cooler Cleaning</h4>
+              <h6 class="card-price text-muted">starts at &#8377;249</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Reviews -->
+  <div class="container-fluid">
+    <div class="row justify-content-center" style="background: #d6e4e5;">
+      <div class="col-md-12 my-4">
+        <h2 align="center">Reviews</h2>
+      </div>
+    </div>
+    <div class="row reviews">
+      <div *ngFor="let product of reviwelist;"class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <h3 class="card-title">{{product.name}}</h3>
+            <h5><span style="color: #ffa41c;" [innerHTML]="printStars(product.ratingbyuser)"></span></h5>
+            <p class="card-text">{{product.review}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- brand banner -->
+  <div class="container-fluid">
+    <owl-carousel-o class="brands" [options]="customOptions">
+      <ng-template carouselSlide>
+        <img src="../../assets/amazon.webp" alt="amazon">
+      </ng-template>
+      <ng-template carouselSlide>
+        <img src="../../assets/Philips-Logo.png" alt="Philips">
+      </ng-template>
+      <ng-template carouselSlide>
+        <img src="../../assets/Whirlpool-Company-Logo.jpg" alt="">
+      </ng-template>
+      <ng-template carouselSlide>
+        <img src="../../assets/Haier-Company-Logo.jpg" alt="">
+      </ng-template>
+      <ng-template carouselSlide>
+        <img src="../../assets/lg.jpg" alt="">
+      </ng-template>
+      <ng-template carouselSlide>
+        <img src="../../assets/Bajaj.png" alt="">
+      </ng-template>
+      <ng-template carouselSlide>
+        <img src="../../assets/Croma.webp" alt="">
+      </ng-template>
+      <ng-template carouselSlide>
+        <img src="../../assets/Samsung-Company-Logo.jpg" alt="">
+      </ng-template>
+    </owl-carousel-o>
+  </div>
+  
+  <app-footer></app-footer>
+</main>
