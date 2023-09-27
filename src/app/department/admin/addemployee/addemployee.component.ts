@@ -15,6 +15,8 @@ export class AddemployeeComponent {
   isEdited: any = 'NO';
   imageurl: any;
   selectedFile!: File;
+  successMessage: any = [];
+  msg: any = [];
 
   employeelist: any = [];
   employeeid: any;
@@ -24,12 +26,13 @@ export class AddemployeeComponent {
 
   ngOnInit(): void {
     this.form = new FormGroup({
-      employeename: new FormControl(null),
-      mobileno: new FormControl(null),
+      username: new FormControl(null),
+      mobile: new FormControl(null),
       email: new FormControl(null),
-      currentaddress: new FormControl(null),
-      permanentaddress: new FormControl(null),
-      employeeroll: new FormControl(null)
+      address: new FormControl(null),
+      district: new FormControl(null),
+      userrollid: new FormControl(null),
+      password: new FormControl(null)
     });
     let mode = localStorage.getItem("mode");
     if (mode && mode === "dark") {
@@ -46,11 +49,15 @@ export class AddemployeeComponent {
 
   getEmployeeList(): void {
     this.service.getEmployeeList().subscribe(data => {
-      if (data.status.responseStatus === 'Success') {
-        this.employeelist = data.response.employeelist;
+      console.log(data);
+
+      if (data.statusCode == 200) {
+        this.toaster.success('Getting Employee List Successfully', 'SUCCESSFULLY SAVED');
+        this.employeelist = data.result;
       } else {
-        this.toaster.error('Getting Product List', 'ERROR WHILE');
+        this.toaster.error('Getting No Employee List', 'ERROR WHILE');
       }
+
     });
   }
 
@@ -71,25 +78,28 @@ export class AddemployeeComponent {
 
   editrow(row: any): void {
     this.isEdited = 'YES';
-    this.form.controls['employeename'].setValue(row.name);
-    this.form.controls['mobileno'].setValue(row.brand);
-    this.form.controls['email'].setValue(row.productcategory);
-    this.form.controls['currentaddress'].setValue(row.details);
-    this.form.controls['permanentaddress'].setValue(row.mrp);
-    this.form.controls['employeeroll'].setValue(row.productrating);
-    this.employeeid = row.employeeid
+    this.form.controls['email'].setValue(row.email);
+    this.form.controls['username'].setValue(row.username);
+    this.form.controls['mobile'].setValue(row.mobile);
+    this.form.controls['address'].setValue(row.address);
+    this.form.controls['district'].setValue(row.district);
+    this.form.controls['password'].setValue(row.password);
+    this.form.controls['userrollid'].setValue(row.userrollid);
+    this.employeeid = row._id
+    console.log("employee id", this.employeeid);
+
     console.log(this.isEdited);
   }
 
-  saveImage(event: any) : void {
+  saveImage(event: any): void {
     this.selectedFile = event.target.files[0];
     console.log(this.selectedFile);
-    
+
     //FormData API provides methods and properties to allow us easily prepare form data to be sent with POST HTTP requests.
     const uploadImageData = new FormData();
     uploadImageData.append('imageFile', this.selectedFile, this.selectedFile.name);
     this.service.onImageUpload(uploadImageData).subscribe(data => {
-      if (data.status.responseStatus === 'Success') {
+      if (data.message === "success") {
         this.imageurl = data.response.imageURL;
         this.toaster.success('Product Saved Successfull', 'SAVE SUCCESSFULL');
       }
@@ -105,18 +115,23 @@ export class AddemployeeComponent {
 
   updateProduct(): void {
     const jsondata = {
-      'employeename': this.form.controls['employeename'].value,
-      'mobileno': this.form.controls['mobileno'].value,
       'email': this.form.controls['email'].value,
-      'currentaddress': this.form.controls['currentaddress'].value,
-      'permanentaddress': this.form.controls['permanentaddress'].value,
-      'employeeroll': this.form.controls['employeeroll'].value,
-      'userid': localStorage.getItem('userid'),
-      'employeeid' : this.employeeid
+      'username': this.form.controls['username'].value,
+      'mobile': this.form.controls['mobile'].value,
+      'address': this.form.controls['address'].value,
+      'district': this.form.controls['district'].value,
+      'password': this.form.controls['password'].value,
+      'userrollid': this.form.controls['userrollid'].value,
+      // 'userid': localStorage.getItem('userid'),
+      'employeeid': this.employeeid
     }
     this.service.updateProduct(jsondata).subscribe(data => {
-      if (data.status.responseStatus === 'Success') {
+      console.log("updated", data);
+      this.successMessage = data
+      this.msg = this.successMessage.message
+      if (this.successMessage.message === 'success') {
         this.clear();
+        this.getEmployeeList();
         this.toaster.success('Product Updated Successfully', 'SUCCESSFULLY UPDATED');
       }
       else {
@@ -126,32 +141,37 @@ export class AddemployeeComponent {
   }
 
   save(): void {
-    const jsondata = {
-      'employeename': this.form.controls['employeename'].value,
-      'mobileno': this.form.controls['mobileno'].value,
+    const data = {
       'email': this.form.controls['email'].value,
-      'currentaddress': this.form.controls['currentaddress'].value,
-      'permanentaddress': this.form.controls['permanentaddress'].value,
-      'employeeroll': this.form.controls['employeeroll'].value,
+      'username': this.form.controls['username'].value,
+      'mobile': this.form.controls['mobile'].value,
+      'address': this.form.controls['address'].value,
+      'district': this.form.controls['district'].value,
+      'password': this.form.controls['password'].value,
+      'userrollid': this.form.controls['userrollid'].value,
       'userid': localStorage.getItem('userid')
     }
-    this.service.saveEmployee(jsondata).subscribe(data => {
-      if (data.status.responseStatus === 'Success') {
+    this.service.saveEmployee(data).subscribe(data => {
+      if (data.statusCode === 201) {
+        this.toaster.success('Product saved Successfully', 'SUCCESSFULLY SAVED');
+        console.log("employee successfullt added ", data);
         this.clear();
         this.getEmployeeList();
-        this.toaster.success('Product saved Successfully', 'SUCCESSFULLY SAVED');
       }
       else {
-        this.toaster.error('Product save Failed', 'ERROR WHILE SAVING');
+        this.toaster.error('Employee save Failed', 'ERROR WHILE SAVING');
       }
+      console.log("data post employee ", data);
+
     });
   }
   clear(): void {
-    this.form.controls['employeename'].setValue(null);
-    this.form.controls['mobileno'].setValue(null);
     this.form.controls['email'].setValue(null);
-    this.form.controls['currentaddress'].setValue(null);
-    this.form.controls['permanentaddress'].setValue(0);
-    this.form.controls['employeeroll'].setValue(0);
+    this.form.controls['username'].setValue(null);
+    this.form.controls['mobile'].setValue(null);
+    this.form.controls['address'].setValue(null);
+    this.form.controls['district'].setValue(null);
+    this.form.controls['password'].setValue(null);
+    this.form.controls['userrollid'].setValue(0);
   }
 }

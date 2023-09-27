@@ -19,46 +19,49 @@
         <form [formGroup]="form">
             <div>
                 <div class="row-field">
-                        <label>Employee Name</label>
-                        <input type="text" placeholder="Ex.: Mixer Rio" formControlName="employeename">
-                 
-                
-                        <label>Mobile No</label>
-                        <input  type="tel" placeholder="Ex.: Singer India Ltd" maxlength="12"
-                            formControlName="mobileno">
-                  
-                   
-                        <label>Email Address</label>
-                        <input matInput type="email" placeholder="Ex.: Small Appliances" formControlName="email">
-                        <div *ngIf="form.get('email')?.hasError('required') && form.get('email')?.touched"
-                            class="error-message">
-                            Email is required
-                        </div>
-                        <div *ngIf="form.get('email')?.hasError('email') && form.get('email')?.touched"
-                            class="error-message">
-                            Email is not valid
-                        </div>
-                    
-                   </div>
-                   <div class="row-field">
-                        <label>Current Address</label>
-                        <textarea   maxlength="200"
-                            formControlName="currentaddress"></textarea>
-                  
-                
-                        <label>Permanent Address</label>
-                        <textarea   maxlength="200"
-                            formControlName="permanentaddress"></textarea>
-                   
-                </div>
-                <div class="row-field">
-                    <label>Employee Roll</label>
-                    <select class="form-select" aria-label="Default select example" formControlName="employeeroll">
-                        <option selected value="servicesngineer">Service Engineer</option>
-                        <option value="admin">Admin</option>
-                      </select>
+                    <label>Employee Name</label>
+                    <input type="text" placeholder="Ex.: Mixer Rio" formControlName="username">
+
+
+                    <label>Mobile No</label>
+                    <input type="tel" placeholder="Mobile Number" maxlength="10" formControlName="mobile">
+
+
+                    <label>Email Address</label>
+                    <input matInput type="email" placeholder="Example@gmail.com" formControlName="email">
+                    <div *ngIf="form.get('email')?.hasError('required') && form.get('email')?.touched"
+                        class="error-message">
+                        Email is required
+                    </div>
+                    <div *ngIf="form.get('email')?.hasError('email') && form.get('email')?.touched"
+                        class="error-message">
+                        Email is not valid
+                    </div>
 
                 </div>
+                <div class="row-field">
+                    <label>Address</label>
+                    <textarea maxlength="500" placeholder="Address" formControlName="address"></textarea>
+
+
+                    <label>District</label>
+                    <textarea maxlength="200" placeholder="District" formControlName="district"></textarea>
+
+                </div>
+                <div class="row-field d-flex">
+                    <label>Employee Roll</label>
+                    <select class="form-select" aria-label="Default select example" placeholder="Roll" formControlName="userrollid">
+                        <option selected value="servicesngineer">Service Engineer</option>
+                        <option value="admin">Admin</option>
+                    </select>
+
+                    <label>Password</label>
+                    <input type="password" placeholder="Password" maxlength="12" formControlName="password">
+
+
+                </div>
+
+
                 <br>
                 <div fxLayout="row" fxLayoutAlign="end center">
                     <button *ngIf="isEdited === 'NO'" class="savebutton" (click)="save()">Save</button>
@@ -71,13 +74,13 @@
             </div>
         </form>
         <div class="card-body">
-            <div  class="search-filter" fxLayout="row" fxLayoutAlign="space-between center">
+            <div class="search-filter" fxLayout="row" fxLayoutAlign="space-between center">
                 <i style="color: blue;" (click)="getEmployeeList()" class="fa-solid fa-repeat"></i>
                 <div style="text-align: left;">
                     <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
-                    <input class="global" type="text" pInputText placeholder="Global Filter"
-                    [(ngModel)]="search" [ngModelOptions]="{standalone: true}"
-                    style=" border: 1px solid black; border-radius: 5px;" />&nbsp;
+                    <input class="global" type="text" pInputText placeholder="Global Filter" [(ngModel)]="search"
+                        [ngModelOptions]="{standalone: true}"
+                        style=" border: 1px solid black; border-radius: 5px;" />&nbsp;
                 </div>
                 <!-- <i style="color: blue;" class="fa-solid fa-file-excel" (click)="fileDownlod()"></i> -->
             </div>
@@ -85,28 +88,29 @@
             <div class="table-body">
                 <p-table #dt dataKey="id" styleClass="p-datatable-customers" [rowHover]="true" [rows]="11"
                     responsiveLayout="scroll" [scrollable]="true" scrollHeight="500px"
-                    [globalFilterFields]="['name','country.name','representative.name','status']" [value]="employeelist | search : search"
-                    class="table">
+                    [globalFilterFields]="['name','country.name','representative.name','status']"
+                    [value]="employeelist | search : search" class="table">
                     <ng-template pTemplate="header" class="tableheader">
                         <tr class="header">
                             <td>Employee Name</td>
                             <td>Mobile No</td>
                             <td>Email</td>
-                            <td>Current Address</td>
-                            <td>Permanent Address</td>
+                            <td>Address</td>
+                            <td>District</td>
                             <td>Employee Roll</td>
+
                             <td><i style="color: blue; cursor: pointer;" class="fa-regular fa-pen-to-square"></i></td>
                             <td><i style="color: red; cursor: pointer;" class="fa-solid fa-trash-can"></i></td>
                         </tr>
                     </ng-template>
                     <ng-template pTemplate="body" let-row>
                         <tr>
-                            <td>{{row.name}}</td>
-                            <td>{{row.mobileno}}</td>
-                            <td>{{row.emailaddress}}</td>
-                            <td>{{row.currentaddress}}</td>
-                            <td>{{row.permanentaddress}}</td>
-                            <td>{{row.employeeroll}}</td>
+                            <td>{{row.username}}</td>
+                            <td>{{row.mobile}}</td>
+                            <td>{{row.email}}</td>
+                            <td>{{row.address}}</td>
+                            <td>{{row.district}}</td>
+                            <td>{{row.userrollid}}</td>
                             <td><i (click)="editrow(row)" style="color: blue; cursor: pointer;"
                                     class="fa-regular fa-pen-to-square"></i></td>
                             <td><i (click)="deleteProduct(row)" style="color: red; cursor: pointer;"

@@ -11,6 +11,7 @@ import { LoginService } from './login.service';
 })
 export class LoginComponent implements OnInit {
   loginInfo: any = [];
+  id: any;
 
   constructor(private service: LoginService, private route: Router, private toaster: ToastrService) { }
 
@@ -82,72 +83,81 @@ export class LoginComponent implements OnInit {
   //     : null;
   // }
 
-  // Login() {
+  // LoginFormFunction() {
   //   const jsonbody = {
   //     "userid": this.loginForm.controls['email'].value,
   //     "password": this.loginForm.controls['password'].value
   //   }
-  //   this.service.validateLogin(jsonbody).subscribe(data => {
-  //     if (data.status.responseStatus === "Success") {
-  //       this.loginInfo = data.response.logininfo;
-  //       // console.log(this.loginInfo);
-  //       if (this.loginInfo[0].userrollid === 'customer') {
-  //         localStorage.setItem('islogedin', 'true');
-  //         localStorage.setItem('userid', this.loginInfo[0].userid);
-  //         localStorage.setItem('rollid', this.loginInfo[0].userrollid);
-  //         this.getUserDetails();
-  //         this.toaster.success("Login Successfully");
-  //         this.route.navigate(['/cart']);
-  //       } else if (this.loginInfo[0].userrollid === 'servicesngineer') {
-  //         localStorage.setItem('islogedin', 'true');
-  //         localStorage.setItem('userid', this.loginInfo[0].userid);
-  //         localStorage.setItem('rollid', this.loginInfo[0].userrollid);
-  //         this.toaster.success("Login Successfully");
-  //         this.route.navigate(['/employeedashboard']);
-  //       } else if (this.loginInfo[0].userrollid === 'admin') {
-  //         localStorage.setItem('islogedin', 'true');
-  //         localStorage.setItem('userid', this.loginInfo[0].userid);
-  //         localStorage.setItem('rollid', this.loginInfo[0].userrollid);
-  //         this.toaster.success("Login Successfully");
-  //         this.route.navigate(['/dashboard']);
-  //       } else {
-  //         this.toaster.warning("INVAILID!! Contact IT Team.");
-  //         ("Login Successfully");
-  //       }
-  //     }
-  //     else {
-  //       console.log(Response.error);
-  //     }
+  //   this.loginForm = new FormGroup({
+  //     email: new FormControl('', [Validators.required]),
+  //     password: new FormControl('', Validators.required)
+  //   });
+  //   console.log("loginForm", this.loginForm);
+
+  //   this.service.validateLogin(this.loginForm.value).subscribe(data => {
+  //     alert("working login functions")
+  //     console.log(data);
+
+  //     // if (data.status.responseStatus === "Success") {
+  //     //   this.loginInfo = data.response.logininfo;
+  //     //   // console.log(this.loginInfo);
+  //     //   if (this.loginInfo[0].userrollid === 'customer') {
+  //     //     localStorage.setItem('islogedin', 'true');
+  //     //     localStorage.setItem('userid', this.loginInfo[0].userid);
+  //     //     localStorage.setItem('rollid', this.loginInfo[0].userrollid);
+  //     //     this.getUserDetails();
+  //     //     this.toaster.success("Login Successfully");
+  //     //     this.route.navigate(['/cart']);
+  //     //   } else if (this.loginInfo[0].userrollid === 'servicesngineer') {
+  //     //     localStorage.setItem('islogedin', 'true');
+  //     //     localStorage.setItem('userid', this.loginInfo[0].userid);
+  //     //     localStorage.setItem('rollid', this.loginInfo[0].userrollid);
+  //     //     this.toaster.success("Login Successfully");
+  //     //     this.route.navigate(['/employeedashboard']);
+  //     //   } else if (this.loginInfo[0].userrollid === 'admin') {
+  //     //     localStorage.setItem('islogedin', 'true');
+  //     //     localStorage.setItem('userid', this.loginInfo[0].userid);
+  //     //     localStorage.setItem('rollid', this.loginInfo[0].userrollid);
+  //     //     this.toaster.success("Login Successfully");
+  //     //     this.route.navigate(['/dashboard']);
+  //     //   } else {
+  //     //     this.toaster.warning("INVAILID!! Contact IT Team.");
+  //     //     ("Login Successfully");
+  //     //   }
+  //     // }
+  //     // else {
+  //     //   console.log(Response.error);
+  //     // }
   //   })
   // }
 
-  // userdetails: any = [];
-  // walletBalance: any;
-  // couponBalance: any;
-  // getUserDetails(): void {
-  //   const jsondata = {
-  //     'userid': localStorage.getItem('userid')
-  //   }
-  //   this.service.getUserDetails(jsondata).subscribe(data => {
-  //     if (data.status.responseStatus === 'Success') {
-  //       this.userdetails = data.response.userdetails;
-  //       this.walletBalance = this.userdetails[0].walletbalance;
-  //       this.couponBalance = this.userdetails[0].couponcode;
-  //       localStorage.setItem('walletBalance', this.walletBalance);
-  //       localStorage.setItem('couponBalance', this.couponBalance);
-  //     }
-  //     else {
-  //       alert('Saved Faluire');
-  //     }
-  //   });
-  // }
+  userdetails: any = [];
+  walletBalance: any;
+  couponBalance: any;
+  getUserDetails(): void {
+    const jsondata = {
+      'userid': localStorage.getItem('userid')
+    }
+    this.service.getUserDetails(jsondata).subscribe(data => {
+      if (data.status.responseStatus === 'Success') {
+        this.userdetails = data.response.userdetails;
+        this.walletBalance = this.userdetails[0].walletbalance;
+        this.couponBalance = this.userdetails[0].couponcode;
+        localStorage.setItem('walletBalance', this.walletBalance);
+        localStorage.setItem('couponBalance', this.couponBalance);
+      }
+      else {
+        alert('Saved Faluire');
+      }
+    });
+  }
 
-  // Signup() {
+  // signUpFunction() {
   //   this.service.registration(this.signupForm.value).subscribe(data => {
   //     if (data.status.responseStatus === 'Success') {
   //       this.toaster.success("Login Now, Your MobileNo is your Username & Date Of Birth Your Password");
   //     }
-  //     else {
+  //     else{
   //       console.log(data.error.error);
   //     }
   //   })
@@ -157,26 +167,70 @@ export class LoginComponent implements OnInit {
   signUpFunction() {
     console.log("signUp form", this.signupForm.value);
     if (this.signupForm.value) {
-      this.service.signUpPost(this.signupForm.value).subscribe(res => {
-        this.toaster.success("SignUp Successfully !")
-        console.log("signUp Successfully", res);
-        this.route.navigate(['/dashboard'])
-      })
+      this.service.registration(this.signupForm.value).subscribe(data => {
+        if (data.message === 'success') {
+          this.toaster.success("Login Now, Your Email is your Email & Password Your Password");
+        }
+        else {
+          console.log("some error");
+        }
+      }
+      )
     } else {
       this.toaster.warning("Please enter valid data !")
     }
   }
 
   // for  login user
+
   LoginFormFunction() {
     if (this.loginForm.value) {
-      this.service.loginPost(this.loginForm.value).subscribe(res => {
-        this.route.navigate(['/dashboard'])
-        this.toaster.success("User Login Successfully !")
-        console.log("signUp Successfully", res);
-      })
-    } else {
-      this.toaster.warning("Please enter valid data !")
+      this.service.validateLogin(this.loginForm.value).subscribe(data => {
+        console.log("login data ", data);
+
+        if (data.message === "success") {
+          this.loginInfo = data.result;
+          console.log("loigininfo", this.loginInfo);
+          if (this.loginInfo.userrollid === 'customer') {
+            localStorage.setItem('islogedin', 'true');
+            localStorage.setItem('userid', this.loginInfo._id);
+            localStorage.setItem('rollid', this.loginInfo.userrollid);
+            this.getUserDetails();
+            this.toaster.success("Login Successfully");
+            this.route.navigate(['/cart']);
+          } else if (this.loginInfo.userrollid === 'servicesngineer') {
+            localStorage.setItem('islogedin', 'true');
+            localStorage.setItem('userid', this.loginInfo._id);
+            localStorage.setItem('rollid', this.loginInfo.userrollid);
+            this.toaster.success("Login Successfully");
+            this.route.navigate(['/employeedashboard']);
+          } else if (this.loginInfo.userrollid === 'admin') {
+            localStorage.setItem('islogedin', 'true');
+            localStorage.setItem('userid', this.loginInfo._id);
+            localStorage.setItem('rollid', this.loginInfo.userrollid);
+            this.toaster.success("Login Successfully");
+            this.route.navigate(['/dashboard']);
+          } else {
+            this.toaster.warning("INVAILID!! Contact IT Team.");
+            ("Login Successfully");
+          }
+        }
+        else {
+          console.log(Response.error);
+        }
+      }
+      )
+
+
+      // if (this.loginForm.value) {
+      //   this.service.loginPost(this.loginForm.value).subscribe(res => {
+      //     this.route.navigate(['/dashboard'])
+      //     this.toaster.success("User Login Successfully !")
+      //     console.log("signUp Successfully", res);
+      //   })
+      // } else {
+      //   this.toaster.warning("Please enter valid data !")
+      // }
     }
   }
 }

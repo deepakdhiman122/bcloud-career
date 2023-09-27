@@ -29,7 +29,7 @@
         </form>  -->
         <form [formGroup]="loginForm" (ngSubmit)="LoginFormFunction()" #loginPage>
           <div class="field">
-            <input formControlName="email" type="text" placeholder="Mobile Number" autocomplete="disable" required>
+            <input formControlName="email" type="text" placeholder="Email" autocomplete="disable" required>
             <!-- <div *ngIf="loginForm.get('email')?.hasError('required') && loginForm.get('email')?.touched"
               class="error-message">
               Email is required
@@ -39,7 +39,7 @@
             </div> -->
           </div>
           <div class="field">
-            <input formControlName="password" type="password" placeholder="Date Of Birth (for eg.: 06121988)" required>
+            <input formControlName="password" type="password" placeholder="Password" required>
             <div *ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched"
               class="error-message">
               Password is required

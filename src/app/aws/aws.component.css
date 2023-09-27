@@ -1,253 +1,286 @@
-.banner img{
-    height: 90vh;
-    cursor:grab;
-  }
-  .service{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-decoration: none;
-    cursor: pointer;
-  }
-  .service-img{
-    background-color: #d6e4e5;
-    border-radius: 50%;
-    padding: .5rem;
-    transition: all .5s ease;
-  }
-  .service-img:hover{
-    background-color: #497174;
-  }
-  .service-img img{
-    width: 100px;
-    transform: scale(1.1);
+.banner img {
+  height: 90vh;
+  cursor: grab;
+}
+
+.service {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.service-img {
+  background-color: #d6e4e5;
+  border-radius: 50%;
+  padding: .5rem;
+  transition: all .5s ease;
+}
+
+.service-img:hover {
+  background-color: #497174;
+}
+
+.service-img img {
+  width: 100px;
+  transform: scale(1.1);
+  aspect-ratio: 1/1;
+  object-fit: contain;
+  transition: all .7s ease;
+}
+
+.service-img img:hover {
+  transform: scale(.9);
+}
+
+.service-title {
+  font-family: 'Space Grotesk';
+  font-size: 1rem;
+  font-weight: 600;
+  color: #497174;
+  margin: 1rem 0;
+  text-transform: capitalize;
+}
+
+li {
+  font-family: 'Space Grotesk';
+  font-size: 1rem;
+  font-weight: 600;
+  color: #497174;
+  margin: 1rem 0;
+  text-transform: capitalize;
+}
+
+.reviews {
+  justify-content: center;
+  background: #d6e4e5;
+}
+
+.reviews .col-md-6 {
+  width: fit-content;
+  margin: 0 1rem;
+}
+
+.reviews .card {
+  border: rgba(0, 0, 0, 10%);
+  border-radius: 5px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 10%);
+  margin: .8rem 0;
+  width: 30vw;
+}
+
+.reviews .card-title {
+  font-family: 'Inter';
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.reviews .card-text {
+  font-family: 'Space Grotesk';
+  color: grey;
+  font-size: .7rem;
+}
+
+main {
+  background: #eff5f5;
+}
+
+.hero .text h5 {
+  font-family: 'space Grotesk';
+  font-weight: 500;
+  font-size: 1rem;
+  color: grey;
+}
+
+video {
+  width: 700px;
+  height: 340px;
+}
+
+.services {
+  display: flex;
+  align-items: flex-start;
+}
+
+.services .image {
+  display: inline-block;
+  margin: 0 1rem;
+  width: min-content;
+}
+
+.services .image img {
+  display: block;
+  width: 90px;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.services .image h6 {
+  font-family: 'Space Grotesk';
+  font-size: .9rem;
+  text-align: center;
+  margin-top: .5rem;
+}
+
+.products {
+  border-top: 1px solid grey;
+}
+
+.products .item {
+  background-color: #d6e4e5;
+  border-right: 1px solid grey;
+}
+
+.products .item h1 {
+  padding-top: 1.5rem;
+  font-family: 'Inter';
+  font-weight: 700;
+  font-size: 3rem;
+}
+
+.products .item h3 {
+  padding-top: 1rem;
+  font-family: 'Inter';
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.item .card {
+  display: grid;
+  grid-template-columns: 1.4fr 0.6fr;
+  grid-template-rows: 1.3fr 0.7fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  justify-content: center;
+  align-items: center;
+  grid-template-areas:
+    "card-body card-img-right"
+    "card-footer card-img-right";
+  background: #eff5f5;
+  border: none;
+  border-radius: 10px;
+  border-bottom: 2px solid grey;
+  margin: 0.5rem 0;
+}
+
+.item .card-body {
+  grid-area: card-body;
+  border-bottom: 1px solid grey;
+}
+
+.item .card-body .card-handing {
+  font-family: 'Inter';
+  font-size: 2.3rem;
+  font-weight: 600;
+}
+
+.item .card-body .card-title {
+  font-family: 'Inter';
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.item .card-text {
+  font-family: 'Space Grotesk';
+  font-size: .9rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.item .card-body .card-price {
+  font-family: 'Space Grotesk';
+  font-weight: 600;
+}
+
+.item .card-img-right {
+  grid-area: card-img-right;
+  position: relative;
+  margin-right: 40px;
+}
+
+.item .card-img-right img {
+  width: 330px;
+  aspect-ratio: 1/1;
+  border-radius: 10px;
+}
+
+.item .card-img-right .btn {
+  font-size: 1.1rem;
+  font-family: 'Space Grotesk';
+  font-weight: 700;
+  color: #497174;
+  background-color: #eff5f5;
+  border: 2px solid #d6e4e5;
+  position: relative;
+  left: 160px;
+
+}
+
+.item .card-img-right .btn:hover {
+  color: #eff5f5;
+  background-color: #497174;
+  border-color: #497174;
+}
+
+.item .card-footer {
+  grid-area: card-footer;
+  border: none;
+  background: none;
+  font-family: 'Space Grotesk';
+  color: grey;
+}
+
+@media(max-width:968px) {
+  .item .card-img-right img {
+    width: 140px;
     aspect-ratio: 1/1;
-    object-fit: contain;
-    transition: all .7s ease;
-  }
-  .service-img img:hover{
-    transform: scale(.9);
-  }
-  
-  .service-title{
-    font-family: 'Space Grotesk';
-    font-size: 1rem;
-    font-weight: 600;
-    color: #497174;
-    margin: 1rem 0;
-    text-transform: capitalize;
-  }
-  li{
-    font-family: 'Space Grotesk';
-    font-size: 1rem;
-    font-weight: 600;
-    color: #497174;
-    margin: 1rem 0;
-    text-transform: capitalize;
-  }
-  .reviews{
-    justify-content: center;
-    background: #d6e4e5 ;
-  }
-  
-  .reviews .col-md-6{
-    width: fit-content;
-    margin: 0 1rem;
-  }
-  
-  .reviews .card{
-    border: rgba(0, 0, 0, 10%);
-    border-radius: 5px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 10%);
-    margin: .8rem 0;
-    width: 30vw;
-  }
-  
-  .reviews .card-title{
-    font-family: 'Inter';
-    font-size: 1rem;
-    font-weight: 600;
-  }
-  
-  .reviews .card-text{
-    font-family: 'Space Grotesk';
-    color: grey;
-    font-size: .7rem;
-  }
-  main{
-    background: #eff5f5;
-  }
-  .hero .text h5{
-    font-family: 'space Grotesk';
-    font-weight: 500;
-    font-size: 1rem;
-    color: grey;
-  }
-  video{
-    width: 700px;
-    height: 340px;
-  }
-  .services{
-    display: flex;
-    align-items: flex-start;
-  }
-  .services .image{
-    display: inline-block;
-    margin: 0 1rem;
-    width: min-content;
-  }
-  .services .image img{
-    display: block;
-    width: 90px;
-    aspect-ratio: 1/1;
-    object-fit: cover;
     border-radius: 10px;
+    margin-left: 20px;
   }
-  .services .image h6{
-    font-family: 'Space Grotesk';
-    font-size: .9rem;
-    text-align: center;
-    margin-top: .5rem;
+
+  .item .card-img-right .btn {
+    position: relative;
+    left: 20px;
   }
-  
-  .products{
-    border-top: 1px solid grey;
+}
+
+@media(max-width:468px) {
+  .card {
+    height: max-content;
   }
-  .products .item{
-    background-color: #d6e4e5;
-    border-right: 1px solid grey;
-  }
-  .products .item h1{
-    padding-top: 1.5rem;
-    font-family: 'Inter';
-    font-weight: 700;
-    font-size: 3rem;
-  }
-  .products .item h3{
-    padding-top: 1rem;
-    font-family: 'Inter';
-    font-weight: 700;
-    font-size: 1.5rem;
-  }
-  
-  .item .card{  
-    display: grid;
-    grid-template-columns: 1.4fr 0.6fr;
-    grid-template-rows: 1.3fr 0.7fr;
-    gap: 0px 0px;
-    grid-auto-flow: row;
-    justify-content: center;
-    align-items: center;
-    grid-template-areas:
-      "card-body card-img-right"
-      "card-footer card-img-right";
-    background: #eff5f5;
-    border: none;
-    border-radius: 10px;
-    border-bottom: 2px solid grey;
-    margin: 0.5rem 0;
-  }
-  
-  .item .card-body{ 
-    grid-area: card-body;
-    border-bottom: 1px solid grey;
-  }
-  .item .card-body .card-handing{
-    font-family: 'Inter';
-    font-size: 2.3rem;
-    font-weight: 600;
-  }
-  .item .card-body .card-title{
-    font-family: 'Inter';
-    font-size: 1.5rem;
-    font-weight: 600;
-  }
-  
-  .item .card-text{
-    font-family: 'Space Grotesk';
-    font-size: .9rem;
-    font-weight: 600;
-    margin: 0;
-  }
-  .item .card-body .card-price{
-    font-family: 'Space Grotesk';
-    font-weight: 600;
-  }
-  .item .card-img-right{ 
+
+  .item .card-img-right {
     grid-area: card-img-right;
     position: relative;
-    margin-right: 40px;
+    /* margin-right: 40px; */
   }
-  .item .card-img-right img{
-    width: 330px;
+
+  .item .card-img-right img {
+    width: 97px;
     aspect-ratio: 1/1;
     border-radius: 10px;
   }
-  .item .card-img-right .btn{
-    font-size: 1.1rem;
-    font-family: 'Space Grotesk';
-    font-weight: 700;
-    color: #497174;
-    background-color: #eff5f5;
-    border: 2px solid #d6e4e5;
-    position: relative;
-    left: 160px;
-    
+
+  .item .card-img-right .btn {
+    left: 1px;
   }
-  .item .card-img-right .btn:hover{
-    color: #eff5f5;
-    background-color: #497174;
-    border-color: #497174;
+
+  .item .card-body .card-handing {
+    font-family: 'Inter';
+    font-size: 1.2rem;
+    font-weight: 600;
   }
-  
-  .item .card-footer{ 
-    grid-area: card-footer;
-    border: none;
-    background: none;
-    font-family: 'Space Grotesk';
-    color: grey;
+
+  .item .card-body .card-title {
+    font-family: 'Inter';
+    font-size: 0.5rem;
+    font-weight: 600;
   }
-  @media(max-width:968px){
-    .item .card-img-right img{
-      width: 140px;
-      aspect-ratio: 1/1;
-      border-radius: 10px;
-      margin-left: 20px;
-    }
-    .item .card-img-right .btn{
-      position: relative;
-      left: 20px;
-    }
+
+  .card-footer .card-text {
+    font-size: 0.6rem;
   }
-  @media(max-width:468px){
-    .card{
-      height: max-content;
-    }
-    .item .card-img-right{ 
-      grid-area: card-img-right;
-      position: relative;
-      /* margin-right: 40px; */
-    }
-    .item .card-img-right img{
-      width: 97px;
-      aspect-ratio: 1/1;
-      border-radius: 10px;
-    }
-    .item .card-img-right .btn{
-      left: 1px;
-    }
-    .item .card-body .card-handing{
-      font-family: 'Inter';
-      font-size: 1.2rem;
-      font-weight: 600;
-    }
-    .item .card-body .card-title{
-      font-family: 'Inter';
-      font-size: 0.5rem;
-      font-weight: 600;
-    }
-    .card-footer .card-text{
-      font-size: 0.6rem;
-    }
-    
-  }
+
+}

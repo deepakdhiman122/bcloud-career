@@ -18,7 +18,12 @@ export class AddproductComponent {
 
   productlist: any = [];
   productid: any;
+  deleteId: any;
   search: any;
+  getProduct: any = [];
+  getProductArray: any = [];
+  sucessMsgmessage: any = [];
+  msg: any = [];
 
   constructor(private service: AddproductService, private toaster: ToastrService) { }
 
@@ -27,7 +32,7 @@ export class AddproductComponent {
       productname: new FormControl(null),
       brandname: new FormControl(null),
       productcategory: new FormControl(null),
-      productdetails: new FormControl(null),
+      // productdetails: new FormControl(null),
       rating: new FormControl(null),
       discountpercentage: new FormControl(null),
       salesprice: new FormControl(null),
@@ -40,6 +45,8 @@ export class AddproductComponent {
     }
     let status = localStorage.getItem("status");
     if (status && status === 'close') {
+      console.log("status ngOnInit", status);
+
       const Sidenav = document.querySelector("nav");
       Sidenav?.classList.toggle("close");
     }
@@ -48,11 +55,18 @@ export class AddproductComponent {
 
   getProductList(): void {
     this.service.getproduct().subscribe(data => {
-      if (data.status.responseStatus === 'Success') {
-        this.productlist = data.response.productlist;
-      } else {
-        this.toaster.error('Getting Product List', 'ERROR WHILE');
-      }
+      this.productlist = data;
+      this.getProductArray = this.productlist.result;
+
+      // if (data.status.responseStatus === 'Success') {
+      //   this.productlist = data.response.productlist;
+      // } else {
+      //   this.toaster.error('Getting Product List', 'ERROR WHILE');
+      // }
+      console.log("productlist", this.productlist);
+
+      console.log("data getProductArray", this.getProductArray);
+
     });
   }
 
@@ -73,23 +87,24 @@ export class AddproductComponent {
 
   editrow(row: any): void {
     this.isEdited = 'YES';
-    this.form.controls['productname'].setValue(row.name);
-    this.form.controls['brandname'].setValue(row.brand);
+    this.form.controls['productname'].setValue(row.productname);
+    this.form.controls['brandname'].setValue(row.brandname);
     this.form.controls['productcategory'].setValue(row.productcategory);
-    this.form.controls['productdetails'].setValue(row.details);
-    this.form.controls['mrprice'].setValue(row.mrp);
-    this.form.controls['rating'].setValue(row.productrating);
-    this.form.controls['discountpercentage'].setValue(row.discountinpercentage);
+    this.form.controls['mrprice'].setValue(row.mrprice);
+    this.form.controls['rating'].setValue(row.rating);
+    this.form.controls['discountpercentage'].setValue(row.discountpercentage);
     this.form.controls['salesprice'].setValue(row.salesprice);
-    this.productid = row.productid
-    this.imageurl = row.imageurl;
+    // this.form.controls['productdetails'].setValue(row.details);
+    this.productid = row._id
+    // alert("prodyct id" + this.productid)
+    // this.imageurl = row.imageurl;
     console.log(this.isEdited);
   }
 
-  saveImage(event: any) : void {
+  saveImage(event: any): void {
     this.selectedFile = event.target.files[0];
     console.log(this.selectedFile);
-    
+
     //FormData API provides methods and properties to allow us easily prepare form data to be sent with POST HTTP requests.
     const uploadImageData = new FormData();
     uploadImageData.append('imageFile', this.selectedFile, this.selectedFile.name);
@@ -104,57 +119,91 @@ export class AddproductComponent {
     });
   }
 
-  deleteProduct(row: any): void {
+  // deleteProduct(row: any): void {
 
+  // }
+
+
+  deleteProduct(row: any) {
+    const jsondata = {
+      deleteId: row._id
+    }
+    console.log("delete id", row);
+    this.service.deletePost(row._id).subscribe(res => {
+      console.log("delete res", res);
+      this.productlist = [];
+    }, err => {
+      console.log(err);
+
+    })
+
+    // if (window.confirm('Are you sure want to delete this data id:' + jsondata.deleteId)) {
+
+    // }
   }
 
   updateProduct(): void {
+    // alert("working update function")
     const jsondata = {
       'productname': this.form.controls['productname'].value,
       'brandname': this.form.controls['brandname'].value,
       'productcategory': this.form.controls['productcategory'].value,
-      'productdetails': this.form.controls['productdetails'].value,
       'mrprice': this.form.controls['mrprice'].value,
+      'rating': this.form.controls['rating'].value,
       'discountpercentage': this.form.controls['discountpercentage'].value,
       'salesprice': this.form.controls['salesprice'].value,
-      'rating': this.form.controls['rating'].value,
-      'imageurl' : this.imageurl,
-      'userid': localStorage.getItem('userid'),
-      'productid' : this.productid
+      // 'userid': localStorage.getItem('userid'),
+      'productid': this.productid
     }
-    this.service.updateProduct(jsondata).subscribe(data => {
-      if (data.status.responseStatus === 'Success') {
+    this.service.updateProductt(jsondata).subscribe(data => {
+      // alert("working api updates functions" + jsondata)
+      console.log("updated", data);
+      this.sucessMsgmessage = data
+      this.msg = this.sucessMsgmessage.message
+      if (this.sucessMsgmessage.message === 'success') {
         this.clear();
+        this.getProductList();
         this.toaster.success('Product Updated Successfully', 'SUCCESSFULLY UPDATED');
+        console.log("this message", this.msg);
       }
       else {
         this.toaster.error('Product Updating Failed', 'ERROR WHILE UPDATING');
       }
     });
   }
-
+  statuss: any;
   save(): void {
     const jsondata = {
       'productname': this.form.controls['productname'].value,
       'brandname': this.form.controls['brandname'].value,
       'productcategory': this.form.controls['productcategory'].value,
-      'productdetails': this.form.controls['productdetails'].value,
+      // 'productdetails': this.form.controls['productdetails'].value,
       'mrprice': this.form.controls['mrprice'].value,
       'discountpercentage': this.form.controls['discountpercentage'].value,
       'salesprice': this.form.controls['salesprice'].value,
       'rating': this.form.controls['rating'].value,
-      'imageurl' : this.imageurl,
-      'userid': localStorage.getItem('userid')
+      // 'imageurl': this.imageurl,
+      // 'userid': localStorage.getItem('userid')
     }
     this.service.saveproduct(jsondata).subscribe(data => {
-      if (data.status.responseStatus === 'Success') {
-        this.clear();
-        this.getProductList();
-        this.toaster.success('Product saved Successfully', 'SUCCESSFULLY SAVED');
+      if (jsondata) {
+        this.statuss = data.statusCode
+        console.log("statusss", this.statuss);
+        if (data.statusCode === 201) {
+          this.toaster.success('Product saved Successfully', 'SUCCESSFULLY SAVED');
+          console.log("sccuessfully save prduct", data);
+          this.clear();
+          this.getProductList();
+        }
+        else {
+          this.toaster.error('Product save Failed', 'ERROR WHILE SAVING');
+        }
+      } else {
+        console.log('empty fields');
+
       }
-      else {
-        this.toaster.error('Product save Failed', 'ERROR WHILE SAVING');
-      }
+
+
     });
   }
   clear(): void {
@@ -166,5 +215,6 @@ export class AddproductComponent {
     this.form.controls['rating'].setValue(0);
     this.form.controls['discountpercentage'].setValue(0);
     this.form.controls['salesprice'].setValue(0);
+    this.form.controls['rating'].setValue(0);
   }
 }
