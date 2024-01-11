@@ -6,13 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./topnav.component.css']
 })
 export class TopnavComponent {
-  SideToggle(){
+  SideToggle() {
     const Sidenav = document.querySelector("nav");
     Sidenav?.classList.toggle("close");
-    if(Sidenav?.classList.contains("close")){
-      localStorage.setItem("status","close");
-    }else{
-      localStorage.setItem("status","open");
+    if (Sidenav?.classList.contains("close")) {
+      localStorage.setItem("status", "close");
+    } else {
+      localStorage.setItem("status", "open");
     }
   }
 }

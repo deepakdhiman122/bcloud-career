@@ -8,9 +8,9 @@ describe('AwsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AwsComponent ]
+      declarations: [AwsComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(AwsComponent);
     component = fixture.componentInstance;
@@ -20,4 +20,5 @@ describe('AwsComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
 });

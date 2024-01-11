@@ -12,9 +12,9 @@ export interface Product {
   producttype: string;
   salesprice: number;
   userid: string;
-  isCarted:boolean;
-  quantity:number;
-  subtotal:number;
+  isCarted: boolean;
+  quantity: number;
+  subtotal: number;
   details1: any[];
 }
 export interface serviceproduct {
@@ -23,7 +23,7 @@ export interface serviceproduct {
   discountinpercentage: number;
   imageurl: string;
   isactive: Boolean;
-  servicetypes:string;
+  servicetypes: string;
   mrp: number;
   name: string;
   productcategory: string;
@@ -32,10 +32,10 @@ export interface serviceproduct {
   producttype: string;
   salesprice: number;
   userid: string;
-  serviceproducttype:string,
-  isCarted:boolean;
-  quantity:number;
-  subtotal:number;
+  serviceproducttype: string,
+  isCarted: boolean;
+  quantity: number;
+  subtotal: number;
   details1: any[];
 }
 export interface awsproduct {
@@ -56,8 +56,8 @@ export interface awsproduct {
   keybenefits11: string;
   keybenefits12: string;
   amcname: string;
-  amcid:number;
-  subtotal:number;
-  isCarted:boolean;
+  amcid: number;
+  subtotal: number;
+  isCarted: boolean;
 }
 

@@ -13,30 +13,30 @@ export class SidenavbarService {
   getnavdata(jsonbody: any): Observable<any> {
     const url = environment.apiBase + '/navcontroller/getnavdetails';
     const headers = new HttpHeaders({ 'Content-Type': 'application/json;' });
-    return this.httpclient.post<any>(url, jsonbody,{headers: headers});
+    return this.httpclient.post<any>(url, jsonbody, { headers: headers });
   }
 
   getAdminDashboardData(jsonbody: any): Observable<any> {
     const url = environment.apiBase + '/ordercontroller/getadmindashboarddata';
     const headers = new HttpHeaders({ 'Content-Type': 'application/json;' });
-    return this.httpclient.post<any>(url, jsonbody,{headers: headers});
+    return this.httpclient.post<any>(url, jsonbody, { headers: headers });
   }
 
   saveCoinManagement(jsonbody: any): Observable<any> {
     const url = environment.apiBase + '/logincontroller/savecoinmanagement';
     const headers = new HttpHeaders({ 'Content-Type': 'application/json;' });
-    return this.httpclient.post<any>(url, jsonbody,{headers: headers});
+    return this.httpclient.post<any>(url, jsonbody, { headers: headers });
   }
 
   saveCouponDetails(jsonbody: any): Observable<any> {
     const url = environment.apiBase + '/employeecontroller/savecouponcode';
     const headers = new HttpHeaders({ 'Content-Type': 'application/json;' });
-    return this.httpclient.post<any>(url, jsonbody,{headers: headers});
+    return this.httpclient.post<any>(url, jsonbody, { headers: headers });
   }
 
   save(jsonbody: any): Observable<any> {
     const url = environment.apiBase + '/employeecontroller/saveannouncement';
     const headers = new HttpHeaders({ 'Content-Type': 'application/json;' });
-    return this.httpclient.post<any>(url, jsonbody,{headers: headers});
+    return this.httpclient.post<any>(url, jsonbody, { headers: headers });
   }
 }

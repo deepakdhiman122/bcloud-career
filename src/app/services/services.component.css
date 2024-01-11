@@ -1,35 +1,40 @@
-.banner img{
+.banner img {
   max-height: 65vh;
   aspect-ratio: 16/9;
 }
-.service{
+
+.service {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-decoration: none;
   cursor: pointer;
 }
-.service-img{
+
+.service-img {
   background-color: #d6e4e5;
   border-radius: 50%;
   padding: .5rem;
   transition: all .5s ease;
 }
-.service-img:hover{
+
+.service-img:hover {
   background-color: #497174;
 }
-.service-img img{
+
+.service-img img {
   width: 100px;
   transform: scale(1.1);
   aspect-ratio: 1/1;
   object-fit: contain;
   transition: all .7s ease;
 }
-.service-img img:hover{
+
+.service-img img:hover {
   transform: scale(.9);
 }
 
-.service-title{
+.service-title {
   font-family: 'Space Grotesk';
   font-size: 1rem;
   font-weight: 600;
@@ -38,78 +43,82 @@
   text-transform: capitalize;
 }
 
-.choose{
-  background-color: #EFF5F5 ;
+.choose {
+  background-color: #EFF5F5;
 }
 
-.choose h1{
+.choose h1 {
   font-family: 'Inter';
   font-size: 2.8rem;
   font-weight: 800;
   color: black;
 }
-.choose .col-md-4{
+
+.choose .col-md-4 {
   margin: 1rem 1.5rem;
   width: max-content;
 }
 
 .choose .counter-number,
-.choose .counter-text{
+.choose .counter-text {
   text-align: center;
   color: #497174;
 }
 
-.choose .counter-number{
+.choose .counter-number {
   font-family: 'Inter';
   font-weight: 800;
   font-size: 2.5rem;
 }
 
-.choose .counter-text{
+.choose .counter-text {
   font-family: 'Space Grotesk';
   font-size: .8rem;
   font-weight: 600;
 }
 
-.Services{
+.Services {
   justify-content: center;
   padding: 0 3rem;
 }
-.Services .col-md-3{
+
+.Services .col-md-3 {
   padding: 2rem 1rem;
 }
 
-.Services .card{
+.Services .card {
   border: none;
 }
 
-.Services .card .card-img-top{
+.Services .card .card-img-top {
   box-shadow: 2px 2px 5px 2px #5a5959bf;
   border-radius: 1rem;
 }
-.Services .card-title{
+
+.Services .card-title {
   text-align: center;
   font-family: 'Inter';
   font-weight: 600;
   font-size: 1.5rem;
 }
-.Services .card-price{
+
+.Services .card-price {
   text-align: center;
   font-size: .9rem;
   font-family: 'Space Grotesk';
 }
 
-.reviews{
+.reviews {
   justify-content: center;
-  background: #d6e4e5 ;
+  background: #d6e4e5;
 }
 
-.reviews .col-md-6{
+.reviews .col-md-6 {
   width: fit-content;
   margin: 0 1rem;
 }
 
-.reviews .card{
+.reviews .card {
   border: rgba(0, 0, 0, 10%);
   border-radius: 5px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 10%);
@@ -117,46 +126,52 @@
   width: 30vw;
 }
 
-.reviews .card-title{
+.reviews .card-title {
   font-family: 'Inter';
   font-size: 1rem;
   font-weight: 600;
 }
 
-.reviews .card-text{
+.reviews .card-text {
   font-family: 'Space Grotesk';
   color: grey;
   font-size: .7rem;
 }
 
-.brands{
+.brands {
   margin: 0.5rem 3rem;
 }
-.brands img{
+
+.brands img {
   width: 120px;
 }
 
-@media (max-width:768px){
-  .row{
+@media (max-width:768px) {
+  .row {
     padding: 0rem 1rem;
   }
-  .brands{
+
+  .brands {
     margin: 0.5rem 0;
   }
-  .brands img{
+
+  .brands img {
     width: 70px;
   }
-  .choose .col-md-4{
+
+  .choose .col-md-4 {
     margin: 0rem 0rem;
     width: 109px;
   }
-  .choose h1{
+
+  .choose h1 {
     font-family: 'Inter';
     font-size: 1.8rem;
     font-weight: 800;
     color: black;
   }
-  .choose .counter-number{
+
+  .choose .counter-number {
     font-family: 'Inter';
     font-weight: 800;
     font-size: 1.5rem;

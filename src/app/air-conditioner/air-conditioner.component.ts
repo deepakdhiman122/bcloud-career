@@ -8,9 +8,9 @@ import { serviceproduct } from '../product.model';
   styleUrls: ['./air-conditioner.component.css']
 })
 export class AirConditionerComponent {
-  productlist: serviceproduct[] = [];
+  // productlist: serviceproduct[] = [];
   cart: serviceproduct[] = [];
-
+  productlist: any;
   serviceCategory: any;
   mainservice: boolean = false;
   repair: boolean = false;
@@ -23,12 +23,20 @@ export class AirConditionerComponent {
       this.cart = JSON.parse(data2);
     }
     this.serviceCategory = localStorage.getItem('serviceproductcategory');
-    this.getProductList()
+    this.getProductList();
   }
+
   getProductList(): void {
-    this.service.getproduct().subscribe(data => {
-      if (data.status.responseStatus === 'Success') {
-        this.productlist = data.response.servicelist;
+    // this.mainservice = true;
+    // this.repair = true;
+    // this.installetion = true;
+    // this.service.getproduct().subscribe(data => {
+    this.service.getProducts().then((data) => {
+      if (data) {
+        this.productlist = data;
+        console.log("product name", this.productlist);
+
+        // alert("product" + this.productlist);
         for (let c of this.productlist) {
           c.isCarted = false;
           if (c.serviceproductcategory === this.serviceCategory) {
@@ -48,7 +56,7 @@ export class AirConditionerComponent {
               c.isCarted = s.isCarted;
             }
           }
-          this.productlist = this.productlist.filter(e => e.serviceproductcategory === this.serviceCategory)
+          // this.productlist = this.productlist.filter(e => e.serviceproductcategory === this.serviceCategory)
         }
         // console.log( this.productlist)
       } else {
@@ -66,16 +74,17 @@ export class AirConditionerComponent {
       closeButton: true
     });
 
-    //add item to the database using api
+    //   //add item to the database using api
     localStorage.setItem('cartList', JSON.stringify(this.cart));
   }
+
   isDisabled(id: string) {
-    this.productlist.forEach(element => {
+    this.productlist.forEach((element: any) => {
       if (element.productid === id) {
         element.isCarted = true;
       }
     });
-    //need a method to update the  value of iscarted in the product field
+    // need a method to update the  value of iscarted in the product field
     localStorage.setItem('ProductList', JSON.stringify(this.productlist));
   }
 }

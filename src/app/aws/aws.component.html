@@ -36,18 +36,40 @@
           [ngModelOptions]="{standalone: true}" style=" border: 1px solid black; border-radius: 5px;" />&nbsp;
         <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
       </div>
-      <!-- <i style="color: blue;" class="fa-solid fa-file-excel" (click)="fileDownlod()"></i> -->
+      <i style="color: blue;" class="fa-solid fa-file-excel">file download</i>
     </div>
     <br>
+
+    <!-- details  -->
+
     <!-- <div class="row products">
+      <div class="col-md-6 item">
+        <div class="card" *ngFor="let product of awslist | search : search ; let i = index">
+          <div class="card-body">
+            <h2 class="card-title d-flex" style="justify-content: space-between;">{{product.amcheading}} <h2>200</h2>
+            </h2>
+            <h3 class="card-title">{{product.amcname}}</h3>
+            <p class="card-price"> &#8377;{{product.price}} <span>Only/year</span> (inclusive of all taxes)</p>
+            <p class="card-price">(an affordable ₹ {{product.subtotal}}/month )</p>
+            <h4 class="card-title">{{product.amccovers}}</h4>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+
+
+
+
+    <div class="row products">
       <div class="col-md-12 item">
         <div class="card" *ngFor="let product of awslist | search : search ; let i = index">
           <div class="card-img-right">
-            <img src="../../assets/imagetesting/{{product.imageurl}}" alt="img" class="d-block mx-auto">
+            <img src="../../assets/{{product.imageurl}}" alt="img" class="d-block mx-auto">
             <button class="mt-2 btn btn-primary" [ngSwitch]="product.isCarted" (click)="save(product)"
               [disabled]="product.isCarted">
-              <span *ngSwitchCase="false">Buy On</span>
-              <span *ngSwitchCase="true">Buy On</span>
+              <!-- <span *ngSwitchCase="false">Buy On</span>
+              <span *ngSwitchCase="true">Buy On</span> -->
             </button>
           </div>
           <div class="card-body">
@@ -56,6 +78,7 @@
             <p class="card-price"> &#8377;{{product.amcprice}} <span>Only/year</span> (inclusive of all taxes)</p>
             <p class="card-price">(an affordable ₹ {{product.subtotal}}/month )</p>
             <h4 class="card-title">{{product.amccovers}}</h4>
+            <h4 class="card-title">Service Charge:&nbsp;&nbsp;{{product.serviceCharge}}</h4>
           </div>
           <div class="card-footer">
             <p class="card-text" *ngIf="product.keybenefits1 != null ">&bull; {{product.keybenefits1}} </p>
@@ -74,18 +97,18 @@
         </div>
 
       </div>
-    </div> -->
+    </div>
 
     <!-- beginn:: static code  -->
 
-    <div class="row products">
+    <!-- <div class="row products">
       <div class="col-md-12 item">
         <div class="card">
           <div class="card-img-right">
             <img src="../../assets/1.png" alt="img" class="d-block mx-auto">
             <button class="mt-2 btn btn-primary">
               <span>Buy On</span>
-              <!-- <span>Buy On</span> -->
+           
             </button>
           </div>
           <div class="card-body">
@@ -111,7 +134,8 @@
         </div>
 
       </div>
-    </div>
+    </div> -->
+
   </div>
   <br>
   <br>

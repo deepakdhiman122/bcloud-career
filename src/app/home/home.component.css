@@ -1,17 +1,18 @@
-main{
+main {
   overflow-x: hidden;
-  background: #EFF5F5 ;
+  background: #EFF5F5;
 }
 
-a{
+a {
   text-decoration: none;
   color: inherit;
 }
 
-.banner img{
+.banner img {
   max-height: 65vh;
   aspect-ratio: 16/9;
 }
+
 /* .hero::before{
   content: '';
   position: absolute;
@@ -30,14 +31,14 @@ a{
   z-index: 0;
 } */
 
-.searchbar{
-  position:absolute;
+.searchbar {
+  position: absolute;
   top: 45vh;
   left: 23vw;
   z-index: 1;
 }
 
-.searchbar i{
+.searchbar i {
   font-size: 1.1rem;
   position: absolute;
   top: 15px;
@@ -45,22 +46,22 @@ a{
   color: #497174;
 }
 
-.search[type='search']{
+.search[type='search'] {
   width: 50vw;
   height: 48px;
   padding: .6rem;
   padding-left: 2.5rem;
   border-radius: 5px;
-  border:none;
+  border: none;
   font-family: 'Space Grotesk';
   font-size: 1.3rem;
 }
 
-.search[type='search']::placeholder{
+.search[type='search']::placeholder {
   color: #497174;
 }
 
-.search[type='search']:focus-visible{
+.search[type='search']:focus-visible {
   outline: none;
 }
 
@@ -70,7 +71,7 @@ a{
 }
 
 /* Services */
-.service{
+.service {
   position: relative;
   bottom: 50px;
   z-index: 1;
@@ -88,164 +89,176 @@ a{
   box-shadow: 0 0 10px 2px #00000044;
 }
 
-.service li{
+.service li {
   font-family: 'Space Grotesk';
   display: inline-block;
   margin: 0.3rem 1.5rem;
 }
 
-.service .card{
+.service .card {
   background: none;
-  border:none;
+  border: none;
   text-align: center;
   transition: all .5s ease;
 }
 
-.service .card-img{
+.service .card-img {
   margin: 0 auto;
   width: 80px;
 }
-.service .card:hover{
+
+.service .card:hover {
   transform: scale(1.2);
 }
 
-.service .card .card-text{
+.service .card .card-text {
   font-size: 0.9rem;
 }
 
 
 /* Appliances */
-.appliances .card{
-  border:none;
+.appliances .card {
+  border: none;
   margin: 1.5rem;
   align-items: center;
   background: none;
 }
 
-.appliances .card-img-top{
+.appliances .card-img-top {
   border-radius: 5px;
   border-radius: 10%;
   padding: 1rem;
   background: #d6e4e5;
   box-shadow: 2px 2px 5px 2px #5a5959bf;
-  width:20vw;
+  width: 20vw;
 }
 
-.appliances .card-body{
+.appliances .card-body {
   text-align: center;
   caret-color: #497174;
 }
 
-.appliances .btn{
+.appliances .btn {
   background: #497174;
   border: none;
   color: white;
   font-family: 'Space Grotesk';
   border-radius: 22px;
-  box-shadow: 0 0 5px rgb(73, 113, 116,.8);
+  box-shadow: 0 0 5px rgb(73, 113, 116, .8);
 }
-.appliances .btn:hover{
+
+.appliances .btn:hover {
   background: #eb6440;
   box-shadow: none;
 }
 
 /* FAQ */
-.faq{
+.faq {
   background-color: #d6e4e5;
   border-radius: 10px;
   padding: 2rem;
 }
 
-.faq h1{
+.faq h1 {
   font-family: 'Inter';
   font-weight: 700;
   font-size: 2.5rem;
   text-align: center;
 }
 
-.accordion-header span{
+.accordion-header span {
   font-family: "Inter";
   font-weight: 600;
 }
 
-.accordion-body{
+.accordion-body {
   font-family: 'Space Grotesk';
 }
-.accordion-button{
+
+.accordion-button {
   box-shadow: none;
 }
 
-.accordion-button:not(.collapsed){
+.accordion-button:not(.collapsed) {
   color: #fff;
   background-color: #497174;
 }
 
-.accordion-button:not(.collapsed)::after{
+.accordion-button:not(.collapsed)::after {
   background-image: var(--bs-accordion-btn-icon);
- 
+
 }
 
 
 /* Products */
-.product{
+.product {
   position: relative;
-  
+
 }
-.product .item{
+
+.product .item {
   display: flex;
 }
-.product .card{
+
+.product .card {
   margin: 2rem 1.5rem;
   font-family: 'Space Grotesk';
-  background-color:#d6e4e5;
+  background-color: #d6e4e5;
 }
-.product .card .card-img-top{
+
+.product .card .card-img-top {
   padding: 2rem;
   max-height: 30vh;
   object-fit: contain;
   aspect-ratio: 3/4;
   background-color: white;
 }
-.product .card-body{
+
+.product .card-body {
   display: flex;
   flex-direction: column;
   align-items: baseline;
   justify-content: space-between;
 }
-.product .card-title{
+
+.product .card-title {
   font-family: "Inter";
   font-weight: 600;
   font-size: 1.2rem;
   text-transform: capitalize;
 }
-.product .card-text h5{
+
+.product .card-text h5 {
   font-family: 'Space Grotesk';
   font-size: 1rem;
 }
-.product .card-text h5.text-muted{
+
+.product .card-text h5.text-muted {
   word-wrap: break-word;
   padding-top: .5rem;
   padding-right: 1rem;
 }
-.product .card-text s{
+
+.product .card-text s {
   font-size: .85rem;
 }
-.product .card-text h5 span{
+
+.product .card-text h5 span {
   font-weight: 600;
 }
 
-.reviews{
+.reviews {
   justify-content: center;
   background: #d6e4e5;
   padding-bottom: 1rem;
 }
 
-.reviews .col-md-6{
+.reviews .col-md-6 {
   width: fit-content;
   margin: 0 1rem;
 }
 
-.reviews .card{
+.reviews .card {
   border: rgba(0, 0, 0, 10%);
   border-radius: 5px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 10%);
@@ -253,30 +266,33 @@ a{
   width: 30vw;
 }
 
-.reviews .card-title{
+.reviews .card-title {
   font-family: 'Inter';
   font-size: 1rem;
   font-weight: 600;
 }
 
-.reviews .card-text{
+.reviews .card-text {
   font-family: 'Space Grotesk';
   color: grey;
   font-size: .7rem;
 }
 
-@media (max-width:768px){
-  .searchbar{
+@media (max-width:768px) {
+  .searchbar {
     display: none;
   }
-  .service{
+
+  .service {
     width: 100%;
     transform: scale(.9);
   }
-  .service li{
+
+  .service li {
     margin: .3rem;
   }
-  .appliances .card-body .card-title{
+
+  .appliances .card-body .card-title {
     font-size: 1rem;
   }
 }

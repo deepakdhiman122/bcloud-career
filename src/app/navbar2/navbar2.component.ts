@@ -7,13 +7,13 @@ import { Component } from '@angular/core';
 })
 export class Navbar2Component {
 
-  cart: { id: number; name: string; image: string; price: number; isCarted:boolean}[]=[];
-  constructor(){
-    setInterval(()=>{
+  cart: { id: number; name: string; image: string; price: number; isCarted: boolean }[] = [];
+  constructor() {
+    setInterval(() => {
       const data = localStorage.getItem('cartList');
-      if(data){
+      if (data) {
         this.cart = JSON.parse(data);
       }
-    },100);
+    }, 100);
   }
 }
