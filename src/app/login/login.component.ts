@@ -25,13 +25,14 @@ export class LoginComponent implements OnInit {
     });
 
     this.signupForm = new FormGroup({
+      // name: new FormControl('', Validators.required),
       email: new FormControl(''),
       password: new FormControl('', Validators.required),
       username: new FormControl('', Validators.required,),
       mobile: new FormControl('', Validators.required,),
       address: new FormControl('', Validators.required,),
       district: new FormControl('', Validators.required,),
-      refercode: new FormControl(''),
+      // refercode: new FormControl(''),
       userrollid: new FormControl('', Validators.required,),
     }
       // }, [this.passwordMatchValidator]);
@@ -134,23 +135,23 @@ export class LoginComponent implements OnInit {
   userdetails: any = [];
   walletBalance: any;
   couponBalance: any;
-  getUserDetails(): void {
-    const jsondata = {
-      'userid': localStorage.getItem('userid')
-    }
-    this.service.getUserDetails(jsondata).subscribe(data => {
-      if (data.status.responseStatus === 'Success') {
-        this.userdetails = data.response.userdetails;
-        this.walletBalance = this.userdetails[0].walletbalance;
-        this.couponBalance = this.userdetails[0].couponcode;
-        localStorage.setItem('walletBalance', this.walletBalance);
-        localStorage.setItem('couponBalance', this.couponBalance);
-      }
-      else {
-        alert('Saved Faluire');
-      }
-    });
-  }
+  // getUserDetails(): void {
+  //   const jsondata = {
+  //     'userid': localStorage.getItem('userid')
+  //   }
+  //   this.service.getUserDetails(jsondata).subscribe(data => {
+  //     if (data.status.responseStatus === 'Success') {
+  //       this.userdetails = data.response.userdetails;
+  //       this.walletBalance = this.userdetails[0].walletbalance;
+  //       this.couponBalance = this.userdetails[0].couponcode;
+  //       localStorage.setItem('walletBalance', this.walletBalance);
+  //       localStorage.setItem('couponBalance', this.couponBalance);
+  //     }
+  //     else {
+  //       alert('Saved Faluire');
+  //     }
+  //   });
+  // }
 
   // signUpFunction() {
   //   this.service.registration(this.signupForm.value).subscribe(data => {
@@ -168,16 +169,16 @@ export class LoginComponent implements OnInit {
     console.log("signUp form", this.signupForm.value);
     if (this.signupForm.value) {
       this.service.registration(this.signupForm.value).subscribe(data => {
-        if (data.message === 'success') {
+        if (data) {
           this.toaster.success("Login Now, Your Email is your Email & Password Your Password");
         }
         else {
-          console.log("some error");
+          console.log("some error:", data.msg);
         }
       }
       )
     } else {
-      this.toaster.warning("Please enter valid data !")
+      this.toaster.warning("Please enter valid data !");
     }
   }
 
@@ -188,14 +189,14 @@ export class LoginComponent implements OnInit {
       this.service.validateLogin(this.loginForm.value).subscribe(data => {
         console.log("login data ", data);
 
-        if (data.message === "success") {
-          this.loginInfo = data.result;
+        if (data) {
+          this.loginInfo = data.data;
           console.log("loigininfo", this.loginInfo);
           if (this.loginInfo.userrollid === 'customer') {
             localStorage.setItem('islogedin', 'true');
             localStorage.setItem('userid', this.loginInfo._id);
             localStorage.setItem('rollid', this.loginInfo.userrollid);
-            this.getUserDetails();
+            // this.getUserDetails();
             this.toaster.success("Login Successfully");
             this.route.navigate(['/cart']);
           } else if (this.loginInfo.userrollid === 'servicesngineer') {
@@ -220,8 +221,6 @@ export class LoginComponent implements OnInit {
         }
       }
       )
-
-
       // if (this.loginForm.value) {
       //   this.service.loginPost(this.loginForm.value).subscribe(res => {
       //     this.route.navigate(['/dashboard'])

@@ -26,6 +26,7 @@ export class AirConditionerService {
         servicetypes: "Main Service",
         imageurl: "../assets/ac-jet-service.jpg"
       },
+
       {
         id: '2',
         name: 'Refrigerator',
@@ -46,6 +47,7 @@ export class AirConditionerService {
         servicetypes: "Installetion",
         imageurl: "../assets/Washing Machine.png"
       },
+
       {
         id: '4',
         name: 'Chimny Service and Repair',
@@ -59,6 +61,7 @@ export class AirConditionerService {
         servicetypes: "Installetion",
         imageurl: "../assets/Chimney.png"
       },
+
       {
         id: '4',
         name: 'Geyser Service',
@@ -70,6 +73,7 @@ export class AirConditionerService {
         repair: "199",
         imageurl: "../assets/Geyser.png"
       },
+
       {
         id: '5',
         name: 'Led Tv',
@@ -79,10 +83,6 @@ export class AirConditionerService {
         keybenefits1: "Key Benefits",
         imageurl: "../assets/television.png"
       },
-      {
-        id: '6',
-        name: "led tv"
-      }
     ];
   }
 

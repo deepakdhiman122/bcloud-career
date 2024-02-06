@@ -138,44 +138,43 @@
             <h1 class="text">Order History</h1>
           </div>
         </div>
-          <div>
-            <div class="card-body">
-              <div class="table-body">
-                <p-table #dt dataKey="id" styleClass="p-datatable-customers" [rowHover]="true" [rows]="11"
-                  responsiveLayout="scroll"
-                  [globalFilterFields]="['name','country.name','representative.name','status']" [value]="orderList"
-                  class="table">
-                  <ng-template pTemplate="header" class="tableheader">
-                    <tr class="header">
-                      <td>Order Number</td>
-                      <td>Order Type</td>
-                      <td>Grand Total</td>
-                      <td>Order Status</td>
-                      <td>Grand Total</td>
-                      <!-- <td><i style="color: blue; cursor: pointer;" class="fa-solid fa-print"></i></td> -->
-                      <!-- <td><i style="color: blue; cursor: pointer;" class="fa-solid fa-eye"></i></td> -->
-                      <!-- <td><i style="color: blue; cursor: pointer;" class="fa-regular fa-pen-to-square"></i></td> -->
-                      <!-- <td><i style="color: red; cursor: pointer;" class="fa-solid fa-trash-can"></i></td> -->
-                    </tr>
-                  </ng-template>
-                  <ng-template pTemplate="body" let-row>
-                    <tr>
-                      <td>{{row.orderid}}</td>
-                      <td>{{row.ordertype1}}</td>
-                      <td>{{row.grandtotal}}</td>
-                      <td>{{row.orderstatus1}}</td>
-                      <td>{{row.date}}</td>
-                      <!-- <td><i style="color: blue; cursor: pointer;" (click)="printOrder(row)" class="fa-solid fa-print"></i></td> -->
-                      <!-- <td><i (click)="editrow(row)" style="color: blue; cursor: pointer;"
+        <div>
+          <div class="card-body">
+            <div class="table-body">
+              <p-table #dt dataKey="id" styleClass="p-datatable-customers" [rowHover]="true" [rows]="11"
+                responsiveLayout="scroll" [globalFilterFields]="['name','country.name','representative.name','status']"
+                [value]="orderList" class="table">
+                <ng-template pTemplate="header" class="tableheader">
+                  <tr class="header">
+                    <td>Order Number</td>
+                    <td>Order Type</td>
+                    <td>Grand Total</td>
+                    <td>Order Status</td>
+                    <td>Grand Total</td>
+                    <!-- <td><i style="color: blue; cursor: pointer;" class="fa-solid fa-print"></i></td> -->
+                    <!-- <td><i style="color: blue; cursor: pointer;" class="fa-solid fa-eye"></i></td> -->
+                    <!-- <td><i style="color: blue; cursor: pointer;" class="fa-regular fa-pen-to-square"></i></td> -->
+                    <!-- <td><i style="color: red; cursor: pointer;" class="fa-solid fa-trash-can"></i></td> -->
+                  </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-row>
+                  <tr>
+                    <td>{{row.orderid}}</td>
+                    <td>{{row.ordertype1}}</td>
+                    <td>{{row.grandtotal}}</td>
+                    <td>{{row.orderstatus1}}</td>
+                    <td>{{row.date}}</td>
+                    <!-- <td><i style="color: blue; cursor: pointer;" (click)="printOrder(row)" class="fa-solid fa-print"></i></td> -->
+                    <!-- <td><i (click)="editrow(row)" style="color: blue; cursor: pointer;"
                             class="fa-regular fa-pen-to-square"></i></td> -->
-                      <!-- <td><i (click)="deleteProduct(row)" style="color: red; cursor: pointer;"
+                    <!-- <td><i (click)="deleteProduct(row)" style="color: red; cursor: pointer;"
                             class="fa-solid fa-trash-can"></i></td> -->
-                  </ng-template>
-                </p-table>
-              </div>
+                </ng-template>
+              </p-table>
             </div>
           </div>
-        
+        </div>
+
       </div>
     </div>
   </div>

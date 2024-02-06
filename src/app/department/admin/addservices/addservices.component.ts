@@ -46,8 +46,10 @@ export class AddservicesComponent {
 
   getProductList(): void {
     this.service.getservicelist().subscribe(data => {
-      if (data.status.responseStatus === 'Success') {
-        this.servicelist = data.response.servicelist;
+      if (data) {
+        this.servicelist = data.data;
+        console.log(this.servicelist);
+        this.toaster.success('Product saved Successfully', 'SUCCESSFULLY SAVED');
       } else {
         this.toaster.error('Getting Product List', 'ERROR WHILE');
       }
@@ -82,10 +84,10 @@ export class AddservicesComponent {
     console.log(this.isEdited);
   }
 
-  saveImage(event: any) : void {
+  saveImage(event: any): void {
     this.selectedFile = event.target.files[0];
     console.log(this.selectedFile);
-    
+
     //FormData API provides methods and properties to allow us easily prepare form data to be sent with POST HTTP requests.
     const uploadImageData = new FormData();
     uploadImageData.append('imageFile', this.selectedFile, this.selectedFile.name);
@@ -112,9 +114,9 @@ export class AddservicesComponent {
       'servicedetails': this.form.controls['servicedetails'].value,
       'salesprice': this.form.controls['salesprice'].value,
       'rating': this.form.controls['rating'].value,
-      'imageurl' : this.imageurl,
+      'imageurl': this.imageurl,
       'userid': localStorage.getItem('userid'),
-      'productid' : this.productid
+      'productid': this.productid
     }
     this.service.updateProduct(jsondata).subscribe(data => {
       if (data.status.responseStatus === 'Success') {
@@ -135,11 +137,11 @@ export class AddservicesComponent {
       'servicedetails': this.form.controls['servicedetails'].value,
       'salesprice': this.form.controls['salesprice'].value,
       'rating': this.form.controls['rating'].value,
-      'imageurl' : this.imageurl,
+      'imageurl': this.imageurl,
       'userid': localStorage.getItem('userid')
     }
     this.service.saveServices(jsondata).subscribe(data => {
-      if (data.status.responseStatus === 'Success') {
+      if (data) {
         this.clear();
         this.getProductList();
         this.toaster.success('Product saved Successfully', 'SUCCESSFULLY SAVED');

@@ -1,44 +1,47 @@
 @import "primeng/resources/themes/lara-light-blue/theme.css";
 @import "primeng/resources/primeng.css";
 @import "primeicons/primeicons.css";
-*{
+
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
-:root{
-  --primary-color: #ff3300 ;
-  --panel-color: #EFF5F5;
-  --text-color:#000;
-  --black-light-color:#497174;
-  --border-color: #D6E4E5;
-  --toggle-color:#DDD;
-  --box1-color: #ff8f70 ;
-  --box2-color: #FFe6AC;
-  --box3-color:#7feaf1;
-  --title-icon-color:#fff;
 
-  --tran-05:all 0.5s ease;
+:root {
+  --primary-color: #ff3300;
+  --panel-color: #EFF5F5;
+  --text-color: #000;
+  --black-light-color: #497174;
+  --border-color: #D6E4E5;
+  --toggle-color: #DDD;
+  --box1-color: #ff8f70;
+  --box2-color: #FFe6AC;
+  --box3-color: #7feaf1;
+  --title-icon-color: #fff;
+
+  --tran-05: all 0.5s ease;
 }
 
-.product .owl-nav{
+.product .owl-nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: relative;
   bottom: 50vh;
 }
+
 .product .owl-nav .owl-prev,
-.product .owl-nav .owl-next{
+.product .owl-nav .owl-next {
   font-size: 2rem;
 }
 
 .product .owl-nav .owl-prev:hover,
-.product .owl-nav .owl-next:hover{
+.product .owl-nav .owl-next:hover {
   background: rgb(49, 49, 49);
 }
 
-.text h1{
+.text h1 {
   font-family: 'Inter';
   font-weight: 800;
   font-size: 3rem;
@@ -46,126 +49,145 @@
 }
 
 
-.text h2{
+.text h2 {
   font-family: 'Inter';
   font-weight: 700;
   font-size: 2.5rem;
   color: #497174;
 }
 
-.text h4{
+.text h4 {
   font-family: 'Inter';
   font-weight: 700;
   font-size: 1.3rem;
   color: #eb6440;
 }
 
-.text p{
+.text p {
   font-family: 'Space Grotesk';
   font-size: 1rem;
   color: #497174;
 }
 
 /* Toaster */
-.toast-title{
+.toast-title {
   font-family: 'Inter';
   display: none;
 }
-.toast-message{
+
+.toast-message {
   font-family: 'Space Grotesk';
 }
 
-.toast-success{
- background-color: #0fa148;
+.toast-success {
+  background-color: #0fa148;
 }
-.savebutton{
+
+.savebutton {
   border: none;
   width: 100px;
   height: 50px;
   border-radius: 10px;
   background-color: #FFe6AC;
 }
-.clearbutton{
+
+.clearbutton {
   border: none;
   width: 100px;
   height: 50px;
   border-radius: 10px;
-  background-color:#eb6440;
+  background-color: #eb6440;
 }
-.Updatebutton{
+
+.Updatebutton {
   border: none;
   width: 100px;
   height: 50px;
   border-radius: 10px;
-  background-color:#eec7bd;
+  background-color: #eec7bd;
 }
-.Coins{
+
+.Coins {
   border: none;
   width: 100px;
   height: 50px;
   border-radius: 10px;
-  background-color:#e7e4db;
+  background-color: #e7e4db;
 }
-.row-field mat-form-field{
+
+.row-field mat-form-field {
   margin: 1rem;
 }
-.button-field{ 
+
+.button-field {
   margin: 1rem;
- padding-left: 20px;
+  padding-left: 20px;
 }
-::-webkit-scrollbar{
+
+::-webkit-scrollbar {
   width: .3rem;
   height: .5rem;
   background: none;
 }
 
-::-webkit-scrollbar-track{
+::-webkit-scrollbar-track {
   border: 3px solid white;
   background-color: #b2bec3;
 }
 
-::-webkit-scrollbar-thumb{
-  background:linear-gradient(100deg,#b2bec3,#f9f9f9);
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(100deg, #b2bec3, #f9f9f9);
   border-radius: 10px;
 }
-.row-field input{
+
+.row-field input {
   border: none;
-  box-shadow: 0 0 11px rgba(135, 230, 230, 0.756); 
+  box-shadow: 0 0 11px rgba(135, 230, 230, 0.756);
   height: 30px;
   width: 190px;
   border-radius: 10px;
 }
-.row-field button{
+
+.row-field button {
   margin-left: 20px;
 }
-.row-field{
- padding: 30px;
+
+.row-field {
+  padding: 30px;
 }
-.row-field label{
+
+.row-field label {
   padding: 0 20px;
 }
-.row-field select{
+
+.row-field select {
   width: 190px;
 }
-.row-field input{
+
+.row-field input {
   padding: 0px 10px;
 }
-.row-field textarea{
+
+.row-field textarea {
   border: none;
-  box-shadow: 0 0 11px rgba(135, 230, 230, 0.756); 
+  box-shadow: 0 0 11px rgba(135, 230, 230, 0.756);
   border-radius: 10px;
 }
-.search-filter input{
+
+.search-filter input {
   height: 28px;
 }
-@media(max-width:500px){
+
+@media(max-width:500px) {
   .text h1 {
     font-size: 1rem;
   }
-  .row-field label{
+
+  .row-field label {
     padding: 10px 20px;
   }
-  .product .owl-nav{
+
+  .product .owl-nav {
     display: flex;
     justify-content: space-between;
     align-items: center;

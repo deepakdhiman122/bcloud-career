@@ -45,9 +45,9 @@
         <form [formGroup]="form">
           <div class="row-field">
             <label>User Creation Coins</label>
-              <input matInput type="text" formControlName="usercreationcoins" >
-              <label>User Refer Coins</label>
-              <input matInput type="text" formControlName="userrefercoins">
+            <input matInput type="text" formControlName="usercreationcoins">
+            <label>User Refer Coins</label>
+            <input matInput type="text" formControlName="userrefercoins">
             <button class="Coins">Give Coins</button>
           </div>
         </form>
@@ -60,17 +60,17 @@
         <form [formGroup]="couponform">
           <div class="row-field">
             <label>Coupon Code</label>
-              <input matInput type="text" formControlName="couponCode">
-              <label>Coupon Value</label>
-              <input matInput type="text" formControlName="couponvalue">
-            </div>
-            <br>
-              <div class="row-field">
-              <label>Coupon Start Date</label>
-              <input matInput type="date" formControlName="startdate">
-              <label>Coupon End Date</label>
-              <input matInput type="date" formControlName="enddate">
-            
+            <input matInput type="text" formControlName="couponCode">
+            <label>Coupon Value</label>
+            <input matInput type="text" formControlName="couponvalue">
+          </div>
+          <br>
+          <div class="row-field">
+            <label>Coupon Start Date</label>
+            <input matInput type="date" formControlName="startdate">
+            <label>Coupon End Date</label>
+            <input matInput type="date" formControlName="enddate">
+
             <button class="Coins" (click)="saveCouponDetails()">Give Coins</button>
           </div>
         </form>
@@ -84,11 +84,11 @@
           <div class="row-field">
             <mat-form-field>
               <mat-label>Notice</mat-label>
-              <textarea matInput type="text" formControlName="notice" ></textarea>
+              <textarea matInput type="text" formControlName="notice"></textarea>
             </mat-form-field>
             <mat-form-field>
               <mat-label>Announcement</mat-label>
-              <textarea matInput type="text" formControlName="annoucement" ></textarea>
+              <textarea matInput type="text" formControlName="annoucement"></textarea>
             </mat-form-field>
             <button class="Coins" (click)="save()">Save</button>
           </div>

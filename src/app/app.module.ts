@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -19,17 +19,17 @@ import { CartComponent } from './cart/cart.component';
 import { LoginComponent } from './login/login.component';
 import { AirConditionerComponent } from './air-conditioner/air-conditioner.component';
 import { SidenavbarComponent } from './sidenavbar/sidenavbar.component';
-import {MatIconModule} from '@angular/material/icon';
-import {MatCardModule} from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import {MatButtonModule} from '@angular/material/button';
-import {MatInputModule} from '@angular/material/input';
-import {MatSelectModule} from '@angular/material/select';
-import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatRadioModule } from '@angular/material/radio';
-import {MatBadgeModule} from '@angular/material/badge';
+import { MatBadgeModule } from '@angular/material/badge';
 import { AddproductComponent } from './department/admin/addproduct/addproduct.component';
 import { ViewproductordersComponent } from './department/admin/viewproductorders/viewproductorders.component';
 import { ViewserviceordersComponent } from './department/admin/viewserviceorders/viewserviceorders.component';
@@ -48,13 +48,13 @@ import { PopviewComponent } from './department/popview/popview.component';
 import { DatePipe, HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { ViewamcordersComponent } from './department/admin/viewamcorders/viewamcorders.component';
 import { SearchPipe } from './commonModules/Commonpipes/search.pipe';
-import {InputTextModule} from 'primeng/inputtext';
+import { InputTextModule } from 'primeng/inputtext';
 import { TermsComponent } from './terms/terms.component';
 import { PrivacypolicyComponent } from './privacypolicy/privacypolicy.component';
 import { DisclaimerComponent } from './disclaimer/disclaimer.component';
 import { SecurityComponent } from './security/security.component';
-import {RadioButtonModule} from 'primeng/radiobutton';
-import {DropdownModule} from 'primeng/dropdown';
+import { RadioButtonModule } from 'primeng/radiobutton';
+import { DropdownModule } from 'primeng/dropdown';
 import { ManualordergenerationComponent } from './department/admin/manualordergeneration/manualordergeneration.component';
 import { DatewiseexcelreportComponent } from './department/admin/datewiseexcelreport/datewiseexcelreport.component';
 import { ImageModule } from 'primeng/image';
@@ -102,8 +102,8 @@ import { EmployeeSidenavComponent } from './employee-sidenav/employee-sidenav.co
     BrowserAnimationsModule,
     ReactiveFormsModule,
     ToastrModule.forRoot({
-      preventDuplicates:true,
-      countDuplicates:true,
+      preventDuplicates: true,
+      countDuplicates: true,
     }),
     CarouselModule,
     ReactiveFormsModule,

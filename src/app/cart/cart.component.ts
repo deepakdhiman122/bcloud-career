@@ -13,15 +13,15 @@ export class CartComponent {
 
   products: any;
   discount: any = 0;
-  cart: Product[]=[];
+  cart: Product[] = [];
 
 
-  constructor(private toastr : ToastrService, private route: Router, private service: CartService){
+  constructor(private toastr: ToastrService, private route: Router, private service: CartService) {
     const data2 = localStorage.getItem('cartList');
-    if(data2){
+    if (data2) {
       this.cart = JSON.parse(data2);
     }
-    for(let c of this.cart) {
+    for (let c of this.cart) {
       c.quantity = 1;
       c.subtotal = c.quantity * c.salesprice;
     }
@@ -38,14 +38,14 @@ export class CartComponent {
     this.Gtotal();
   }
 
-  printStars(rating:number) : string{
+  printStars(rating: number): string {
     rating = +rating;
-    let str:string;
-    if(rating%1){
+    let str: string;
+    if (rating % 1) {
       str = "<i class='fa-solid fa-star'></i>".repeat(Math.floor(rating));
-    }else{
+    } else {
       str = "<i class='fa-solid fa-star'></i>".repeat(Math.floor(rating));
-      str = str +"<i class='fa-solid fa-star-half'></i>";
+      str = str + "<i class='fa-solid fa-star-half'></i>";
     }
     return str;
   }
@@ -63,8 +63,8 @@ export class CartComponent {
     this.couponCode = coupon.value;
     // this.couponValue = 200;
     const jsondata = {
-      'userid' : localStorage.getItem('userid'),
-      'couponcode' : this.couponCode
+      'userid': localStorage.getItem('userid'),
+      'couponcode': this.couponCode
     }
     this.service.verifyCoupon(jsondata).subscribe(data => {
       if (data.status.responseStatus === 'Success') {
@@ -79,30 +79,30 @@ export class CartComponent {
     });
   }
 
-  removeItem(id:string){
-    this.cart = this.cart.filter((object: {productid:string})=>object.productid !== id);
-    localStorage.setItem('cartList',JSON.stringify(this.cart));
-    setInterval(()=>{this.Gtotal()},100);
+  removeItem(id: string) {
+    this.cart = this.cart.filter((object: { productid: string }) => object.productid !== id);
+    localStorage.setItem('cartList', JSON.stringify(this.cart));
+    setInterval(() => { this.Gtotal() }, 100);
   }
 
 
   generateOrder(): void {
     const a = localStorage.getItem('islogedin')
-    if( a === 'true') {
+    if (a === 'true') {
       const jsondata = {
-        'userid' : localStorage.getItem('userid'),
-        'discount' : this.discount,
-        'grandsubtotal' : this.grandsubtotal,
-        'grandtotal'  : this.grandtotal,
-        'cart'   : this.cart,
-        'reedemvaluetype' : this.reedemvaluetype,
-        'couponCode' : this.couponCode
+        'userid': localStorage.getItem('userid'),
+        'discount': this.discount,
+        'grandsubtotal': this.grandsubtotal,
+        'grandtotal': this.grandtotal,
+        'cart': this.cart,
+        'reedemvaluetype': this.reedemvaluetype,
+        'couponCode': this.couponCode
       }
-      this.service.generateOrder(jsondata).subscribe(data =>  {
+      this.service.generateOrder(jsondata).subscribe(data => {
         if (data.status.responseStatus === 'Success') {
           this.toastr.success('YOUR ORDER ID : ' + data.response.orderid);
           this.cart = [];
-          localStorage.setItem('cartList',JSON.stringify(this.cart));
+          localStorage.setItem('cartList', JSON.stringify(this.cart));
           localStorage.setItem('walletBalance', this.walletBalance);
         }
         else {
@@ -111,23 +111,23 @@ export class CartComponent {
       });
     } else {
       this.route.navigate(['/login']);
-    } 
+    }
   }
 
-  calc(input:any,item: any,){
-    if(parseFloat(input.value)<=0){
+  calc(input: any, item: any,) {
+    if (parseFloat(input.value) <= 0) {
       this.removeItem(item.id);
     }
     item.quantity = input.value;
-    item.subtotal = (parseFloat(input.value)*item.salesprice).toFixed(2);
+    item.subtotal = (parseFloat(input.value) * item.salesprice).toFixed(2);
     this.Gtotal();
   }
 
-  grandsubtotal : any = 0;
-  grandtotal : any = 0;
-  Gtotal(){
-    let res :number = 0;
-    for(let a  of this.cart){
+  grandsubtotal: any = 0;
+  grandtotal: any = 0;
+  Gtotal() {
+    let res: number = 0;
+    for (let a of this.cart) {
       res = Number.parseFloat(res.toString()) + Number.parseFloat((a.subtotal).toString());
     }
     this.grandsubtotal = res.toFixed(2);

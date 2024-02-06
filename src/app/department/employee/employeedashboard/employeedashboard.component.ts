@@ -42,23 +42,23 @@ export class EmployeedashboardComponent {
     this.getServicesOrder();
   }
 
-  getServicesOrder(): void{
+  getServicesOrder(): void {
     const jsondata = {
-      'empid' : localStorage.getItem('userid')
+      'empid': localStorage.getItem('userid')
     }
     this.service.getServicesOrder(jsondata).subscribe(data => {
       if (data.status.responseStatus === 'Success') {
         this.serviceOrderList = data.response.serviceOrderList;
-        for(let sol of this.serviceOrderList){
-          if(sol.orderstatus === 'D') {
+        for (let sol of this.serviceOrderList) {
+          if (sol.orderstatus === 'D') {
             sol.orderstatus1 = 'Closed';
-          } else if(sol.orderstatus === 'C') {
+          } else if (sol.orderstatus === 'C') {
             sol.orderstatus1 = 'Cancel';
-          } else if(sol.orderstatus === 'P') {
+          } else if (sol.orderstatus === 'P') {
             sol.orderstatus1 = 'Pending';
-          } else if(sol.orderstatus === 'O') {
+          } else if (sol.orderstatus === 'O') {
             sol.orderstatus1 = 'Open';
-          } else if(sol.orderstatus === 'R') {
+          } else if (sol.orderstatus === 'R') {
             sol.orderstatus1 = 'Revert';
           }
           sol.addedon1 = this.datePipe.transform(sol.addedon, 'dd/MM/yyyy');
@@ -70,10 +70,10 @@ export class EmployeedashboardComponent {
     });
   }
 
-  productview(row: any):void{
-    localStorage.setItem("orderid",row.orderid);
-   }
-   
+  productview(row: any): void {
+    localStorage.setItem("orderid", row.orderid);
+  }
+
   getemployeeDashboardData(): void {
     const jsondata = {
       'userid': localStorage.getItem('userid')

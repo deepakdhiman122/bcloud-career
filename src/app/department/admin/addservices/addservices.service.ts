@@ -11,15 +11,15 @@ export class AddservicesService {
   constructor(private httpclient: HttpClient) { }
 
   getservicelist() {
-    const url = environment.apiBase + '/productcontroller/getservicelist';
-    const headers = new HttpHeaders({ 'Content-Type': 'application/json;' });
-    return this.httpclient.post<any>(url, null, { headers: headers });
+    const url = environment.apiBase + '/api/get_service';
+    // const headers = new HttpHeaders({ 'Content-Type': 'application/json;' });
+    return this.httpclient.get<any>(url);
   }
 
   saveServices(jsondata: any) {
-    const url = environment.apiBase + '/productcontroller/saveservices';
-    const headers = new HttpHeaders({ 'Content-Type': 'application/json;' });
-    return this.httpclient.post<any>(url, jsondata, { headers: headers });
+    const url = environment.apiBase + '/api/addService';
+    // const headers = new HttpHeaders({ 'Content-Type': 'application/json;' });
+    return this.httpclient.post<any>(url, jsondata,);
   }
 
   updateProduct(jsondata: any) {
@@ -31,6 +31,6 @@ export class AddservicesService {
   onImageUpload(jsondata: any): Observable<any> {
     const url = environment.apiBase + '/imagecontroller/uplaodImage';
     const headers = new HttpHeaders({ 'Content-Type': 'application/json;' });
-    return this.httpclient.post<any>(url, jsondata, { headers: headers , observe: 'response' });
+    return this.httpclient.post<any>(url, jsondata, { headers: headers, observe: 'response' });
   }
 }

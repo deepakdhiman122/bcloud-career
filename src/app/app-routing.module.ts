@@ -27,80 +27,99 @@ import { DisclaimerComponent } from './disclaimer/disclaimer.component';
 import { SecurityComponent } from './security/security.component';
 import { ManualordergenerationComponent } from './department/admin/manualordergeneration/manualordergeneration.component';
 import { DatewiseexcelreportComponent } from './department/admin/datewiseexcelreport/datewiseexcelreport.component';
+
 const routes: Routes = [
   {
     path: '',
     redirectTo: '/home',
     pathMatch: 'full'
   },
+
   {
     path: 'home',
     component: HomeComponent
   },
+
   {
     path: 'service',
     component: ServicesComponent
   },
+
   {
     path: 'shopping',
     component: ShopComponent
   },
+
   {
     path: 'about',
     component: AboutComponent
   },
+
   {
     path: 'reviews',
     component: ReviewsComponent
   },
+
   {
     path: 'cart',
     component: CartComponent
   },
+
   {
     path: 'login',
     component: LoginComponent
   },
+
   {
     path: 'dashboard',
     component: DashboardComponent
   },
+
   {
     path: 'service/air-conditioner',
     component: AirConditionerComponent
   },
+
   {
     path: 'addproducts',
     component: AddproductComponent
   },
+
   {
     path: 'viewproductorders',
     component: ViewproductordersComponent
   },
+
   {
     path: 'viewserviceorders',
     component: ViewserviceordersComponent
   },
+
   {
     path: 'airconditioner',
     component: AirConditionerComponent
   },
+
   {
     path: 'addservices',
     component: AddservicesComponent
   },
+
   {
     path: 'addemployee',
     component: AddemployeeComponent
   },
+
   {
     path: 'userdashboard',
     component: UserdashboardComponent
   },
+
   {
     path: 'employeedashboard',
     component: EmployeedashboardComponent
   },
+
   {
     path: 'AWS',
     component: AwsComponent
@@ -137,10 +156,13 @@ const routes: Routes = [
     path: 'security',
     component: SecurityComponent
   },
+
   {
     path: 'manualordergeneration',
-    component: ManualordergenerationComponent
+    component: ManualordergenerationComponent,
+    // loadComponent:ManualordergenerationComponent
   },
+
   {
     path: 'datewiseexcelreport',
     component: DatewiseexcelreportComponent

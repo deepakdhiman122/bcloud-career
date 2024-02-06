@@ -44,10 +44,10 @@ export class AirConditionerComponent {
               this.mainservice = true;
             }
             if (c.servicetypes === 'Repair Services') {
-              this.repair = true;
+              this.repair = false;
             }
             if (c.servicetypes === 'Installetion') {
-              this.installetion = true;
+              this.installetion = false;
             }
             c.details1 = c.details.split(".");
           }

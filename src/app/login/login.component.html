@@ -54,7 +54,6 @@
 
         <!-- BEGINN :: SIGNup /////////////// -->
 
-
         <form [formGroup]="signupForm" (ngSubmit)="signUpFunction()">
           <div class="field">
             <input formControlName="username" type="text" placeholder="User Name" autocomplete="disable" required>
@@ -80,9 +79,9 @@
               Email is not valid
             </div>
           </div>
-          <div class="field">
+          <!-- <div class="field">
             <input formControlName="refercode" type="text" placeholder="Reference Coupon Code" autocomplete="disable">
-          </div>
+          </div> -->
           <div class="field">
             <input formControlName="password" type="password" placeholder="Password" required>
             <div *ngIf="signupForm.get('password')?.hasError('required') && signupForm.get('password')?.touched"

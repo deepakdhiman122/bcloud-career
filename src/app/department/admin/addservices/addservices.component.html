@@ -20,42 +20,40 @@
             <div>
                 <div class="row-field">
                     <label>Service Name</label>
-                    <input matInput type="text" placeholder="Ex.: Less/No Cooling"
-                        formControlName="servicename">
+                    <input matInput type="text" placeholder="Ex.: Less/No Cooling" formControlName="servicename">
 
 
                     <label>Service Product Type </label>
-                    <input matInput type="text" placeholder="Ex.: Spilit/Window"
-                        formControlName="serviceproducttype">
-                    
+                    <input matInput type="text" placeholder="Ex.: Spilit/Window" formControlName="serviceproducttype">
+
                 </div>
                 <div class="container-fluid py-4">
                     <div class="row-field">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <label>Product Category</label>
-                            <select formControlName="productcategory" class="form-select"
-                                aria-label="Default select example" required>
-                                <option value="Air Conditioner"> Air Conditioner </option>
-                                <option value="Air Cooler"> Air Cooler </option>
-                                <option value="Geyser"> Geyser </option>
-                                <option value="Refrigerator"> Refrigerator </option>
-                                <option value="Washing Machine"> Washing Machine </option>
-                                <option value="LED TV"> LED TV </option>
-                                <option value="Small Appliances"> Small Appliances </option>
-                                <option value="Microwave"> Microwave </option>
-                                <option value="Chimney"> Chimney </option>
-                                <option value="Water Purifire"> Water Purifire </option>
-                            </select>
-                            
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label>Product Category</label>
+                                <select formControlName="serviceproductcategory" class="form-select"
+                                    aria-label="Default select example" required>
+                                    <option value="Air Conditioner"> Air Conditioner </option>
+                                    <option value="Air Cooler"> Air Cooler </option>
+                                    <option value="Geyser"> Geyser </option>
+                                    <option value="Refrigerator"> Refrigerator </option>
+                                    <option value="Washing Machine"> Washing Machine </option>
+                                    <option value="LED TV"> LED TV </option>
+                                    <option value="Small Appliances"> Small Appliances </option>
+                                    <option value="Microwave"> Microwave </option>
+                                    <option value="Chimney"> Chimney </option>
+                                    <option value="Water Purifire"> Water Purifire </option>
+                                </select>
+
+                            </div>
+                            <div class="col-md-5">
+                                <label>Service Details</label>
+                                <textarea matInput placeholder="Details of Products"
+                                    formControlName="servicedetails"></textarea>
+                            </div>
                         </div>
-                        <div class="col-md-5">
-                        <label>Service Details</label>
-                            <textarea matInput placeholder="Details of Products"
-                                formControlName="servicedetails"></textarea>
                     </div>
-                </div>
-            </div>
                 </div>
                 <div class="row-field">
                     <label>Service Rating out of 5</label>
@@ -85,13 +83,13 @@
             </div>
         </form>
         <div class="card-body">
-            <div  class="search-filter" fxLayout="row" fxLayoutAlign="space-between center">
+            <div class="search-filter" fxLayout="row" fxLayoutAlign="space-between center">
                 <i style="color: blue;" (click)="getProductList()" class="fa-solid fa-repeat"></i>
                 <div style="text-align: right;">
                     <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
                     <input class="global" type="text" pInputText size="50" placeholder="Global Filter"
-                    [(ngModel)]="search" [ngModelOptions]="{standalone: true}"
-                    style=" border: 1px solid black; border-radius: 5px;" />&nbsp;
+                        [(ngModel)]="search" [ngModelOptions]="{standalone: true}"
+                        style=" border: 1px solid black; border-radius: 5px;" />&nbsp;
                 </div>
                 <!-- <i style="color: blue;" class="fa-solid fa-file-excel" (click)="fileDownlod()"></i> -->
             </div>
@@ -99,8 +97,8 @@
             <div class="table-body">
                 <p-table #dt dataKey="id" styleClass="p-datatable-customers" [rowHover]="true" [rows]="11"
                     responsiveLayout="scroll" [scrollable]="true" scrollHeight="500px"
-                    [globalFilterFields]="['name','country.name','representative.name','status']" [value]="servicelist | search : search"
-                    class="table">
+                    [globalFilterFields]="['name','country.name','representative.name','status']"
+                    [value]="servicelist | search : search" class="table">
                     <ng-template pTemplate="header" class="tableheader">
                         <tr class="header">
                             <td>Product Name</td>
@@ -115,11 +113,11 @@
                     </ng-template>
                     <ng-template pTemplate="body" let-row>
                         <tr>
-                            <td>{{row.name}}</td>
+                            <td>{{row.servicename}}</td>
                             <td>{{row.serviceproducttype}}</td>
                             <td>{{row.serviceproductcategory}}</td>
-                            <td>{{row.details}}</td>
-                            <td>{{row.productrating}}</td>
+                            <td>{{row.servicedetails}}</td>
+                            <td>{{row.rating}}</td>
                             <td>{{row.salesprice}}</td>
                             <td><i (click)="editrow(row)" style="color: blue; cursor: pointer;"
                                     class="fa-regular fa-pen-to-square"></i></td>
