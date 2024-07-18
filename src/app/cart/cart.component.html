@@ -46,7 +46,7 @@
                 <td>&#8377; {{grandsubtotal}}</td>
               </tr>
               <tr>
-                <td>
+                <!-- <td>
                   <div class="form-check">
                     <input class="form-check-input" type="radio" name="flexRadioDefault"
                       (change)="selectreadem('coins')" #reedemValue1>
@@ -68,8 +68,8 @@
                       None
                     </label>
                   </div>
-                </td>
-                <!-- <td>
+                </td> -->
+                <!-- already comments <td>
                   <input class="form-check-input" type="checkbox" id="gridCheck" (change)="selectreadem(reedemValue1)" >
                     <label class="form-check-label" for="gridCheck" value="coins" #reedemValue1>
                       Coins
@@ -80,7 +80,7 @@
                     </label>
                 </td> -->
               </tr>
-              <tr *ngIf="reedemvaluetype === 'coins'" class="button">
+              <!-- <tr *ngIf="reedemvaluetype === 'coins'" class="button">
                 <td>
                   <button (click)="reademCoin()" class="discount">redeem coin</button>
                 </td>
@@ -102,11 +102,11 @@
                   </p>
                   <p>&#8377; {{couponValue}}</p>
                 </td>
-              </tr>
-              <tr>
+              </tr> -->
+              <!-- <tr>
                 <td>Discount</td>
                 <td>&#8377; {{discount}}</td>
-              </tr>
+              </tr> -->
               <tr>
                 <td>Total</td>
                 <td>&#8377; {{grandtotal}}</td>

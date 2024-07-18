@@ -59,6 +59,12 @@ import { ManualordergenerationComponent } from './department/admin/manualorderge
 import { DatewiseexcelreportComponent } from './department/admin/datewiseexcelreport/datewiseexcelreport.component';
 import { ImageModule } from 'primeng/image';
 import { EmployeeSidenavComponent } from './employee-sidenav/employee-sidenav.component';
+import { InstallationComponent } from './installation/installation.component';
+import { CareerComponent } from './career/career.component';
+import { FilterPipe } from './filter.pipe';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { JonDetailsComponent } from './jon-details/jon-details.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -95,7 +101,11 @@ import { EmployeeSidenavComponent } from './employee-sidenav/employee-sidenav.co
     SecurityComponent,
     ManualordergenerationComponent,
     DatewiseexcelreportComponent,
-    EmployeeSidenavComponent
+    EmployeeSidenavComponent,
+    InstallationComponent,
+    CareerComponent,
+    FilterPipe,
+    JonDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -128,7 +138,8 @@ import { EmployeeSidenavComponent } from './employee-sidenav/employee-sidenav.co
     InputTextModule,
     RadioButtonModule,
     DropdownModule,
-    ImageModule
+    ImageModule,
+    NgxPaginationModule
   ],
   providers: [
     { provide: LocationStrategy, useClass: HashLocationStrategy }, DatePipe

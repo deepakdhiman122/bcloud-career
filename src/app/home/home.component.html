@@ -3,13 +3,19 @@
   <app-navbar></app-navbar>
 
   <!-- Sales Banner -->
-  <div class="conatianer-fluid banner ">
+  <div class="conatianer-fluid banner">
     <owl-carousel-o [options]="bannerOptions">
       <ng-template carouselSlide>
-        <img src="../../assets/1.png" alt="banner1">
+        <img
+          src="../../assets/magnet-me-sOObVT48N3I-unsplash.jpg"
+          alt="banner1"
+        />
       </ng-template>
       <ng-template carouselSlide>
-        <img src="../../assets/5.jpg" alt="banner2">
+        <img
+          src="../../assets/maxim-hopman-IayKLkmz6g0-unsplash.jpg"
+          alt="banner2"
+        />
       </ng-template>
       <!-- <ng-template carouselSlide>
         <img src="../../assets/3.png" alt="banner2">
@@ -18,135 +24,62 @@
   </div>
 
   <!-- welcome to Grow More -->
-  <div class="container-fluid">
-    <div class="row justify-content-center">
-      <div class="col-md">
-        <ul class="service">
-          <li>
-            <a routerLink="/service">
-              <div class="card">
-                <img class="card-img" src="../../assets/Air Conditioner.png" alt="AC">
-                <p class="card-text">Air Conditioner</p>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a routerLink="/service">
-              <div class="card">
-                <img class="card-img" src="../../assets/Refrigrator.png" alt="Refrigerator">
-                <p class="card-text">Refrigerator</p>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a routerLink="/service">
-              <div class="card">
-                <img class="card-img" src="../../assets/Washing Machine.png" alt="Washing Machine">
-                <p class="card-text">Washing Machine</p>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a routerLink="/service">
-              <div class="card">
-                <img class="card-img" src="../../assets/television.png" alt="Television">
-                <p class="card-text">Television</p>
-              </div>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
+  <div class="container-fluid mt-3">
+    <div class="row justify-content-center"></div>
     <div class="row text justify-content-center">
       <div class="col-md-12">
-        <h2 align="center">Welcome to Growmore</h2>
+        <h2 align="center">Welcome to Bcloud Career Page</h2>
       </div>
-      <div class="col-md-10">
+      <div class="col-md-10 mt-2">
         <p>
-          Growmore Appliances solutions Pvt. Ltd. is a young emerging Customer services provider offering home
-          appliances ,electronics repairs and annual maintenance. Our range caters to the requirements of home
-          appliances sectors.
+          Career pages are sections of a company's website dedicated to
+          showcasing its employer brand and presenting job openings. They are
+          crucial as they offer an opportunity to attract and engage potential
+          candidates, provide information about the company culture, and present
+          open roles in an organized manner.
         </p>
         <p>
-          Having a vast individuals experience in Customer home appliances services, we have gained our expertise in
-          offering appliances repair services. Our services include Air conditioning, Water purifier, Chimney ,washing
-          machine, refrigerator, Led TV, Geyser repair and installation.
+          Career pages are sections of a company's website dedicated to
+          showcasing its employer brand and presenting job openings. They are
+          crucial as they offer an opportunity to attract and engage potential
+          candidates, provide information about the company culture, and present
+          open roles in an organized manner.
         </p>
         <p>
-          In order to ensure quality services and to achieve complete client customer satisfaction, we have adopted a
-          rigorous programme .Our professionals are well experienced and specialized in appliances repair Services and
-          have provided services to Areas Ghaziabad , Delhi ,Noida , Dehradun , Roorkee, Bareilly ,Haridwar and Jaipur.
+          Career pages are sections of a company's website dedicated to
+          showcasing its employer brand and presenting job openings. They are
+          crucial as they offer an opportunity to attract and engage potential
+          candidates, provide information about the company culture, and present
+          open roles in an organized manner.
         </p>
       </div>
     </div>
   </div>
 
-  <!-- Appliances -->
-  <div class="conatiner-fluid">
-    <div class="row">
-      <div class="col-md-12 text">
-        <h1 align="center">Appliance Service</h1>
-      </div>
+  <div class="container mt-3">
+    <div class="col-md-12">
+      <h2 align="center">Career Cards</h2>
     </div>
-
-    <owl-carousel-o class="product" [options]="productOptions">
-      <ng-template carouselSlide *ngFor="let product of serviceslist">
-        <div class="item">
-          <div routerLink="/service" class="card">
-            <img src="../../assets/imagetesting/{{product.imageurl}}" alt="{{product.imageurl}}" class="card-img-top">
-            <div class="card-body">
-              <div class="card-title">{{product.name}}</div>
-              <div class="card-text">
-                <span onload="printstar(product.rating)"></span>
-                <h5>&#8377;{{product.salesprice}}</h5>
-
-                <h5><span style="color: #ffa41c;" [innerHTML]="printStars(product.productrating)"></span></h5>
-                <!-- <h5 class="text-muted">{{product.details}}</h5> -->
-              </div>
-            </div>
+    <div class="row mt-4">
+      <div class="col-md-3" *ngFor="let item of productlist">
+        <div class="card" style="width: 100%">
+          <img
+            class="card-img-top"
+            src="../../assets/magnet-me-sOObVT48N3I-unsplash.jpg"
+            alt="Card image cap"
+          />
+          <div class="card-body">
+            <h5 class="card-title">{{ item.title }}</h5>
+            <p class="card-text">{{ item.desc }}</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
           </div>
         </div>
-      </ng-template>
-    </owl-carousel-o>
-
-    <div class="row justify-content-center">
-      <div class="col-md-4" align="center">
-        <a routerLink="/service" class="btn btn-primary">View All Services</a>
       </div>
     </div>
-  </div>
-
-  <!-- Products -->
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-12 mt-5 text">
-        <h1 align="center">Products</h1>
-      </div>
-    </div>
-    <owl-carousel-o class="product" [options]="productOptions">
-      <ng-template carouselSlide *ngFor="let product of productlist">
-        <div class="item">
-          <div routerLink="/shopping" class="card">
-            <img src="../../assets/imagetesting/{{product.imageurl}}" alt="{{product.imageurl}}" class="card-img-top">
-            <div class="card-body">
-              <div class="card-title">{{product.name}}</div>
-              <div class="card-text">
-                <span onload="printstar(product.rating)"></span>
-                <h5>&#8377;{{product.salesprice}}</h5>
-                <h5><s class="text-danger">&#8377;{{product.mrp}}</s><span class="text-success">
-                    {{product.discountinpercentage}}% off</span></h5>
-                <h5><span style="color: #ffa41c;" [innerHTML]="printStars(product.productrating)"></span></h5>
-                <h5 class="text-muted">No Cost EMI | Standard EMI starts at &#8377;25</h5>
-              </div>
-            </div>
-          </div>
-        </div>
-      </ng-template>
-    </owl-carousel-o>
   </div>
 
   <!-- FAQ -->
-  <div id="faq" class="container faq  mt-3 mb-5">
+  <div id="faq" class="container faq mt-3 mb-5">
     <div class="row pb-1">
       <div class="col-md">
         <h1>FAQ</h1>
@@ -157,128 +90,194 @@
         <div class="accordion" id="accordionExample">
           <div class="accordion-item">
             <h2 class="accordion-header" id="headingOne">
-              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
-                aria-expanded="true" aria-controls="collapseOne">
+              <button
+                class="accordion-button"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseOne"
+                aria-expanded="true"
+                aria-controls="collapseOne"
+              >
                 <span>What types of electric appliances do you sell?</span>
               </button>
             </h2>
-            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
-              data-bs-parent="#accordionExample">
+            <div
+              id="collapseOne"
+              class="accordion-collapse collapse show"
+              aria-labelledby="headingOne"
+              data-bs-parent="#accordionExample"
+            >
               <div class="accordion-body">
-                We sell a wide range of electric appliances, including refrigerators, washing machines, dryers, ovens,
-                stoves, dishwashers, and more.
+                We sell a wide range of electric appliances, including
+                refrigerators, washing machines, dryers, ovens, stoves,
+                dishwashers, and more.
               </div>
             </div>
           </div>
           <div class="accordion-item">
             <h2 class="accordion-header" id="headingTwo">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseTwo"
+                aria-expanded="false"
+                aria-controls="collapseTwo"
+              >
                 <span>Do you offer delivery and installation services?</span>
               </button>
             </h2>
-            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-              data-bs-parent="#accordionExample">
+            <div
+              id="collapseTwo"
+              class="accordion-collapse collapse"
+              aria-labelledby="headingTwo"
+              data-bs-parent="#accordionExample"
+            >
               <div class="accordion-body">
-                Yes, we offer delivery and installation services for most of the electric appliances we sell. Our team
-                of professionals will deliver and install your appliance safely and efficiently.
+                Yes, we offer delivery and installation services for most of the
+                electric appliances we sell. Our team of professionals will
+                deliver and install your appliance safely and efficiently.
               </div>
             </div>
           </div>
           <div class="accordion-item">
             <h2 class="accordion-header" id="headingThree">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                <span>Do you have a warranty or repair service for electric appliances?</span>
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseThree"
+                aria-expanded="false"
+                aria-controls="collapseThree"
+              >
+                <span
+                  >Do you have a warranty or repair service for electric
+                  appliances?</span
+                >
               </button>
             </h2>
-            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
-              data-bs-parent="#accordionExample">
+            <div
+              id="collapseThree"
+              class="accordion-collapse collapse"
+              aria-labelledby="headingThree"
+              data-bs-parent="#accordionExample"
+            >
               <div class="accordion-body">
-                Yes, we offer a warranty on most of the electric appliances we sell. In addition, we have a repair
-                service that can fix any issues you may have with your appliance.
+                Yes, we offer a warranty on most of the electric appliances we
+                sell. In addition, we have a repair service that can fix any
+                issues you may have with your appliance.
               </div>
             </div>
           </div>
           <div class="accordion-item">
             <h2 class="accordion-header" id="headingFour">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                <span>Can I return or exchange an electric appliance if I am not satisfied with it?</span>
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseFour"
+                aria-expanded="false"
+                aria-controls="collapseFour"
+              >
+                <span
+                  >Can I return or exchange an electric appliance if I am not
+                  satisfied with it?</span
+                >
               </button>
             </h2>
-            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
-              data-bs-parent="#accordionExample">
+            <div
+              id="collapseFour"
+              class="accordion-collapse collapse"
+              aria-labelledby="headingFour"
+              data-bs-parent="#accordionExample"
+            >
               <div class="accordion-body">
-                Yes, you can return or exchange an electric appliance within a certain timeframe (usually 14-30 days) if
-                you are not satisfied with it. Please refer to our return policy for more details.
+                Yes, you can return or exchange an electric appliance within a
+                certain timeframe (usually 14-30 days) if you are not satisfied
+                with it. Please refer to our return policy for more details.
               </div>
             </div>
           </div>
           <div class="accordion-item">
             <h2 class="accordion-header" id="headingFive">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                <span>Do you offer financing options for electric appliances?</span>
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseFive"
+                aria-expanded="false"
+                aria-controls="collapseFive"
+              >
+                <span
+                  >Do you offer financing options for electric appliances?</span
+                >
               </button>
             </h2>
-            <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
-              data-bs-parent="#accordionExample">
+            <div
+              id="collapseFive"
+              class="accordion-collapse collapse"
+              aria-labelledby="headingFive"
+              data-bs-parent="#accordionExample"
+            >
               <div class="accordion-body">
-                Yes, we offer financing options through our partner banks and credit unions. You can apply for financing
-                online or in-store.
+                Yes, we offer financing options through our partner banks and
+                credit unions. You can apply for financing online or in-store.
               </div>
             </div>
           </div>
           <div class="accordion-item">
             <h2 class="accordion-header" id="headingSix">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                <span>Do you have any special deals or promotions on electric appliances?</span>
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseSix"
+                aria-expanded="false"
+                aria-controls="collapseSix"
+              >
+                <span
+                  >Do you have any special deals or promotions on electric
+                  appliances?</span
+                >
               </button>
             </h2>
-            <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix"
-              data-bs-parent="#accordionExample">
+            <div
+              id="collapseSix"
+              class="accordion-collapse collapse"
+              aria-labelledby="headingSix"
+              data-bs-parent="#accordionExample"
+            >
               <div class="accordion-body">
-                Yes, we often have special deals and promotions on electric appliances. Please check our website or
-                visit us in-store for more information.
+                Yes, we often have special deals and promotions on electric
+                appliances. Please check our website or visit us in-store for
+                more information.
               </div>
             </div>
           </div>
           <div class="accordion-item">
             <h2 class="accordion-header" id="headingSeven">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseSeven"
+                aria-expanded="false"
+                aria-controls="collapseSeven"
+              >
                 <span>Can I schedule a service appointment online?</span>
               </button>
             </h2>
-            <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven"
-              data-bs-parent="#accordionExample">
+            <div
+              id="collapseSeven"
+              class="accordion-collapse collapse"
+              aria-labelledby="headingSeven"
+              data-bs-parent="#accordionExample"
+            >
               <div class="accordion-body">
-                Yes, you can schedule a service appointment online through our website or by calling our customer
-                service team.
+                Yes, you can schedule a service appointment online through our
+                website or by calling our customer service team.
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Reviews -->
-  <div class="container-fluid">
-    <div class="row justify-content-center" style="background: #d6e4e5;">
-      <div class="col-md-12 my-4">
-        <h2 align="center">Reviews</h2>
-      </div>
-    </div>
-    <div class="row reviews">
-      <div *ngFor="let product of reviwelist;" class="col-md-6">
-        <div class="card">
-          <div class="card-body">
-            <h3 class="card-title">{{product.name}}</h3>
-            <h5><span style="color: #ffa41c;" [innerHTML]="printStars(product.ratingbyuser)"></span></h5>
-            <p class="card-text">{{product.review}}</p>
           </div>
         </div>
       </div>

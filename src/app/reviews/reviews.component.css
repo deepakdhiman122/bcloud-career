@@ -1,5 +1,5 @@
 .head{
-  background: url('../../assets/feedback.jpg') no-repeat center;
+  /* background: url('../../assets/feedback.jpg') no-repeat center; */
   background-attachment: fixed;
   position: relative;
 }

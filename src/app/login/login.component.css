@@ -29,7 +29,7 @@ main {
   width: 50%;
   font-size: 35px;
   font-weight: 600;
-  font-family: 'Inter';
+  font-family: "Inter";
   text-align: center;
   transition: all 0.6s cubic-bezier(0.69, -0.55, 0.265, 1.55);
 }
@@ -58,11 +58,11 @@ main {
   color: #fff;
   font-size: 18px;
   font-weight: 600;
-  font-family: 'Space Grotesk';
+  font-family: "Space Grotesk";
   text-align: center;
   line-height: 48px;
   cursor: pointer;
-  transition: all .6s ease;
+  transition: all 0.6s ease;
 }
 
 .slide-controls .signup {
@@ -81,19 +81,19 @@ main {
   background: #eb6440;
 }
 
-#signup:checked~.slide-tab {
+#signup:checked ~ .slide-tab {
   left: 50%;
 }
 
-#signup:checked~.login {
+#signup:checked ~ .login {
   color: #000;
 }
 
-#signup:checked~.signup {
+#signup:checked ~ .signup {
   color: #fff;
 }
 
-input[type=radio] {
+input[type="radio"] {
   display: none;
 }
 
@@ -119,7 +119,7 @@ input[type=radio] {
   outline: none;
   padding-left: 15px;
   font-size: 17px;
-  font-family: 'Space Grotesk';
+  font-family: "Space Grotesk";
   border-radius: 5px;
   border: 1px solid lightgrey;
   border-bottom-width: 2px;
@@ -153,7 +153,7 @@ input[type=radio] {
   text-decoration: underline;
 }
 
-form .field input[type='submit'] {
+form .field input[type="submit"] {
   color: #fff;
   font-size: 20px;
   font-weight: 500;
@@ -175,11 +175,10 @@ form .field input[type='submit'] {
   margin-bottom: 5px;
 }
 
-form .field input[type='submit']:disabled {
+form .field input[type="submit"]:disabled {
   cursor: not-allowed;
   background: lightgrey;
 }
-
 
 .box div {
   position: absolute;
@@ -260,14 +259,14 @@ form .field input[type='submit']:disabled {
   }
 }
 
-@media (max-width:1366px) {
+@media (max-width: 1366px) {
   main {
     height: 130vh;
     width: 100%;
   }
 }
 
-@media (max-width:992px) {
+@media (max-width: 992px) {
   .wrapper {
     margin: 1rem;
   }

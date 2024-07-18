@@ -71,54 +71,54 @@ export class HomeComponent {
   }
   ngOnInit(): void {
     this.getProductList()
-    this.getServicesList()
-    this.getReviwelist()
+    // this.getServicesList()
+    // this.getReviwelist()
   }
 
   getProductList(): void {
     this.service.getproduct().subscribe(data => {
-      if (data.status.responseStatus === 'Success') {
-        this.productlist = data.response.productlist;
+      if (data) {
+        this.productlist = data.data;
         // console.log( this.productlist)
       } else {
         this.toaster.error('Getting Product List', 'ERROR WHILE');
       }
     });
   }
-  getServicesList(): void {
-    this.service.getservices().subscribe(data => {
-      if (data.status.responseStatus === 'Success') {
-        this.serviceslist = data.response.servicelist;
-        // console.log( this.serviceslist)
-      } else {
-        this.toaster.error('Getting Product List', 'ERROR WHILE');
-      }
-    });
-  }
-  getReviwelist(): void {
-    const jsondata = {
-      "userid": ("userid"),
-    }
-    this.service.getreviwe(jsondata).subscribe(data => {
-      if (data.status.responseStatus === 'Success') {
-        this.reviwelist = data.response.userFeedback;
-        // console.log( this.reviwelist)
-      } else {
-        this.toaster.error('Getting Product List', 'ERROR WHILE');
-      }
-    });
-  }
-  printStars(rating: number): string {
-    rating = +rating;
-    let str: string;
-    if (rating % 1) {
-      str = "<i class='fa-solid fa-star'></i>".repeat(Math.floor(rating));
-    } else {
-      str = "<i class='fa-solid fa-star'></i>".repeat(Math.floor(rating));
-      str = str + "<i class='fa-solid fa-star-half'></i>";
-    }
+  // getServicesList(): void {
+  //   this.service.getservices().subscribe(data => {
+  //     if (data.status.responseStatus === 'Success') {
+  //       this.serviceslist = data.response.servicelist;
+  //       // console.log( this.serviceslist)
+  //     } else {
+  //       this.toaster.error('Getting Product List', 'ERROR WHILE');
+  //     }
+  //   });
+  // }
+  // getReviwelist(): void {
+  //   const jsondata = {
+  //     "userid": ("userid"),
+  //   }
+  //   this.service.getreviwe(jsondata).subscribe(data => {
+  //     if (data.status.responseStatus === 'Success') {
+  //       this.reviwelist = data.response.userFeedback;
+  //       // console.log( this.reviwelist)
+  //     } else {
+  //       this.toaster.error('Getting Product List', 'ERROR WHILE');
+  //     }
+  //   });
+  // }
+  // printStars(rating: number): string {
+  //   rating = +rating;
+  //   let str: string;
+  //   if (rating % 1) {
+  //     str = "<i class='fa-solid fa-star'></i>".repeat(Math.floor(rating));
+  //   } else {
+  //     str = "<i class='fa-solid fa-star'></i>".repeat(Math.floor(rating));
+  //     str = str + "<i class='fa-solid fa-star-half'></i>";
+  //   }
 
-    return str;
-  }
+  //   return str;
+  // }
 
 }

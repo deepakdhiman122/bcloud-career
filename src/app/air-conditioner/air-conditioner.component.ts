@@ -2,21 +2,22 @@ import { Component } from '@angular/core';
 import { AirConditionerService } from './air-conditioner.service';
 import { ToastrService } from 'ngx-toastr';
 import { serviceproduct } from '../product.model';
+
 @Component({
   selector: 'app-air-conditioner',
   templateUrl: './air-conditioner.component.html',
   styleUrls: ['./air-conditioner.component.css']
 })
 export class AirConditionerComponent {
-  // productlist: serviceproduct[] = [];
   cart: serviceproduct[] = [];
   productlist: any;
   serviceCategory: any;
-  mainservice: boolean = false;
   repair: boolean = false;
+  mainservice: boolean = true;
   installetion: boolean = false;
 
   constructor(private service: AirConditionerService, private toaster: ToastrService) { }
+
   ngOnInit(): void {
     const data2 = localStorage.getItem('cartList');
     if (data2) {
@@ -27,43 +28,42 @@ export class AirConditionerComponent {
   }
 
   getProductList(): void {
-    // this.mainservice = true;
-    // this.repair = true;
-    // this.installetion = true;
-    // this.service.getproduct().subscribe(data => {
-    this.service.getProducts().then((data) => {
+    this.service.getproduct().then((data: any) => {
       if (data) {
-        this.productlist = data;
-        console.log("product name", this.productlist);
+        this.productlist = data.filter((c: any) => c.serviceproductcategory === this.serviceCategory);
 
-        // alert("product" + this.productlist);
+        this.installetion = this.productlist.some((product: any) => product.servicetypes === 'installetion');
+
         for (let c of this.productlist) {
           c.isCarted = false;
-          if (c.serviceproductcategory === this.serviceCategory) {
-            if (c.servicetypes === 'Main Service') {
-              this.mainservice = true;
-            }
-            if (c.servicetypes === 'Repair Services') {
-              this.repair = false;
-            }
-            if (c.servicetypes === 'Installetion') {
-              this.installetion = false;
-            }
-            c.details1 = c.details.split(".");
+
+          if (c.servicetypes === 'Main Service') {
+            this.mainservice = true;
           }
+
+          if (c.servicetypes === 'Repair Services') {
+            this.repair = true;
+          }
+
+          c.details1 = c.details.split(".");
+
           for (let s of this.cart) {
             if (s.productid === c.productid) {
               c.isCarted = s.isCarted;
             }
           }
-          // this.productlist = this.productlist.filter(e => e.serviceproductcategory === this.serviceCategory)
         }
-        // console.log( this.productlist)
+
+        this.toaster.success('Successfully retrieved product list', 'Success');
       } else {
-        this.toaster.error('Getting Product List', 'ERROR WHILE');
+        this.toaster.error('Error while retrieving product list', 'Error');
       }
+    }).catch(error => {
+      console.error('Error while fetching product list:', error);
+      this.toaster.error('Error while retrieving product list', 'Error');
     });
   }
+
   addItem(item: any) {
     item.isCarted = true;
     this.isDisabled(item.id);
@@ -74,7 +74,6 @@ export class AirConditionerComponent {
       closeButton: true
     });
 
-    //   //add item to the database using api
     localStorage.setItem('cartList', JSON.stringify(this.cart));
   }
 
@@ -84,7 +83,16 @@ export class AirConditionerComponent {
         element.isCarted = true;
       }
     });
-    // need a method to update the  value of iscarted in the product field
     localStorage.setItem('ProductList', JSON.stringify(this.productlist));
+  }
+
+  toggleService() {
+    this.mainservice = true;
+    this.installetion = false;
+  }
+
+  toggleInstallation() {
+    this.mainservice = true;
+    this.installetion = true;
   }
 }

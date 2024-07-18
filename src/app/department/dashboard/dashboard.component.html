@@ -1,96 +1,45 @@
 <main>
   <nav>
     <div class="logo">
-      <div class="logo-image"><img src="../../assets/logo.png" alt="logo-image"></div>
-      <div class="logo-name">Grow More</div>
+      <!-- <div class="logo-image"><img src="../../assets/logo.png" alt="logo-image"></div> -->
+      <div class="logo-name" routerLink="/" style="cursor:pointer">Bharat Cloud 24</div>
     </div>
-    <app-sidenavbar></app-sidenavbar>
+    <!-- <app-sidenavbar></app-sidenavbar> -->
   </nav>
   <section class="dashboard">
     <app-topnav></app-topnav>
     <div class="dash-content">
-      <div class="overview">
-        <div class="title">
-          <i class="fa-solid fa-certificate"></i>
-          <span class="text">DashBoard</span>
-        </div>
-      </div>
-      <div class="boxes">
-        <div class="box box1">
-          <i class="fa-solid fa-chart-pie"></i>
-          <span class="text">Total Sales</span>
-          <span class="number">{{totalSales}}</span>
-        </div>
-        <div class="box box2">
-          <i class="fa-solid fa-gears"></i>
-          <span class="text">Total Services</span>
-          <span class="number">{{totalService}}</span>
-        </div>
-        <div class="box box3">
-          <i class="fa-solid fa-screwdriver-wrench"></i>
-          <span class="text">Total AMC</span>
-          <span class="number">{{totalAmc}}</span>
-        </div>
-        <div class="box box3">
-          <i class="fa-solid fa-message"></i>
-          <span class="text">Feedbacks</span>
-          <span class="number">{{totalfeedbacks}}</span>
-        </div>
-      </div>
       <div>
         <div class="title">
-          <i class="fa-solid fa-coins" style="color: rgb(252, 206, 5);"></i>
-          <span class="text">Coin Management</span>
+          <i class="fa-solid fa-coins" style="color: rgb(252, 206, 5)"></i>
+          <span class="text">DashBoard</span>
         </div>
         <form [formGroup]="form">
           <div class="row-field">
-            <label>User Creation Coins</label>
-            <input matInput type="text" formControlName="usercreationcoins">
-            <label>User Refer Coins</label>
-            <input matInput type="text" formControlName="userrefercoins">
-            <button class="Coins">Give Coins</button>
-          </div>
-        </form>
-      </div>
-      <div>
-        <div class="title">
-          <i class="fa-solid fa-coins" style="color: rgb(252, 206, 5);"></i>
-          <span class="text">Coupon Management</span>
-        </div>
-        <form [formGroup]="couponform">
-          <div class="row-field">
-            <label>Coupon Code</label>
-            <input matInput type="text" formControlName="couponCode">
-            <label>Coupon Value</label>
-            <input matInput type="text" formControlName="couponvalue">
-          </div>
-          <br>
-          <div class="row-field">
-            <label>Coupon Start Date</label>
-            <input matInput type="date" formControlName="startdate">
-            <label>Coupon End Date</label>
-            <input matInput type="date" formControlName="enddate">
+            <div class="col-md-12">
+              <label>Name</label>
+              <input matInput type="text" formControlName="title" />
 
-            <button class="Coins" (click)="saveCouponDetails()">Give Coins</button>
-          </div>
-        </form>
-      </div>
-      <div>
-        <div class="title">
-          <i class="fa-solid fa-volume-high"></i>
-          <span class="text">Announcement</span>
-        </div>
-        <form [formGroup]="announceform">
-          <div class="row-field">
-            <mat-form-field>
-              <mat-label>Notice</mat-label>
-              <textarea matInput type="text" formControlName="notice"></textarea>
-            </mat-form-field>
-            <mat-form-field>
-              <mat-label>Announcement</mat-label>
-              <textarea matInput type="text" formControlName="annoucement"></textarea>
-            </mat-form-field>
-            <button class="Coins" (click)="save()">Save</button>
+              <label>Description</label>
+              <input matInput type="text" formControlName="desc" />
+<!--
+              <label>Address</label>
+              <input matInput type="text" formControlName="address" /> -->
+
+
+            </div>
+
+            <div class="col-md-12 mt-4">
+              <!-- <label>District</label>
+              <input matInput type="text" formControlName="District" /> -->
+
+
+
+
+            </div>
+
+
+            <button class="Coins mt-3" (click)="save()">Submit</button>
           </div>
         </form>
       </div>

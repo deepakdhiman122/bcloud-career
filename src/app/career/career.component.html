@@ -1,0 +1,252 @@
+<section class="banner">
+  <div class="banner-text-container">
+    <h1 class="banner-text">Career at Bcloud Web Services</h1>
+    <h5>Be a part of our team</h5>
+  </div>
+  <img
+    src="../../assets/IMG_20211231_113108_558-scaled.jpg"
+    alt="Banner Image"
+    class="img-fluid"
+  />
+</section>
+
+<div class="container mt-5">
+  <div class="row">
+    <div style="text-align: center">
+      <h2>WHY CLOUD</h2>
+      <p style="margin-top: 20px">
+        JOBS THAT ARE CENTERED AROUND YOU. CULTURE OF WORK PROVIDES FOR A <br />
+        SUPERIOR WORK-LIFE BALANCE.
+      </p>
+    </div>
+
+    <div class="container mt-3">
+      <div class="row">
+        <div
+          class="col-md-4 firstCard d-flex align-items-center justify-content-center"
+        >
+          <p class="text-center">Top Notch Work Equipment</p>
+        </div>
+        <div
+          class="col-md-4 firstCard d-flex align-items-center justify-content-center"
+        >
+          <p class="text-center">Top Notch Work Equipment</p>
+        </div>
+        <div
+          class="col-md-4 firstCard d-flex align-items-center justify-content-center"
+        >
+          <p class="text-center">Top Notch Work Equipment</p>
+        </div>
+        <div
+          class="col-md-4 firstCard d-flex align-items-center justify-content-center"
+        >
+          <p class="text-center">Top Notch Work Equipment</p>
+        </div>
+        <div
+          class="col-md-4 firstCard d-flex align-items-center justify-content-center"
+        >
+          <p class="text-center">Top Notch Work Equipment</p>
+        </div>
+
+        <div
+          class="col-md-4 firstCard d-flex align-items-center justify-content-center"
+        >
+          <p class="text-center">Top Notch Work Equipment</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-5">
+      <h3 class="submitHeading">Submit Applicaton</h3>
+      <p class="paragrapgTag">
+        our tech time contact with you after review <br />
+        your Resume
+      </p>
+    </div>
+
+    <!-- form container -->
+    <div class="container mt-3 mainContainer">
+      <div class="row">
+        <div class="col-md-6">
+          <form [formGroup]="careerForm" (ngSubmit)="appliedForm()">
+            <div class="form-group">
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="firstName" class="label">First Name *</label>
+                  <input
+                    type="text"
+                    class="form-control mt-2"
+                    formControlName="firstName"
+                    id="firstName"
+                    placeholder="Enter first name"
+                  />
+                </div>
+
+                <div class="col-md-6 mb-3">
+                  <label for="emailAddress" class="label"
+                    >Email Address *</label
+                  >
+                  <input
+                    type="email"
+                    class="form-control mt-2"
+                    formControlName="email"
+                    id="emailAddress"
+                    placeholder="Enter email"
+                  />
+                </div>
+
+                <div class="col-md-6 mb-3 mt-5">
+                  <label for="country" class="label">Country *</label>
+                  <select
+                    class="form-select mt-2"
+                    aria-label="Default select example"
+                    formControlName="country"
+                  >
+                    <option selected>Country</option>
+                    <option value="Afghanistan">Afghanistan</option>
+                    <option value="Algeria">Algeria</option>
+                    <option value="Andorra">Andorra</option>
+                    <option value="Angola">Angola</option>
+                    <option value="Argentina">Argentina</option>
+                    <option value="Armenia">Armenia</option>
+                  </select>
+                </div>
+
+                <div class="col-md-6 mb-3 mt-5">
+                  <label for="phoneNumber" class="label"
+                    >Phone Number (Optional) *</label
+                  >
+                  <input
+                    type="tel"
+                    class="form-control mt-2"
+                    id="phoneNumber"
+                    formControlName="phoneNumber"
+                    placeholder="Enter phone number"
+                  />
+                </div>
+
+                <div class="col-md-6 mb-3 mt-5">
+                  <label for="jobAppliedFor" class="label"
+                    >Job Applied For</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control mt-2"
+                    formControlName="applied"
+                    id="jobAppliedFor"
+                    placeholder="Enter job applied for"
+                  />
+                </div>
+
+                <div class="col-md-6 mb-3 mt-5">
+                  <label for="fullTime" class="label">Full Time</label>
+                  <select
+                    class="form-select mt-2"
+                    aria-label="Default select example"
+                    formControlName="selectType"
+                  >
+                    <option selected>Select Type</option>
+                    <option value="fulltime">Full Time</option>
+                    <option value="partTime">Part Time</option>
+                    <option value="internship">Internship</option>
+                  </select>
+                </div>
+
+                <div class="col-md-12 mb-3 mt-5">
+                  <label for="jobAppliedFor" class="label">Description</label>
+                  <input
+                    type="text"
+                    class="form-control mt-2"
+                    formControlName="desc"
+                    id="desc"
+                    placeholder="Enter job Description"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group mt-5">
+              <div class="col-md-6">
+                <button type="submit" class="mybtn">Submit</button>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <!-- Vertical Line -->
+        <div class="col-md-1 d-flex justify-content-center align-items-center">
+          <div class="vertical-line"></div>
+        </div>
+
+        <div class="col-md-5">
+          <img
+            src="../../assets/bcloud3.png"
+            alt="clloud logo 1"
+            style="
+              display: block;
+              margin: auto;
+              width: 220px;
+              height: auto;
+              margin-top: -60px;
+            "
+          />
+          <h5 style="text-align: center">Current Opening</h5>
+
+          <form class="searchbar">
+            <!-- <i class="fa-solid fa-magnifying-glass"></i> -->
+            <div class="input-group mt-4 border" style="border-radius: 40px">
+              <input
+                type="search"
+                placeholder="Search Job..."
+                class="form-control bg-none border-0"
+                [(ngModel)]="searchText"
+                name="search"
+              />
+              <div class="input-group-append border-0">
+                <button
+                  id="button-addon3"
+                  type="button"
+                  class="btn btn-link text-success mt-2"
+                >
+                  <i class="fa fa-search"></i>
+                </button>
+              </div>
+            </div>
+          </form>
+          <div
+            class="boxInfo"
+            *ngFor="
+              let item of careerData
+                | filter : searchText
+                | paginate : { itemsPerPage: 5, currentPage: page }
+            "
+          >
+            <h6 style="color: blue">{{ item.applied }}</h6>
+            <p style="font-size: 14px; text-align: left">
+              {{ item.desc }}
+            </p>
+
+            <div class="link">
+              <a
+                (click)="viewJobDetails(item._id)"
+                style="color: blue; font-size: 13px"
+                >View Details</a
+              >
+            </div>
+          </div>
+
+          <div class="pagination">
+            <pagination-controls
+              (pageChange)="page = $event"
+            ></pagination-controls>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Job DescriptionSourcebae looking out for a seasoned Sales Development …" -->
+<div class="mt-5">
+  <app-footer></app-footer>
+</div>

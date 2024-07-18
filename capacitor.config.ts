@@ -1,8 +1,8 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'com.krystalmovies.growmore',
-  appName: 'Growmore',
+  appId: '',
+  appName: '',
   webDir: 'dist',
   bundledWebRuntime: false
 };

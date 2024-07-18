@@ -31,14 +31,14 @@ export class ViewserviceordersComponent {
       Sidenav?.classList.toggle("close");
     }
     this.form = new FormGroup({
-      'ordernumber' : new FormControl(null),
-      'employee'    : new FormControl(null)
+      'ordernumber': new FormControl(null),
+      'employee': new FormControl(null)
     });
     this.getServicesOrder();
     this.getEmployee();
   }
 
-  getEmployee(): void{
+  getEmployee(): void {
     this.service.getEmployeeList().subscribe(data => {
       if (data.status.responseStatus === 'Success') {
         this.employeelist = data.response.employeelist;
@@ -48,24 +48,27 @@ export class ViewserviceordersComponent {
     });
   }
 
-  productview(row: any):void{
-    localStorage.setItem("orderid",row.orderid);
-   }
+  productview(row: any): void {
+    localStorage.setItem("orderid", row.orderid);
+  }
 
-  getServicesOrder(): void{
+  getServicesOrder(): void {
     this.service.getServicesOrder().subscribe(data => {
-      if (data.status.responseStatus === 'Success') {
-        this.serviceOrderList = data.response.serviceOrderList;
-        for(let sol of this.serviceOrderList){
-          if(sol.orderstatus === 'D') {
+      if (data) {
+        console.log("data order", data);
+
+        this.serviceOrderList = data.data;
+
+        for (let sol of this.serviceOrderList) {
+          if (sol.orderstatus === 'D') {
             sol.orderstatus1 = 'Closed';
-          } else if(sol.orderstatus === 'C') {
+          } else if (sol.orderstatus === 'C') {
             sol.orderstatus1 = 'Cancel';
-          } else if(sol.orderstatus === 'P') {
+          } else if (sol.orderstatus === 'P') {
             sol.orderstatus1 = 'Pending';
-          } else if(sol.orderstatus === 'O') {
+          } else if (sol.orderstatus === 'O') {
             sol.orderstatus1 = 'Open';
-          } else if(sol.orderstatus === 'R') {
+          } else if (sol.orderstatus === 'R') {
             sol.orderstatus1 = 'Revert';
           }
           sol.addedon1 = this.datePipe.transform(sol.addedon, 'dd/MM/yyyy');
@@ -97,8 +100,8 @@ export class ViewserviceordersComponent {
 
   save(): void {
     const jsondata = {
-      'orderid'   : this.form.controls['ordernumber'].value,
-      'employee'  : this.form.controls['employee'].value,
+      'orderid': this.form.controls['ordernumber'].value,
+      'employee': this.form.controls['employee'].value,
     }
     this.service.assignOrderTO(jsondata).subscribe(data => {
       if (data.status.responseStatus === 'Success') {
@@ -113,6 +116,6 @@ export class ViewserviceordersComponent {
 
   clear(): void {
     this.form.controls['ordernumber'].setValue(null),
-    this.form.controls['employee'].setValue(null)
+      this.form.controls['employee'].setValue(null)
   }
 }

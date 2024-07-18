@@ -87,7 +87,7 @@ export class CartComponent {
 
 
   generateOrder(): void {
-    const a = localStorage.getItem('islogedin')
+    const a = localStorage.getItem('islogedin');
     if (a === 'true') {
       const jsondata = {
         'userid': localStorage.getItem('userid'),
@@ -98,9 +98,16 @@ export class CartComponent {
         'reedemvaluetype': this.reedemvaluetype,
         'couponCode': this.couponCode
       }
+      console.log("generate jsondata : ", jsondata);
+
       this.service.generateOrder(jsondata).subscribe(data => {
-        if (data.status.responseStatus === 'Success') {
-          this.toastr.success('YOUR ORDER ID : ' + data.response.orderid);
+        if (data) {
+          console.log("data generate id", data);
+
+          // if (data.status.responseStatus === 'Success') {
+          alert("_id" + data.data._id);
+
+          this.toastr.success(' YOUR ORDER Is SUCCESSFULL ADD ID : ' + data.data._id);
           this.cart = [];
           localStorage.setItem('cartList', JSON.stringify(this.cart));
           localStorage.setItem('walletBalance', this.walletBalance);

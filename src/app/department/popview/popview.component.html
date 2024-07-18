@@ -112,7 +112,7 @@
                                 <mat-radio-button value="P">Pending</mat-radio-button>&nbsp;&nbsp;&nbsp;
                             </mat-radio-group>
                         </div>
-                            <div class="row-field">
+                        <div class="row-field">
                             <mat-radio-group formControlName="orderstatus">
                                 <mat-label>Order Status</mat-label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 <mat-radio-button value="R">Revisit</mat-radio-button>&nbsp;&nbsp;&nbsp;
@@ -127,17 +127,18 @@
                         <div class="row-field">
                             <label>Bill No</label>
                             <input type="text" formControlName="billno">
-                    </div>
-                        <div class="row-field">
-                                <label>Remarks</label>
-                                <textarea maxlength="200" formControlName="remarks"></textarea>
                         </div>
                         <div class="row-field">
-                                <label>Save Bill Image</label>
-                                <input type="file" (change)="saveImage3($event)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <p-image src="../../../../assets/imagetesting/{{imageurl3}}" alt="Image" width="250" [preview]="true"></p-image>
+                            <label>Remarks</label>
+                            <textarea maxlength="200" formControlName="remarks"></textarea>
+                        </div>
+                        <div class="row-field">
+                            <label>Save Bill Image</label>
+                            <input type="file" (change)="saveImage3($event)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <p-image src="../../../../assets/imagetesting/{{imageurl3}}" alt="Image" width="250"
+                                [preview]="true"></p-image>
 
- 
+
                         </div>
                         <div class=" col-md-7 text">
                             <h1>
@@ -146,7 +147,8 @@
                         </div>
                         <div class="row-field">
                             <input type="file" (change)="saveImage1($event)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <p-image src="../../../../assets/imagetesting/{{imageurl1}}" alt="Image" width="250" [preview]="true"></p-image>
+                            <p-image src="../../../../assets/imagetesting/{{imageurl1}}" alt="Image" width="250"
+                                [preview]="true"></p-image>
                         </div>
                         <div class=" col-md-7 text">
                             <h1>
@@ -156,7 +158,8 @@
                         <div class="row-field">
                             <input type="file" (change)="saveImage2($event)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             <!-- <img style="width: 150px; height: 150px;"src="../../../../assets/imagetesting/{{imageurl2}}"> -->
-                                <p-image src="../../../../assets/imagetesting/{{imageurl2}}" alt="Image" width="250" [preview]="true"></p-image>
+                            <p-image src="../../../../assets/imagetesting/{{imageurl2}}" alt="Image" width="250"
+                                [preview]="true"></p-image>
                         </div>
                         <div fxLayout="row" fxLayoutAlign="end center">
                             <button class="savebutton" (click)="save()">Save</button>

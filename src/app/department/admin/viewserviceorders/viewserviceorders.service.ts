@@ -10,9 +10,9 @@ export class ViewserviceordersService {
   constructor(private httpclient: HttpClient) { }
 
   getServicesOrder() {
-    const url = environment.apiBase + '/ordercontroller/getservicesorder';
-    const headers = new HttpHeaders({ 'Content-Type': 'application/json;' });
-    return this.httpclient.post<any>(url, null, { headers: headers });
+    const url = environment.apiBase + '/api/getgenerateorder';
+    // const headers = new HttpHeaders({ 'Content-Type': 'application/json;' });
+    return this.httpclient.get<any>(url,);
   }
 
   getEmployeeList() {

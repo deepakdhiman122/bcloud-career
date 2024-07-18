@@ -52,8 +52,8 @@ export class ServicesComponent {
     this.service.getproduct().subscribe(data => {
       if (data.status.responseStatus === 'Success') {
         this.productlist = data.response.servicelist;
-        // this.productlist = this.productlist.filter((e: { serviceproductcategory: string | null; }) => e.serviceproductcategory === localStorage.getItem(''));
-        // console.log( this.productlist)
+        this.productlist = this.productlist.filter((e: { serviceproductcategory: string | null; }) => e.serviceproductcategory === localStorage.getItem(''));
+        console.log(this.productlist)
       } else {
         this.toaster.error('Getting Product List', 'ERROR WHILE');
       }

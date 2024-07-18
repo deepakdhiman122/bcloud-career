@@ -61,11 +61,11 @@
       <div class="col-md-12 item">
         <div class="card" *ngFor="let product of awslist | search : search ; let i = index">
           <div class="card-img-right">
-            <img src="../../assets/{{product.imageurl}}" alt="img" class="d-block mx-auto">
+            <img src="../../assets/imagetesting/{{product.imageurl}}" alt="img" class="d-block mx-auto">
             <button class="mt-2 btn btn-primary" [ngSwitch]="product.isCarted" (click)="save(product)"
               [disabled]="product.isCarted">
-              <!-- <span *ngSwitchCase="false">Buy On</span>
-              <span *ngSwitchCase="true">Buy On</span> -->
+              <span *ngSwitchCase="false">Buy On</span>
+              <span *ngSwitchCase="true">Buy On</span>
             </button>
           </div>
           <div class="card-body">
@@ -74,7 +74,6 @@
             <p class="card-price"> &#8377;{{product.amcprice}} <span>Only/year</span> (inclusive of all taxes)</p>
             <p class="card-price">(an affordable ₹ {{product.subtotal}}/month )</p>
             <h4 class="card-title">{{product.amccovers}}</h4>
-            <h4 class="card-title">Service Charge:&nbsp;&nbsp;{{product.serviceCharge}}</h4>
           </div>
           <div class="card-footer">
             <p class="card-text" *ngIf="product.keybenefits1 != null ">&bull; {{product.keybenefits1}} </p>

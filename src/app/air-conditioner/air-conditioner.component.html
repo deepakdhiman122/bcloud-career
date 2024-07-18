@@ -8,7 +8,7 @@
 
         <h1>{{serviceCategory}}</h1>
 
-        <h5><i style="color: rgb(255, 167, 3);" class="fa-solid fa-star"></i> 4.76/5 (20k)</h5>
+        <h5><i style="color: rgb(255, 167, 3);" class="fa-solid fa-star"></i> 4.76/5</h5>
 
         <h5 *ngIf="serviceCategory === 'Air Conditioner'"><i class="fa-solid fa-clipboard-check"></i> 950 bookings this
           year</h5>
@@ -23,7 +23,6 @@
 
         <h5 *ngIf="serviceCategory === 'Microwave'"><i class="fa-solid fa-clipboard-check"></i> 250 bookings this year
         </h5>
-
         <h5 *ngIf="serviceCategory === 'Chimney'"><i class="fa-solid fa-clipboard-check"></i> 350 bookings this year
         </h5>
 
@@ -37,7 +36,8 @@
 
       </div>
       <div class="col-md-7 p-5">
-        <!-- <img class="rounded d-block mx-auto" width="550px" height="250px" src="../../assets/ac-annual-service.jpg" alt="change it with video"> -->
+        <!-- <img class="rounded d-block mx-auto" width="550px" height="250px" src="../../assets/ac-annual-service.jpg"
+        alt="change it with video"> -->
         <video *ngIf="serviceCategory === 'Air Conditioner'" muted autoplay loop
           src="../../assets/WhatsApp Video 2023-02-27 at 11.43.10.mp4"
           class="rounded d-block mx-auto ratio ratio-16x9"></video>
@@ -54,31 +54,27 @@
     </div>
     <hr class="border border-dark rounded border-2">
   </div>
-  <div class="container-fluid" *ngIf="mainservice === true">
-    <div class="row">
-      <div class="col-6 col-md-3">
-        <a class="service" href="#Service">
-          <div class="service-img"><img src="../../assets/272-removebg-preview.png" alt="AC service"></div>
-          <h2 class="service-title">Services</h2>
-        </a>
-      </div>
-      <div class=" col-6 col-md-3">
-        <a href="#Installation" class="service">
-          <div class="service-img"><img src="../../assets/2840523-removebg-preview.png" alt="Refrigerator"></div>
-          <h2 class="service-title">Installation</h2>
-        </a>
-      </div>
-      <div class="col-6 col-md-3">
-        <a href="#Repair" class="service">
-          <div class="service-img"><img src="../../assets/air_conditioner-removebg-preview.png" alt="Washing Machine">
-          </div>
-          <h2 class="service-title">Repair</h2>
-        </a>
-      </div>
+<div class="container-fluid">
+  <div class="row">
+    <!-- Service button -->
+    <div class="col-6 col-md-3" *ngIf="mainservice">
+      <a class="service" href="#Service" (click)="toggleService()">
+        <div class="service-img"><img src="../../assets/272-removebg-preview.png" alt="AC service"></div>
+        <h2 class="service-title">Services</h2>
+      </a>
+    </div>
+
+    <!-- Installation button -->
+    <div class="col-6 col-md-3" *ngIf="installetion && productlist.length > 0">
+      <a class="service" href="#installetionn" (click)="toggleInstallation()">
+        <div class="service-img"><img src="../../assets/2840523-removebg-preview.png" alt="Refrigerator"></div>
+        <h2 class="service-title">Installation</h2>
+      </a>
     </div>
   </div>
+</div>
 
-  <div class="container">
+  <!-- <div class="container">
     <div class="row products">
       <div class="col-md-12 item" id="Service">
         <div class="col-md-5 text align-self-center">
@@ -88,7 +84,7 @@
           <div class="card" *ngIf="product.servicetypes != 'Repair Services' && product.servicetypes != 'Installation'">
             <div *ngIf="product.servicetypes != 'Repair Services'" class="card-img-right">
               <img src="../../assets/{{product.imageurl}}" alt="img" class="d-block mx-auto">
-              <!-- <img src="" alt="not found image"> -->
+       
               <button (click)="addItem(productlist[i])" class="mt-2 btn btn-primary" [ngSwitch]="product.isCarted"
                 [disabled]="product.isCarted">
                 <span *ngSwitchCase="false">Add to Cart</span>
@@ -178,7 +174,84 @@
         </div>
       </div>
     </div>
+  </div> -->
+
+  <div class="container">
+    <div class="row products">
+      <div class="container">
+        <div class="row products">
+          <!-- Service Section -->
+          <div class="col-md-12 item" id="Service" *ngIf="!installetion">
+            <div class="col-md-5 text align-self-center">
+              <h1 *ngIf="mainservice === true">Service</h1>
+            </div>
+            <div *ngFor="let product of productlist; let i = index">
+              <div class="card" *ngIf="product.servicetypes !== 'Repair Services' && product.servicetypes !== 'installetion'">
+                <div *ngIf="product.servicetypes !== 'Repair Services'" class="card-img-right">
+                  <img src="../../assets/imagetesting/{{product.imageurl}}" alt="img" class="d-block mx-auto">
+                  <button (click)="addItem(productlist[i])" class="mt-2 btn btn-primary" [ngSwitch]="product.isCarted"
+                    [disabled]="product.isCarted">
+                    <span>Add to Cart</span>
+                    <span *ngSwitchCase="true">Added to Cart</span>
+                  </button>
+                </div>
+                <div class="card-body">
+                  <h3 class="card-title">{{product.name}}</h3>
+                  <p class="card-text">{{product.serviceproducttype}}</p>
+                  <p class="card-text">Diagnose: {{product.diagnose}}</p>
+                  <p class="card-text">Warranty: {{product.warranty}}</p>
+                  <!-- Add more card details as needed -->
+                  <p class="card-text"><i class="fa-solid fa-star text-muted"></i> {{product.productrating}}/5</p>
+                  <p class="card-price">&#8377;{{product.salesprice}} &nbsp;</p>
+                </div>
+                <div class="card-footer">
+                  <p *ngFor="let pd of product.details1" class="card-text">&bull; {{pd}} </p>
+                </div>
+              </div>
+            </div>
+          </div>
+      
+          <!-- Installation Section -->
+          <div class="col-md-12 item" id="installetionn" *ngIf="installetion">
+            <div class="col-md-5 text align-self-center">
+              <h1 *ngIf="installetion === true">Installation</h1>
+            </div>
+            <div *ngFor="let product of productlist; let i = index">
+              <div class="card"
+                *ngIf="product.servicetypes !== 'Repair Services' && product.servicetypes !== 'Main Service' && product.servicetypes !== null">
+                <div *ngIf="product.servicetypes !== 'Repair Services'" class="card-img-right">
+                  <img src="../../assets/imagetesting/{{product.imageurl}}" alt="img" class="d-block mx-auto">
+                  <button (click)="addItem(productlist[i])" class="mt-2 btn btn-primary" [ngSwitch]="product.isCarted"
+                    [disabled]="product.isCarted">
+                    <span>Add to Cart</span>
+                    <span *ngSwitchCase="true">Added to Cart</span>
+                  </button>
+                </div>
+                <div class="card-body">
+                  <h3 class="card-title">{{product.name}}</h3>
+                  <p class="card-text">Coil: {{product.coil}}</p>
+                  <p class="card-text">Installation Part: {{product.installationpart}}</p>
+                  <p class="card-text">Labour Warranty: {{product.labourWarranty}}</p>
+                  <!-- Add more card details as needed -->
+                  <p class="card-text"><i class="fa-solid fa-star text-muted"></i> {{product.productrating}}/5</p>
+                  <p class="card-price">&#8377;{{product.salesprice}} &nbsp;</p>
+                </div>
+                <div class="card-footer">
+                  <p *ngFor="let pd of product.details1" class="card-text">&bull; {{pd}} </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
   </div>
+  
+  
+  
+  
+  
 
 </main>
 

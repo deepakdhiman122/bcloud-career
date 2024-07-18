@@ -10,7 +10,7 @@ export class CartService {
   constructor(private httpclient: HttpClient) { }
 
   generateOrder(jsondata: any) {
-    const url = environment.apiBase + '/ordercontroller/generateorder';
+    const url = environment.apiBase + '/api/generateorder';
     const headers = new HttpHeaders({ 'Content-Type': 'application/json;' });
     return this.httpclient.post<any>(url, jsondata, { headers: headers });
   }

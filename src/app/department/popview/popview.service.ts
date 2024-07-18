@@ -22,7 +22,7 @@ export class PopviewService {
   }
 
   save(jsondata: any) {
-    const url = environment.apiBase + '/ordercontroller/updateorderstatus';
+    const url = environment.apiBase + '/api/updateorderstatus';
     const headers = new HttpHeaders({ 'Content-Type': 'application/json;' });
     return this.httpclient.post<any>(url, jsondata, { headers: headers });
   }

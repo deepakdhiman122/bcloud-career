@@ -32,73 +32,126 @@ export class AwsService {
     return [
       {
         id: '1',
-        amcheading: 'Ac Services and Repair',
-        amcname: "Installation & Uninstallation",
+        amcheading: 'ac repair',
+        amcname: 'amc name',
         amcprice: "299",
-        subtotal: "500",
-        serviceCharge: "199",
-        amccovers: "Amc Cover",
-        keybenefits1: "Key Benefits",
-        imageurl: "../assets/ac-jet-service.jpg"
+        subtotal: '499',
+        amccovers: 'amc cover',
+        servicetypes: "Main Service",
+        // imageurl: "../assets/imagetesting/1.jpeg",
+        imageurl: "../../assets/Air Conditioner.png",
+        serviceproductcategory: "Air Conditioner"
       },
+
       {
         id: '2',
-        amcheading: 'Amc Heading',
-        amcname: "Amc Name",
-        amcprice: "299",
-        serviceCharge: "199",
-        subtotal: "500",
-        amccovers: "Amc Cover",
-        keybenefits1: "Key Benefits",
-        imageurl: "../assets/Air Conditioner.png"
+        name: 'Refrigerator',
+        serviceproducttype: "Repair Services",
+        productrating: "4",
+        salesprice: "299",
+        basicclean: "199",
+        // servicetypes: "Repair Services",
+        imageurl: "../../assets/Refrigrator.png",
+        serviceproductcategory: "Refrigerator"
       },
+
       {
         id: '3',
-        amcheading: 'Microwave',
-        amcname: "Amc Name",
-        amcprice: "299",
-        subtotal: "500",
-        serviceCharge: "199",
-        amccovers: "Amc Cover",
-        keybenefits1: "Key Benefits",
-        imageurl: "../assets/microwave.webp"
+        name: 'Washing Machine',
+        serviceproducttype: "Installetion",
+        productrating: "4",
+        reapair: "199",
+        servicetypes: "Installetion",
+        imageurl: "../../assets/Washing Machine.png",
+        serviceproductcategory: "Washing Machine"
       },
-      {
-        id: '4',
-        amcheading: 'Geyser Service',
-        amcname: "Amc Name",
-        amcprice: "299",
-        serviceCharge: "199",
-        subtotal: "500",
-        amccovers: "Amc Cover",
-        keybenefits1: "Key Benefits",
-        imageurl: "../assets/Geyser.png"
-      },
+
       {
         id: '5',
-        amcheading: 'Washing Machine Service',
-        amcname: "Washing Machine Service and repair",
+        name: 'Led Tv',
+        serviceproducttype: "led tv repair & service",
         serviceCharge: "199",
-        amccovers: "Amc Cover",
+        instalation: "999",
         keybenefits1: "Key Benefits",
-        imageurl: "../assets/Washing Machine.png"
+        imageurl: "../../assets/television.png",
+        serviceproductcategory: "LED TV"
       },
+
       {
         id: '6',
-        amcheading: 'Refrigerator',
-        amcname: "Refrigerator repair",
+        name: 'Microwave',
+        serviceproducttype: "led tv repair & service",
         serviceCharge: "199",
+        instalation: "999",
         keybenefits1: "Key Benefits",
-        imageurl: "../assets/Refrigrator.png"
+        imageurl: "../../assets/6787-removebg-preview.png",
+        serviceproductcategory: "Microwave"
+
       },
+
       {
-        id: '7',
-        amcheading: 'Led Tv',
-        amcname: "led tv repair",
+        id: '6',
+        name: 'Chimney',
+        serviceproducttype: "led tv repair & service",
         serviceCharge: "199",
+        instalation: "999",
         keybenefits1: "Key Benefits",
-        imageurl: "../assets/television.png"
-      }
+        imageurl: "../../assets/Chimney.png",
+        serviceproductcategory: "Chimney"
+      },
+
+      {
+        id: '6',
+        name: 'Geyser',
+        serviceproducttype: "led tv repair & service",
+        serviceCharge: "199",
+        instalation: "999",
+        keybenefits1: "Key Benefits",
+        imageurl: "../../assets/Geyser.png",
+        serviceproductcategory: "Geyser"
+      },
+
+      {
+        id: '6',
+        name: 'Air Cooler',
+        serviceproducttype: "led tv repair & service",
+        serviceCharge: "199",
+        instalation: "999",
+        keybenefits1: "Key Benefits",
+        imageurl: "../../assets/Air Cooler.png",
+        serviceproductcategory: "Air Cooler"
+      },
+
+      // {
+      //   id: '7',
+      //   name: 'ac repair',
+      //   serviceCharge: '499',
+      //   servicetypes: "Installetion",
+      //   imageurl: "../../assets/Air Conditioner.png",
+      //   serviceproductcategory: "Air Conditioner"
+      // },
+
+      // {
+      //   id: '8',
+      //   name: 'window ac uninstallation',
+      //   serviceCharge: '249',
+      //   servicetypes: "Installetion",
+      // },
+
+      // {
+      //   id: '9',
+      //   name: 'Split Ac Uninstallation',
+      //   serviceCharge: '499',
+      //   servicetypes: "Installetion",
+      // },
+
+      // {
+      //   id: '9',
+      //   name: 'Split Ac Installation',
+      //   serviceCharge: '1199',
+      //   servicetypes: "Installetion",
+      // },
+
     ];
   }
 

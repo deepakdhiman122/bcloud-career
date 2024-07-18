@@ -52,7 +52,7 @@ export class ShopComponent implements OnInit {
     const hstr = window.location.href;
     this.str = hstr.toString();
     const strarry = this.str.split('/#/');
-    // console.log('hostname  :  ', strarry[1]);
+    console.log('hostname  :  ', strarry[1]);
   }
   getProductList(): void {
     this.service.getproduct().subscribe(data => {
@@ -103,7 +103,7 @@ export class ShopComponent implements OnInit {
       if (this.setinput > 1000) {
         this.Newproductlist = this.Newproductlist.filter(e => e.salesprice <= this.setinput);
       }
-    } else if(this.brandforfilter === 'ALL') {
+    } else if (this.brandforfilter === 'ALL') {
       this.Newproductlist = this.productlist.filter(e => e.brand != 'ALL');
       if (this.categoryforfilter != 'ALL') {
         this.Newproductlist = this.Newproductlist.filter(e => e.productcategory === this.categoryforfilter);

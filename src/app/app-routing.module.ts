@@ -27,6 +27,9 @@ import { DisclaimerComponent } from './disclaimer/disclaimer.component';
 import { SecurityComponent } from './security/security.component';
 import { ManualordergenerationComponent } from './department/admin/manualordergeneration/manualordergeneration.component';
 import { DatewiseexcelreportComponent } from './department/admin/datewiseexcelreport/datewiseexcelreport.component';
+import { InstallationComponent } from './installation/installation.component';
+import { CareerComponent } from './career/career.component';
+import { JonDetailsComponent } from './jon-details/jon-details.component';
 
 const routes: Routes = [
   {
@@ -166,6 +169,21 @@ const routes: Routes = [
   {
     path: 'datewiseexcelreport',
     component: DatewiseexcelreportComponent
+  },
+
+  {
+    path: 'installation',
+    component: InstallationComponent
+  },
+
+  {
+    path: "career",
+    component: CareerComponent
+  },
+
+  {
+    path: "jonDetails/:id",
+    component: JonDetailsComponent
   }
 ];
 

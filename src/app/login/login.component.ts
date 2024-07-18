@@ -164,7 +164,7 @@ export class LoginComponent implements OnInit {
   //   })
   // }
 
-  // for signUp login 
+  // for signUp login
   signUpFunction() {
     console.log("signUp form", this.signupForm.value);
     if (this.signupForm.value) {
@@ -192,23 +192,11 @@ export class LoginComponent implements OnInit {
         if (data) {
           this.loginInfo = data.data;
           console.log("loigininfo", this.loginInfo);
-          if (this.loginInfo.userrollid === 'customer') {
+          if (this.loginInfo.userrollid === 'admin') {
             localStorage.setItem('islogedin', 'true');
             localStorage.setItem('userid', this.loginInfo._id);
             localStorage.setItem('rollid', this.loginInfo.userrollid);
-            // this.getUserDetails();
-            this.toaster.success("Login Successfully");
-            this.route.navigate(['/cart']);
-          } else if (this.loginInfo.userrollid === 'servicesngineer') {
-            localStorage.setItem('islogedin', 'true');
-            localStorage.setItem('userid', this.loginInfo._id);
-            localStorage.setItem('rollid', this.loginInfo.userrollid);
-            this.toaster.success("Login Successfully");
-            this.route.navigate(['/employeedashboard']);
-          } else if (this.loginInfo.userrollid === 'admin') {
-            localStorage.setItem('islogedin', 'true');
-            localStorage.setItem('userid', this.loginInfo._id);
-            localStorage.setItem('rollid', this.loginInfo.userrollid);
+            localStorage.setItem('token', this.loginInfo.token);
             this.toaster.success("Login Successfully");
             this.route.navigate(['/dashboard']);
           } else {

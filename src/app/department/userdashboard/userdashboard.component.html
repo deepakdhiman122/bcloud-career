@@ -144,7 +144,7 @@
               <p-table #dt dataKey="id" styleClass="p-datatable-customers" [rowHover]="true" [rows]="11"
                 responsiveLayout="scroll" [globalFilterFields]="['name','country.name','representative.name','status']"
                 [value]="orderList" class="table">
-                <ng-template pTemplate="header" class="tableheader">
+                <ng-template pTemplate="header" class="tableheader" *ngFor="let row of productlist">
                   <tr class="header">
                     <td>Order Number</td>
                     <td>Order Type</td>

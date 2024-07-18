@@ -47,5 +47,3 @@ export class LoginService {
     return this.http.post<any>(url, jsonbody);
   }
 }
-
-// testforlogin2@gmail.com

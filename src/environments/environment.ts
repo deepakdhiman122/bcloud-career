@@ -4,9 +4,9 @@
 
 export const environment = {
   production: false,
-  apiBase: 'http://localhost:8080'
-  // apiBase: 'http://216.48.185.203:8087'
-  // apiBase: 'https://growmoreappliances.com:8087'
+
+  apiBase: 'http://localhost:3000'
+ 
 };
 
 /*
